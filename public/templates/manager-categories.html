@@ -1,0 +1,269 @@
+<div class="filter">
+	<div class="container">
+		<nav class="buttons">
+			<a href="javascript:void(0)" class="exec" data-exec="categories_menu"><i class="fa fa-navicon"></i><span>@(Options)</span></a>
+		</nav>
+		<div class="caption"><span class="fa fa-book mr5"></span> @(Categories)</div>
+	</div>
+</div>
+
+<div class="container">
+
+	<div data-jc="grid" data-jc-path="categories.grid" data-pagination-path="categories.filter.page" data-jc-id="categories.grid"
+		 data-max="auto" data-page="@(Page: #)" data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)"
+		 data-empty="@(Database does not contain any data.)">
+		<script type="text/html">
+			<tr>
+				<!--"{{!picture ? '' : }}"-->
+				<td>
+					{{ if !picture }} <img src="/img/empty.png"> {{fi}}
+					{{ if picture&&pic }} <img src="/images/small/{{pic}}.jpg"> {{fi}}
+				</td>
+				<td>{{ if istop }}<b class="badge badge-red mr5">@(TOP)</b>{{ fi }}{{ if isnew }}<b class="badge badge-blue mr5">@(NEWS)</b>{{ fi }}{{ name.en }}</td>
+				<td>{{ name.ru }}</td>
+				<td>{{ name.hy }}</td>
+				<td style="width:80px" class="ui-right">
+					<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+					<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+				</td>
+			</tr>
+		</script>
+	</div>
+
+	<div class="row hidden" data-jc="visible" data-jc-path="pages.tab" data-if="value === 'widgets'">
+		<div class="col-md-12">
+			<div data-jc="grid" data-jc-path="widgets.grid" data-jc-id="widgets.grid" data-max="1000" data-page="@(Page: #)" data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
+				<script type="text/html">
+				<tr>
+					<td class="{{ if istemplate}}gray{{ else }}b{{ fi }}"><span class="fa fa-{{ if icon }}{{ icon }}{{ else if istemplate }}code{{ else }}plug{{ fi }} w18 mr5"></span> {{ name }}</td>
+					<td class="col-xs-3 silver fs11 hidden-xs">{{ category }}</td>
+					<td class="silver fs11 hidden-xs" style="width:160px">ID: {{ id }}</td>
+					<td style="width:80px" class="ui-right">
+						<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+						<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+					</td>
+				</tr>
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-jc="form" data-title="@(Category form)" data-jc-path="common.form" data-if="value === 'categories'" data-width="1300px" data-jc-id="categories.form" class="hidden">
+	<div class="padding npb">
+		<div class="row">
+			<div class="col-md-6">
+				<div data-jc="textbox" data-jc-path="categories.form.name.en" data-required="true" class="m" data-maxlength="50">@(Name EN)</div>
+				<div data-jc="textbox" data-jc-path="categories.form.name.ru" data-required="true" class="m" data-maxlength="50">@(Name RU)</div>
+				<div data-jc="textbox" data-jc-path="categories.form.name.hy" data-required="true" class="m" data-maxlength="50">@(Name HY)</div>
+				<div data-jc="fileupload" data-jc-path="categories.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
+				<div class="relative mr15">
+					<div data-jc="checkbox" data-jc-path="categories.form.istop" class="red">@(Mark as <b>TOP product</b>)</div>
+				</div>
+				<div class="relative">
+					<div data-jc="checkbox" data-jc-path="categories.form.isnew" class="blue">@(News in store)</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<hr data-binder="categories.form.template" data-binder-visible="n => n ? false : true" class="nmb" />
+	<div data-binder="categories.form.template" data-binder-visible="n => n ? true : false">
+		<hr style="margin-bottom:8px" />
+		<div class="cmseditor-help">
+			<nav><i class="fa fa-desktop"></i><a href="javascript:products_device(1)">@(Large)</a><a href="javascript:products_device(2)">@(Medium)</a><a href="javascript:products_device(3)">@(Tablet)</a><a href="javascript:products_device(4)">@(Mobile)</a></nav>
+			<div><b>@(Editor formatting:)</b> @(bold) (&#8984+B), @(italic) (&#8984+I), @(underline) (&#8984+U), @(link) (&#8984+L). <a href="javascript:void(0)" data-exec="products_sourcecode" class="exec black"><span class="fa fa-code w18"></span>@(Show source-code)</a></div>
+		</div>
+		<div class="pages-editor" data-jc="editor" data-jc-path="categories.form.body" data-jc-import="/templates/component-editor.html" data-jc-id="categories.editor"></div>
+	</div>
+	<div data-jc="visible" data-jc-path="categories.form.id" data-if="value && value.length">
+		<div class="padding npb">
+			<div class="row">
+				<div class="col-lg-2 col-md-3 m">
+					<div class="keyvalue">
+						<div class="key">@(# Id)</div>
+						<div class="value" data-binder="categories.form.id" data-binder-html="n => n"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="nmt" />
+	</div>
+	<div data-jc="error" data-jc-path="categories.response"></div>
+	<div class="ui-form-buttons">
+		<div data-jc="validation" data-jc-path="categories.form">
+			<button name="submit">@(SUBMIT)</button>
+		</div>
+		<button name="cancel">@(Cancel)</button>
+	</div>
+</div>
+
+
+<script>
+
+	var categories = {};
+
+	categories.filter = {};
+	categories.filter.page = 1;
+
+	categories.grid = {};
+	categories.form = {};
+	categories.response = null;
+
+	ON('#categories.grid', function(component) {
+
+		// Max items per page
+		categories.filter.max = component.max;
+		categories_refresh_codelists();
+		categories_refresh(true);
+
+		component.click = function(index, row, button) {
+			var loading = FIND('loading');
+			switch ($(button).attr('name')) {
+				case 'edit':
+					categories_edit(row.id, index);
+					break;
+				case 'remove':
+					FIND('confirm').confirm('@(Do you want to remove) <b>{0}</b>?'.format(row.name), ['@(OK)', '@(Cancel)'], function(index) {
+						if (index)
+							return;
+						loading.show();
+						AJAX('DELETE {0}/api/categories/'.format(managerurl), { id: row.id }, function() {
+							loading.hide(500);
+							categories_refresh();
+						});
+					});
+					break;
+			}
+		};
+
+		WATCH('categories.form.template', function(path, value, type) {
+			FIND('#categories.editor').setTemplate(value);
+			type === 2 && SET('categories.form.body', '');
+		});
+	});
+
+	// Watch for changes in product filter
+	WATCH('categories.filter.*', function(path, value) {
+		!NOTMODIFIED('categories.filter', categories.filter) && categories_refresh(path !== 'categories.filter.page');
+	});
+
+	ON('#categories.form', function(component) {
+		component.submit = function(hide) {
+			var loading = FIND('loading');
+			var editor = FIND('#categories.editor');
+			loading.show();
+
+
+			categories.form.body = editor.getContent();
+			categories.form.pictures2 = editor.getPictures();
+
+			AJAX('POST {0}/api/categories/'.format(managerurl), categories.form, function(response) {
+				loading.hide(500);
+
+				SET('categories.response', response);
+				if (response instanceof Array)
+					return;
+
+				hide();
+
+				if (categories.form.$index === undefined)
+					setTimeout(categories_refresh_codelists, 2000);
+
+				categories_refresh();
+				success();
+			});
+		};
+	});
+
+	function categories_edit(id, index) {
+		var loading = FIND('loading');
+		loading.show();
+		AJAX('GET /api/categories/{0}/'.format(id), function(response) {
+			loading.hide(500);
+
+			if (response instanceof Array) {
+				FIND('message').warning(response[0].error);
+				return;
+			}
+
+			SETTER('#categories.editor', 'setTemplate', response.template);
+			SET('categories.form', $.extend({ $index: index }, response), true);
+			SET('categories.response', null);
+			SET('common.form', 'categories');
+
+			AJAX('GET {0}/api/categories/{1}/stats/'.format(managerurl, response.id), 'categories.form.stats');
+
+			// /templates/component-editor.html:
+			cmseditor_widgets(false);
+		});
+	}
+
+	function categories_new() {
+		SET('categories.form', { availability: '@(In stock)' }, true);
+		SET('categories.response', null);
+		SET('common.form', 'categories');
+
+		// /templates/component-editor.html:
+		cmseditor_widgets(false);
+	}
+
+
+	// Method refreshes categories
+	function categories_refresh_codelists() {
+		AJAX('GET {0}/api/categories/codelists/'.format(managerurl), function(response) {
+			response.categories.sort(FN('(a, b) => a.name.localeCompare(b.name)'));
+			Object.keys(response).forEach(function(key) {
+				SET('categories.' + key, response[key]);
+			});
+		});
+	}
+
+	// Method refreshes grid
+	function categories_refresh(reset) {
+		if (reset)
+			categories.filter.page = 1;
+		AJAX('GET {0}/api/categories/'.format(managerurl), categories.filter, 'categories.grid');
+	}
+
+	function categories_reload() {
+		var hash = location.hash;
+		hash && hash.length > 1 && setTimeout(function() {
+			categories_edit(hash.substring(1));
+		}, 500);
+	}
+
+	function categories_sourcecode() {
+		SETTER('#categories.editor', 'showSourceCode');
+	}
+
+	function categories_device(type) {
+		var e = FIND('editor');
+		SETTER('loading', 'show')('loading', 'hide', 1000);
+		switch (type) {
+			case 1:
+				e.device('lg');
+				return;
+			case 2:
+				e.device('md');
+				return;
+			case 3:
+				e.device('sm');
+				return;
+			case 4:
+				e.device('xs');
+				return;
+		}
+	}
+
+	function categories_menu(el) {
+		var items = [];
+
+		items.push({ name: '@(Add category)', value: 'categories_new', icon: 'fa-plus-circle' });
+
+		FIND('contextmenu').show('right', el, items, function(value) {
+			EXEC(value);
+		}, -15, 10);
+	}
+
+</script>

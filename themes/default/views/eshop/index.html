@@ -1,0 +1,27 @@
+@{if repository.page}
+@{!repository.page.body}
+@{fi}
+<div class="padding npt">
+	<nav class="manufacturers">
+		<div class="categories">
+			<div class="row">
+				@{foreach m in global.categories}
+				@{if m.count > 0 && !m.level}
+				@{sitemap_url('products_@{!controller.getLang()}')}
+
+				<div class="col-sm-3">
+					<a href="/@{!controller.getLang()}/shop/@{m.linker}/" style="width: 100%;text-align: center">
+						<img style="width: 100%;" src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}" class="img-responsive" alt="@{m.picture}" border="0" />
+						<span style="display: inline-block; font-size: 16px">@{m.full_name[controller.getLang()]}</span>
+					</a>
+				</div>
+
+				@{fi}
+				@{end}
+			</div>
+		</div>
+	</nav>
+
+	<!--@{view('eshop/partial-products', model)}-->
+
+</div>

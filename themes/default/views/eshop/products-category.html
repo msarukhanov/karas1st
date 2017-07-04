@@ -1,0 +1,16 @@
+@{sitemap('category')}
+
+<div class="padding npb">
+	<h1>
+		@{title}
+		<!--@{controller.translateCat(@{title})}-->
+	</h1>
+</div>
+<!--@{if repository.category.children.length || repository.category.level}-->
+	<!--@{view('partial-subcategories')}-->
+<!--@{fi}-->
+<div class="padding npt">
+	<!--@{view('partial-filter')}-->
+	@{view('partial-products', model)}
+	@{view('partial-pagination', model)}
+</div>

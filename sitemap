@@ -1,0 +1,52 @@
+// ID : Title ---> URL --> [Parent]
+homepage                 : @(Homepage)                 --> /
+
+homepage_en                 : @(Homepage)                 --> /en/
+contact_en                  : @(Contact)                  --> /en/contact/                    --> homepage_en
+products_en                 : @(All items)                --> /en/shop/                       --> homepage_en
+new_en                      : @(New items in the store)   --> /en/shop/new/                   --> products_en
+top_en                      : @(Top items)                --> /en/shop/top/                   --> products_en
+popular_en                  : @(Popular items)            --> /en/shop/popular/               --> products_en
+checkout_en                 : @(Checkout)                 --> /en/checkout/                   --> homepage_en
+order_en                    : @(Order)                    --> /en/checkout/{0}/               --> checkout_en
+payment_en                  : @(Checkout Payment)         --> /en/checkout/{0}/{1}/           --> checkout_en
+account_en                  : @(Account)                  --> /en/account/                    --> homepage_en
+settings_en                 : @(Account Settings)         --> /en/account/settings/           --> account_en
+category_en                 : @(Category)                 --> /en/shop/*                      --> products_en
+detail_en                   : @(Product)                  --> /en/product/{0}/                --> category_en
+blogs_en                    : @(Blogs)                    --> /en/blogs/                      --> homepage_en
+blogsdetail_en              : @(Blog detail)              --> /en/blogs/{0}/                  --> blogs_en
+
+homepage_ru                 : @(Homepage)                 --> /ru/
+contact_ru                  : @(Contact)                  --> /ru/contact/                    --> homepage_ru
+products_ru                 : @(All items)                --> /ru/shop/                       --> homepage_ru
+new_ru                      : @(New items in the store)   --> /ru/shop/new/                   --> products_ru
+top_ru                      : @(Top items)                --> /ru/shop/top/                   --> products_ru
+popular_ru                  : @(Popular items)            --> /ru/shop/popular/               --> products_ru
+checkout_ru                 : @(Checkout)                 --> /ru/checkout/                   --> homepage_ru
+order_ru                    : @(Order)                    --> /ru/checkout/{0}/               --> checkout_ru
+payment_ru                  : @(Checkout Payment)         --> /ru/checkout/{0}/{1}/           --> checkout_ru
+account_ru                  : @(Account)                  --> /ru/account/                    --> homepage_ru
+settings_ru                 : @(Account Settings)         --> /ru/account/settings/           --> account_ru
+category_ru                 : @(Category)                 --> /ru/shop/*                      --> products_ru
+detail_ru                   : @(Product)                  --> /ru/product/{0}/                --> category_ru
+blogs_ru                    : @(Blogs)                    --> /ru/blogs/                      --> homepage_ru
+blogsdetail_ru              : @(Blog detail)              --> /ru/blogs/{0}/                  --> blogs_ru
+
+homepage_hy                 : @(Homepage)                 --> /hy/
+contact_hy                  : @(Contact)                  --> /hy/contact/                    --> homepage_hy
+products_hy                 : @(All items)                --> /hy/shop/                       --> homepage_hy
+new_hy                      : @(New items in the store)   --> /hy/shop/new/                   --> products_hy
+top_hy                      : @(Top items)                --> /hy/shop/top/                   --> products_hy
+popular_hy                  : @(Popular items)            --> /hy/shop/popular/               --> products_hy
+checkout_hy                 : @(Checkout)                 --> /hy/checkout/                   --> homepage_hy
+order_hy                    : @(Order)                    --> /hy/checkout/{0}/               --> checkout_hy
+payment_hy                  : @(Checkout Payment)         --> /hy/checkout/{0}/{1}/           --> checkout_hy
+account_hy                  : @(Account)                  --> /hy/account/                    --> homepage_hy
+settings_hy                 : @(Account Settings)         --> /hy/account/settings/           --> account_hy
+category_hy                 : @(Category)                 --> /hy/shop/*                      --> products_hy
+detail_hy                   : @(Product)                  --> /hy/product/{0}/                --> category_hy
+blogs_hy                    : @(Blogs)                    --> /hy/blogs/                      --> homepage_hy
+blogsdetail_hy              : @(Blog detail)              --> /hy/blogs/{0}/                  --> blogs_hy
+
+

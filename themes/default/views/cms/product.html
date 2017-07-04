@@ -1,0 +1,110 @@
+@{if repository.preview}
+<br/>
+<div id="CMS">
+    @{if repository.page && repository.page.body}
+    <!-- RENDER UPDATED CONTENT -->
+    @{!repository.page.body}
+    @{else}
+    <!-- DEFAULT CONTENT FOR NEW PAGES FO THIS TEMPLATE -->
+    <div class="CMS_widgets"></div>
+    @{fi}
+</div>
+<br/>
+@{else}
+<div class="padding">
+    <h1></h1>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 detail">
+
+            <div class="row">
+                <div class="col-md-2 m">
+
+                </div>
+                <div class="col-md-10 m">
+                    <div class="col-md-4 m">
+                        @{if model.pictures.length === 1}
+                        <div>
+                            <!--<img src="@{if !model.pictures || !model.pictures.length}/img/empty.png@{else}/images/small/@{model.pictures[0]}.jpg@{fi}" class="img-responsive" alt="@{m.name}" border="0" />-->
+                            <img src="@{if !model.pictures || !model.pictures.length}/img/empty.png @{else}/images/large/@{model.pictures[0]}.jpg@{fi}"
+                                 alt="@{model.name}" border="0" class="img-responsive img-rounded center"/>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="col-md-8 m">
+                        <div class="col-md-12 m">
+                            <div class="keyvalue">
+                                <!--<div class="key"><i class="fa fa-dropbox"></i></div>-->
+                                <div class="value">@{model.name[controller.getLang()]}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 m">
+                            <div class="keyvalue">
+                                <!--<div class="key"><i class="fa fa-dropbox"></i></div>-->
+                                <div class="value">@{!model.description[controller.getLang()].replace(/\n/g, '<br/>')}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 m">
+                            <div class="keyvalue">
+                                <!--<div class="key"><i class="fa fa-dropbox"></i>@(Availability)</div>-->
+                                <div class="value">@{model.availability}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 m">
+                            <div class="detail-checkout">
+                                <div>@(The product <b>@{model.name}</b> is in your shopping cart) <b class="data-checkout-count"></b>.
+                                </div>
+                                <span class="fa fa-shopping-cart mr5"></span><a href="/checkout/" class="b">@(Order it now)</a>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div>
+                                        <button class="detail-buy" data-id="@{model.id}" data-price="@{model.price}">@(Buy:) <b>@{currency(model.price)}</b>
+                                            @{if model.priceold > model.price} <span class="red">@{currency(model.priceold)}</span>@{fi}
+                                        </button>
+                                    </div>
+                                    <!--<div style="margin-top:15px">-->
+                                        <!--<span class="fa fa-envelope silver mr5"></span>-->
+                                        <!--<a href="@{sitemap_url('contact')}?productid=@{if model.reference}@{model.reference}@{else}@{model.id}@{fi}#contactform">-->
+                                            <!--@(Do you need more informations?)-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<br/>
+<hr/>
+<br/>
+
+<!--<div class="padding">-->
+    <!--<div class="row detail-pictures">-->
+        <!--@{foreach m in model.pictures}-->
+        <!--<div class="col-md-6 m"><img src="/images/large/@{m}.jpg" alt="@{model.name}" border="0"-->
+                                     <!--class="img-responsive img-rounded center"/></div>-->
+        <!--@{if index && (index + 1) % 2 === 0}-->
+    <!--</div>-->
+    <!--<hr class="visible-lg"/>-->
+    <!--<div class="row detail-pictures">-->
+        <!--@{fi}-->
+        <!--@{end}-->
+    <!--</div>-->
+<!--</div>-->
+@{fi}
+
+@{if model.body}
+@{!model.body.tidyCMS()}
+<br/>
+@{fi}
+<div class="hidden padding npb">
+    <h2 class="large">@(Related) @{model.category}</h2>
+    <div data-jc="related" data-category="@{model.linker_category}" data-id="@{model.id}"></div>
+</div>
+@{fi}
