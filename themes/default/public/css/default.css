@@ -5,7 +5,7 @@ $font    : 'Source Sans Pro';
 .CMS_hidden { display: none; }
 
 html { background-color: #F0F0F0; }
-body { background-color: #F0F0F0; padding: 0; color: gray; font-smoothing: antialiased; overflow-y: scroll; overflow-x: hidden; overflow-scrolling: touch; }
+body { background-color: #FFFFFF; padding: 0; color: gray; font-smoothing: antialiased; overflow-y: scroll; overflow-x: hidden; overflow-scrolling: touch; }
 form { padding: 0; margin: 0; }
 
 .developer { background-color: #D0D0D0; font-size: 11px; text-align: center; padding: 5px 0; display: block; color: gray; }
@@ -294,4 +294,68 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	right: -46px !important;
 	opacity: 1 !important;
 	font-size: 0 !important;
+}
+
+.specialOffer {
+	display: block;
+	width: 100%;
+	height: calc(100vw / 1920 * 1020);
+}
+
+.specialOffer .singleSpecialOffer {
+	width: calc(100vw / 1920 * 630);
+	height: calc(100vw / 1920 * 470);
+	float: left;
+	padding: calc(100vw / 1920 * 15);
+	position: relative;
+}
+
+.specialOffer .singleSpecialOffer .specialOfferHeader {
+	width: calc(100vw / 1920 * 600);
+	background: #000000;
+	height: calc(100vw / 1920 * 40);
+}
+
+.specialOffer .singleSpecialOffer p {
+	float: left;
+	height: calc(100vw / 1920 * 40);
+}
+
+.specialOffer .singleSpecialOffer .specialOfferHeader img {
+	height: calc(100vw / 1920 * 30);
+	padding-left: calc(100vw / 1920 * 20);
+	position: absolute;
+}
+
+.specialOffer .singleSpecialOffer .specialOfferHeader span {
+	line-height: calc(100vw / 1920 * 40);
+	font-size: calc(100vw / 1920 * 16);
+	color: #fff;
+	position: absolute;
+	left: calc(100vw /1920 * 70);
+}
+
+.specialOffer .singleSpecialOffer a img {
+	width: calc(100vw / 1920 * 600);
+	height: calc(100vw / 1920 * 400);
+}
+
+.specialOffer .singleSpecialOffer a {
+	cursor: pointer;
+}
+
+.specialOffer .singleSpecialOffer a span {
+	position: absolute;
+	width: 50%;
+	bottom: calc(100vw / 1920 * 30);
+	left: calc(100vw / 1920 * 35);
+	font-size: calc(100vw / 1920 * 30);
+	color: #fff;
+}
+
+.home-page {
+	width: calc(100vw / 1920 * 1260);
+	height: calc(100vw / 1920 * 1140);
+	padding: 0;
+	margin: 0 calc(100vw / 1920 * 315);
 }
