@@ -575,6 +575,116 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	text-transform: uppercase;
 }
 
+.footer-container {
+	padding: 0;
+	height: calc(100vw / 1920 * 80);
+}
+
+.footer-container .footerInner {
+	width: calc(100vw / 1920 * 1260);
+	margin: 0 calc(100vw / 1920 * 315);
+	line-height: calc(100vw / 1920 * 80);
+}
+
+.footer-container .footerInner .footer-image-copyright {
+	float: left;
+}
+
+.footer-container .footerInner .footer-image-copyright a {
+	cursor: pointer;
+}
+
+.footer-container .footerInner .footer-image-copyright img {
+	height: calc(100vw / 1920 * 50);
+	width: calc(100vw / 1920 * 50);
+	margin-right: calc(100vw / 1920 * 30);
+}
+
+.footer-container .footerInner .footer-image-copyright span {
+	color: #999999;
+	font-size: calc(100vw / 1920 * 12);
+}
+
+.footer-container .footerInner .socials-and-text, .footer-texts, .socials {
+	float: right;
+}
+
+.footer-container .footerInner .socials-and-text, .footer-texts {
+    padding-right: calc(100vw / 1920 * 8);
+}
+
+.footer-container .footerInner .socials-and-text {
+	padding-right: calc(100vw / 1920 * 33);
+}
+
+.footer-container .footerInner .socials-and-text .socials {
+    margin-top: calc(100vw / 1920 * 24);
+}
+
+.footer-container .footerInner .socials-and-text .footer-texts div, .socials div {
+	padding: 0 calc(100vw / 1920 * 12);
+    float: left;
+}
+
+.footer-container .footerInner .socials-and-text .footer-texts div span {
+	font-size: calc(100vw / 1920 * 12);
+	font-weight: 700;
+	color: #808080;
+}
+
+.footer-container .footerInner .socials-and-text .footer-texts div:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.footer-container .footerInner .socials-and-text .footer-texts div span:hover {
+	color: #141414;
+}
+
+.footer-container .footerInner .socials-and-text .socials div {
+	height: calc(100vw / 1920 * 32);
+	width: calc(100vw / 1920 * 56);
+    cursor: pointer;
+}
+
+.footer-container .footerInner .socials-and-text .socials .youtube {
+    background: url("/img/socials/youtube-logo.png") no-repeat center;
+    background-size: calc(100vw / 1920 * 32);
+}
+
+.footer-container .footerInner .socials-and-text .socials .youtube:hover {
+    background: url("/img/socials/youtube-logo-hover.png") no-repeat center;
+}
+.footer-container .footerInner .socials-and-text .socials .fb {
+    background: url("/img/socials/fb-logo.png") no-repeat center;
+    background-size: calc(100vw / 1920 * 32);
+}
+
+.footer-container .footerInner .socials-and-text .socials .fb:hover {
+	background: url("/img/socials/fb-logo-hover.png") no-repeat center;
+}
+.footer-container .footerInner .socials-and-text .socials .insta {
+    background: url("/img/socials/insta-logo.png") no-repeat center;
+    background-size: calc(100vw / 1920 * 32);
+}
+
+.footer-container .footerInner .socials-and-text .socials .insta:hover {
+	background: url("/img/socials/insta-logo-hover.png") no-repeat center;
+}
+.footer-container .footerInner .socials-and-text .socials .trip {
+    background: url("/img/socials/trip-logo.png") no-repeat center;
+    background-size: calc(100vw / 1920 * 32);
+}
+
+.footer-container .footerInner .socials-and-text .socials .trip:hover {
+	background: url("/img/socials/trip-logo-hover.png") no-repeat center;
+}
+
+.footer-container .footerInner .socials-and-text .footer-texts div:last-child {
+	padding: 0 calc(100vw / 1920 * 20) 0 calc(100vw / 1920 * 12);
+	border-right: 1px solid #c4c4c4;
+}
+
 .home-page {
 	width: 100%;
 	height: 100%;

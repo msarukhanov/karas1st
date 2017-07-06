@@ -135,10 +135,6 @@
 		</div>
 	</div>
 	<div class="container home-page">
-
-
-
-
 		<!--@{if url !== '/'}-->
 		<!--<div class="hidden-xs m">-->
 		<!--<a href="javascript:void(0)" class="categories-button"><span class="fa fa-folder mr5"></span>@(Show categories)</a>-->
@@ -167,29 +163,47 @@
 
 		</div>
 
-		<br />
-		<div class="row footerlinks">
+		<!--<div class="row footerlinks">
 			@{if global.navigations.footer}
 			@{foreach m in global.navigations.footer}
 			<div class="col-md-4"><a href="@{m.url}">@{m.title}</a></div>
 			@{end}
 			@{fi}
-		</div>
+		</div>-->
 
-		<footer>
-			<div><a href="http://www.paypal.com"><img src="/img/paypal.png" alt="Payment Provider - PayPal" border="0" width="42" height="25" /></a></div>
-			<br />
-			<div class="social">
-				<a href="https://www.facebook.com/totaljs.web.framework"><span class="fa fa-facebook"></span></a>
-				<a href="https://twitter.com/totalframework"><span class="fa fa-twitter"></span></a>
-				<a href="https://plus.google.com/u/0/+partialjs/posts"><span class="fa fa-google"></span></a>
-			</div>
-			<br />
-			<div class="fs11">&copy; 2017 @(All rights reserved.)</div>
-			<div>&lt; <a href="http://www.totaljs.com" class="b" target="_blank">Powered by Total.js framework</a> /&gt;</div>
-		</footer>
+
 	</div>
+    <footer class="footer-container">
+        <div class="footerInner">
+            <div class="footer-image-copyright">
+                <a><img src="/img/footer-logo.png"></a>
+                <span>Copyright 2005-2016 Karas - national food chain</span>
+            </div>
+            <div class="socials-and-text">
+                <div class="socials">
+                    <div class="youtube">
 
+                    </div>
+                    <div class="fb">
+
+                    </div>
+                    <div class="insta">
+
+                    </div>
+                    <div class="trip">
+
+                    </div>
+                </div>
+                <div class="footer-texts">
+                    <div><span>Company</span></div>
+                    <div><span>Gallery</span></div>
+                    <div><span>Work</span></div>
+                    <div><span>Contacts</span></div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 	@{section('script')}
 
 </body>
