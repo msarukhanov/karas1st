@@ -298,8 +298,10 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .specialOffer {
 	display: block;
-	width: 100%;
-	height: calc(100vw / 1920 * 1020);
+	width: calc(100vw / 1920 * 1260);
+	height: calc(100vw / 1920 * 1155);
+	margin: 0 calc(100vw / 1920 * 315);
+	padding-top: calc(100vw / 1920 * 60);
 }
 
 .specialOffer .singleSpecialOffer {
@@ -353,9 +355,229 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	color: #fff;
 }
 
-.home-page {
-	width: calc(100vw / 1920 * 1260);
-	height: calc(100vw / 1920 * 1140);
-	padding: 0;
+.specialOffer .moreSpecialOffer {
+	width: calc(100vw / 1920 * 240);
+	height: calc(100vw / 1920 * 155);
+	float: left;
+	padding: calc(100vw / 1920 * 45) calc(100vw / 1920 * 510);
+}
+
+.specialOffer .moreSpecialOffer button {
+	width: calc(100vw / 1920 * 240);
+	height: calc(100vw / 1920 * 50);
+	border-radius: calc(100vw / 1920 * 60);
+	color: #ffffff;
+	background: #de1a22;
+	border: none;
+	cursor: pointer;
+	font-size: calc(100vw / 1920 * 17);
+	text-transform: uppercase;
+}
+
+.menu {
+	background: #f7f7f7;
+	width: 100%;
+	height: calc(100vw / 1920 * 1490);
+}
+
+.menu .main-menu {
 	margin: 0 calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 60) 0;
+}
+
+.menu .main-menu .singleMenu {
+	width: calc(100vw / 1920 * 420);
+	height: calc(100vw / 1920 * 340);
+	float: left;
+	position: relative;
+	padding: calc(100vw / 1920 * 15);
+}
+
+.menu .main-menu .singleMenu .singleMenuFooter {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 60);
+	position: absolute;
+	background: #ffffff;
+	font-size: calc(100vw / 1920 * 18);
+	font-weight: 700;
+	color: #141414;
+}
+
+.menu .main-menu .singleMenu .singleMenuFooter p {
+	padding: calc(100vw / 1920 * 20);
+}
+
+.menu .main-menu .singleMenu .singleMenuImg img {
+	position: absolute;
+	width: calc(100vw / 1920 * 390);
+	cursor: pointer;
+	height: calc(100vw / 1920 * 250);
+}
+
+.menu .main-menu .singleMenu .singleMenuImg {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 250);
+}
+
+.menu .main-menu .singleMenu .singleMenuFooter .arrow {
+	float: right;
+}
+
+.menu .main-menu .singleMenu .singleMenuFooter .arrow img {
+	width: calc(100vw / 1920 * 36);
+	height: calc(100vw / 1920 * 12);
+	cursor: pointer;
+}
+
+.restaurants {
+	display: block;
+	width: calc(100vw / 1920 * 1260);
+	height: calc(100vw / 1920 * 555);
+	margin: 0 calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 60) 0;
+}
+
+.restaurants .singleRestaurant {
+	width: calc(100vw / 1920 * 420);
+	height: calc(100vw / 1920 * 340);
+	float: left;
+	padding: calc(100vw / 1920 * 15);
+	position: relative;
+}
+
+.restaurants .singleRestaurant .singleRestaurantHeader {
+	width: calc(100vw / 1920 * 390);
+	background: #000000;
+	height: calc(100vw / 1920 * 40);
+}
+
+.restaurants .singleRestaurant .singleRestaurantHeader p {
+	float: left;
+	height: calc(100vw / 1920 * 40);
+	width: calc(100vw / 1920 * 40);
+}
+
+.restaurants .singleRestaurant .singleRestaurantHeader p img {
+	width: calc(100vw / 1920 * 40);
+	height: calc(100vw / 1920 * 31);
+	padding-top: calc(100vw / 1920 * 5);
+	padding-left: calc(100vw / 1920 * 20);
+}
+
+.restaurants .singleRestaurant .singleRestaurantHeader span {
+	line-height: calc(100vw / 1920 * 40);
+	font-size: calc(100vw / 1920 * 16);
+	color: #fff;
+	position: absolute;
+	left: calc(100vw /1920 * 70);
+}
+
+.restaurants .singleRestaurant a img {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 270);
+}
+
+.restaurants .singleRestaurant a {
+	cursor: pointer;
+}
+
+.restaurants .moreRestaurants {
+	width: calc(100vw / 1920 * 240);
+	height: calc(100vw / 1920 * 155);
+	float: left;
+	padding: calc(100vw / 1920 * 45) calc(100vw / 1920 * 510);
+}
+
+.restaurants .moreRestaurants button {
+	width: calc(100vw / 1920 * 240);
+	height: calc(100vw / 1920 * 50);
+	border-radius: calc(100vw / 1920 * 60);
+	color: #ffffff;
+	background: #de1a22;
+	border: none;
+	cursor: pointer;
+	font-size: calc(100vw / 1920 * 17);
+	text-transform: uppercase;
+}
+
+.newsBlock {
+	background: #f7f7f7;
+	width: 100%;
+	height: calc(100vw / 1920 * 670);
+}
+
+.newsBlock .mainNewsBlock {
+	margin: 0 calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 45) 0;
+	width: calc(100vw / 1920 * 1260);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock {
+	width: calc(100vw / 1920 * 1260);
+	height: calc(100vw / 1920 * 290);
+	position: relative;
+	padding: calc(100vw / 1920 * 15);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockImg {
+	float: left;
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockImg img {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 260);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText {
+	float: left;
+	width: calc(100vw / 1920 * 840);
+	height: calc(100vw / 1920 * 260);
+	background: #ffffff;
+	padding: calc(100vw / 1920 * 30);
+	line-height: calc(100vw / 1920 * 30);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .header {
+	margin: 0;
+	color: #141414;
+	font-weight: 700;
+	font-size: calc(100vw / 1920 * 20);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .date {
+	color: #b5b5b5;
+	font-size: calc(100vw / 1920 * 14);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .mainText {
+	color: #777777;
+	line-height: normal;
+	width: calc(100vw / 1920 * 650);
+	font-size: calc(100vw / 1920 * 14);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .detailedNews {
+	width: calc(100vw / 1920 * 140);
+	height: calc(100vw / 1920 * 70);
+	float: left;
+	padding: calc(100vw / 1920 * 20) 0;
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .detailedNews button {
+	width: calc(100vw / 1920 * 140);
+	height: calc(100vw / 1920 * 30);
+	border-radius: calc(100vw / 1920 * 60);
+	color: #ffffff;
+	background: #de1a22;
+	border: none;
+	cursor: pointer;
+	font-size: calc(100vw / 1920 * 12);
+	text-transform: uppercase;
+}
+
+.home-page {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
 }
