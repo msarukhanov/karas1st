@@ -584,11 +584,11 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .footer-container .footerInner {
 	width: calc(100vw / 1920 * 1260);
 	margin: 0 calc(100vw / 1920 * 315);
-	line-height: calc(100vw / 1920 * 80);
 }
 
 .footer-container .footerInner .footer-image-copyright {
 	float: left;
+    line-height: calc(100vw / 1920 * 80);
 }
 
 .footer-container .footerInner .footer-image-copyright a {
@@ -611,20 +611,20 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 }
 
 .footer-container .footerInner .socials-and-text, .footer-texts {
+    height: calc(100vw / 1920 * 32);
+    line-height: calc(100vw / 1920 * 35);
     padding-right: calc(100vw / 1920 * 8);
 }
 
 .footer-container .footerInner .socials-and-text {
-	padding-right: calc(100vw / 1920 * 33);
-}
-
-.footer-container .footerInner .socials-and-text .socials {
+    padding-right: calc(100vw / 1920 * 33);
     margin-top: calc(100vw / 1920 * 24);
 }
 
 .footer-container .footerInner .socials-and-text .footer-texts div, .socials div {
-	padding: 0 calc(100vw / 1920 * 12);
+    padding: 0 calc(100vw / 1920 * 12);
     float: left;
+    height: calc(100vw / 1920 * 32);
 }
 
 .footer-container .footerInner .socials-and-text .footer-texts div span {
