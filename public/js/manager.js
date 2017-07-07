@@ -34,6 +34,10 @@ if (window.su) {
 			jR.redirect('{0}/{1}/'.format(managerurl, su.roles[0]));
 	});
 
+    can('slider') && jRouting.route(managerurl + '/slider/', function() {
+        SET('common.page', 'slider');
+    });
+
 	can('orders') && jRouting.route(managerurl + '/orders/', function() {
 		SET('common.page', 'orders');
 	});

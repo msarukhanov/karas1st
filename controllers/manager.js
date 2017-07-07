@@ -9,7 +9,7 @@ exports.install = function() {
 	F.localize('/templates/*.html', ['compress']);
 
 	// COMMON
-	F.route(url + '/*', '~manager');
+	F.route(url + '/*', '~manager', aaa);
 	F.route(url + '/upload/',                  upload,        ['post', 'upload', 10000], 3084); // 3 MB
 	F.route(url + '/upload/base64/',           upload_base64, ['post', 10000], 2048); // 2 MB
 	F.route(url + '/logoff/',                  redirect_logoff);
@@ -44,6 +44,13 @@ exports.install = function() {
     F.route(url + '/api/categories/{id}/',       json_read,   ['*Category']);
     F.route(url + '/api/categories/',            json_remove, ['delete', '*Category']);
     F.route(url + '/api/categories/clear/',      json_clear,  ['*Category']);
+
+    // SLIDER
+    F.route(url + '/api/slides/',          json_query,  ['*Slider']);
+    F.route(url + '/api/slides/',            json_save,   ['post', '*Slider'], 512);
+    F.route(url + '/api/slides/{id}/',       json_read,   ['*Slider']);
+    F.route(url + '/api/slides/',            json_remove, ['delete', '*Slider']);
+    F.route(url + '/api/slides/clear/',      json_clear,  ['*Slider']);
 
 	// PRODUCTS
 	F.route(url + '/api/products/',            json_query,  ['*Product']);
@@ -98,6 +105,11 @@ exports.install = function() {
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+function aaa() {
+    var self = this;
+    // self.redirect(CONFIG('manager-url'));
+}
 
 // Upload (multiple) pictures
 function upload() {
@@ -322,6 +334,9 @@ function json_products_codelists() {
 
 	if (!F.global.manufacturers)
 		F.global.manufacturers = [];
+
+    if (!F.global.slides)
+        F.global.slides = [];
 
 	var obj = {};
 	obj.manufacturers = F.global.manufacturers;

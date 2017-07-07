@@ -247,6 +247,8 @@ function refresh() {
 
             manufacturers.quicksort('name');
 
+            var temp_cats = [];
+
             _.each(categories, function(item,k) {
                 var tmp = _.find(db_full_cat, function(fitem){return fitem.name_en == item.name});
                 if(tmp) {

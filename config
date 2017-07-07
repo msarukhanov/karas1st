@@ -6,7 +6,7 @@ author                    : Peter Širka
 manager-url               : /$manager
 
 // Hidden super admin in the form username:password
-manager-superadmin        : admin:adminqwerty
+manager-superadmin        : admin:admin
 
 // Custom SMTP settings
 mail-smtp                 : YOUR.SMTPSERVER.COM

@@ -19,6 +19,10 @@ exports.install = function() {
     F.route('/api/categories/',             json_categories_query, ['*Category']);
     F.route('/api/categories/{id}/',        json_categories_read, ['*Category']);
 
+    // SLIDER
+    F.route('/api/slides/',             json_slider_query, ['*Slider']);
+    F.route('/api/slides/{id}/',        json_slider_read, ['*Slider']);
+
 	// PRODUCTS
 	F.route('/api/products/',             json_products_query, ['*Product']);
 	F.route('/api/products/{id}/',        json_products_read, ['*Product']);
@@ -104,6 +108,28 @@ function json_categories_query() {
 
 // Reads a specific category
 function json_categories_read(id) {
+    var self = this;
+    var options = {};
+    options.id = id;
+    self.$get(options, self.callback());
+}
+
+function json_slider_query() {
+    var self = this;
+
+    // Renders related products
+    if (self.query.html) {
+        // Disables layout
+        self.layout('');
+        self.$query(self.query, self.callback('~eshop/partial-slider'));
+        return;
+    }
+
+    self.$query(self.query, self.callback());
+}
+
+// Reads a specific category
+function json_slider_read(id) {
     var self = this;
     var options = {};
     options.id = id;

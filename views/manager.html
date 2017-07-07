@@ -38,6 +38,7 @@
 		<nav>
 			<a href="/" title="@{config.name}" class="highlight" target="_blank"><span class="fa fa-globe"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/" title="@(Dashboard)" data-role="dashboard"><span class="fa fa-dashboard"></span></a>
+			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/slider/" title="@(Slider)" data-role="slider"><span class="fa fa-picture-o"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/orders/" title="@(Orders)" data-role="orders"><span class="fa fa-shopping-cart"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/categories/" title="@(Categories)" data-role="categories"><span class="fa fa-book"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/products/" title="@(Products)" data-role="products"><span class="fa fa-dropbox"></span></a>
@@ -52,6 +53,7 @@
 
 	<div id="body">
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="dashboard" data-template="/templates/manager-dashboard.html"></div>
+		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="slider" data-template="/templates/manager-slider.html"></div>
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="orders" data-template="/templates/manager-orders.html" data-reload="orders_reload"></div>
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="categories" data-template="/templates/manager-categories.html" data-reload="categories_reload"></div>
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="products" data-template="/templates/manager-products.html" data-reload="products_reload"></div>
