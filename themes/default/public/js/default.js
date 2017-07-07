@@ -28,24 +28,7 @@ $(document).ready(function() {
     {
         $('ul.slides').css('margin-left',0)
     }
-    $('.flexslider-10-1').flexslider({
-        animation: "slide",
-        animationLoop: true,
-        itemWidth: 968,
-        itemMargin: 0,
-        minItems: 1,
-        maxItems: 8,
-        resize: false
-    });
-    $( window ).resize(function() {
-        var bodyWidth = Math.round(($(window).innerWidth() - 968) / 2);
-        if (bodyWidth > 0) {
-            $('ul.slides').css('margin-left', -(968 - bodyWidth))
-        }
-        else {
-            $('ul.slides').css('margin-left', 0)
-        }
-    });
+
     // ===========
 
 	var buy = $('.detail-buy').on('click', function() {

@@ -372,7 +372,8 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .menu {
 	background: #f7f7f7;
 	width: 100%;
-	height: calc(100vw / 1920 * 1490);
+	display: inline-block;
+	/*height: calc(100vw / 1920 * 1490);*/
 }
 
 .menu .main-menu {
@@ -730,7 +731,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	font-size: calc(100vw / 1920 * 50);
 	height: calc(100vw / 1920 * 50);
 	position: absolute;
-	padding-left: calc(100vw / 1920 * 75);
+	margin-left: calc(100vw / 1920 * 75);
 	bottom: calc(100vw / 1920 * 20);
 }
 
