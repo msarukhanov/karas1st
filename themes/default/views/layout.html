@@ -10,9 +10,7 @@
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext" />
 	<link rel="stylesheet" href="@{global.css}" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css" />-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js"></script>
-	@{import('meta', 'head', 'default.css', 'flexslider.css', 'jquery.flexslider.js', 'default.js',  'favicon.ico')}
+	@{import('meta', 'head', 'default.css', 'default.js',  'favicon.ico')}
 </head>
 <body data-jc="exec">
 
@@ -109,36 +107,119 @@
 					</div>
 		</div>
 	</header>
-	<div class="slider-block">
-		<div class="magestore-bannerslider">
-			<div class="magestore-bannerslider-standard">
-				<div class="flexslider flexslider-10-1" style="height: 300px">
-					<ul class="slides">
-						<li>
-							<a href="https://www.karas.am/en/meals-83/salads1.html" target="_parent" style="display:block;"
-							   onclick="bannerClicks('1','1')"><img alt="" src="https://www.karas.am/media/bannerslider//4/-/4-eng.png"/></a>
-						</li>
-						<li>
-							<a href="https://www.karas.am/en/meals-83/pizza.html" target="_parent" style="display:block;"
-							   onclick="bannerClicks('1','1')"><img alt="" src="https://www.karas.am/media/bannerslider//2/-/2-eng.png"/></a>
-						</li>
-						<li>
-							<a href="https://www.karas.am/en/meals-83/soup.html" target="_parent" style="display:block;"
-							   onclick="bannerClicks('1','1')"><img alt="" src="https://www.karas.am/media/bannerslider//3/-/3-eng.png"/></a>
-						</li>
-						<li>
-							<a href="https://www.karas.am/en/meals-83/bbq.html" target="_parent" style="display:block;"
-							   onclick="bannerClicks('1','1')"><img alt="" src="https://www.karas.am/media/bannerslider//1/-/1-eng.png"/></a>
-						</li>
-						<li>
-							<a href="https://www.karas.am/en/meals-83/salads1.html" target="_parent" style="display:block;"
-							   onclick="bannerClicks('1','1')"><img alt="" src="https://www.karas.am/media/bannerslider//4/-/4-eng.png"/></a>
-						</li>
-					</ul>
+
+
+
+	<div id="slider">
+		<a href="#" class="control_next"></a>
+		<a href="#" class="control_prev"></a>
+		<ul>
+			@{foreach slide in global.slides}
+			<li>
+				<div class="slider-item">
+					<span class="slider-header">@{slide.title[controller.getLang()]}</span>
+					<span class="slider-title">@{slide.header[controller.getLang()]}</span>
+					<span class="slider-text">@{slide.description[controller.getLang()]}</span>
+					<span class="slider-btn">
+						<div class="moreSpecialOffer">
+							<a href="//@{slide.link}">@{!controller.translateText({'en':'order','ru':'заказать','hy':'պատվիրել'})}</a>
+						</div>
+					</span>
 				</div>
-			</div>
-		</div>
+				<div class="slider-shadow"></div>
+				<img src="/img/slide1.png">
+			</li>
+			@{end}
+			<!--<li>-->
+				<!--<div class="slider-item">-->
+					<!--<span class="slider-header">SLIDE 2</span>-->
+					<!--<span class="slider-title">SLIDE 2</span>-->
+					<!--<span class="slider-text">SLIDE 2</span>-->
+					<!--<span class="slider-btn">-->
+						<!--<div class="moreSpecialOffer">-->
+							<!--<button ng-click="showMore()">More</button>-->
+						<!--</div>-->
+					<!--</span>-->
+				<!--</div>-->
+				<!--<img src="/img/slide1.png">-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<div class="slider-item">-->
+					<!--<span class="slider-header">SLIDE 3</span>-->
+					<!--<span class="slider-title">SLIDE 3</span>-->
+					<!--<span class="slider-text">SLIDE 3</span>-->
+					<!--<span class="slider-btn">-->
+						<!--<div class="moreSpecialOffer">-->
+							<!--<button ng-click="showMore()">More</button>-->
+						<!--</div>-->
+					<!--</span>-->
+				<!--</div>-->
+				<!--<img src="/img/slide1.png">-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<div class="slider-item">-->
+					<!--<span class="slider-header">SLIDE 4</span>-->
+					<!--<span class="slider-title">SLIDE 4</span>-->
+					<!--<span class="slider-text">SLIDE 4</span>-->
+					<!--<span class="slider-btn">-->
+						<!--<div class="moreSpecialOffer">-->
+							<!--<button ng-click="showMore()">More</button>-->
+						<!--</div>-->
+					<!--</span>-->
+					<!--<div class="slider-shadow"></div>-->
+				<!--</div>-->
+				<!--<img src="/img/slide1.png">-->
+			<!--</li>-->
+		</ul>
+		<script>
+            $(document).ready(function ($) {
+                setInterval(function () {
+                    moveRight();
+                }, 5000);
+                var slideCount = $('#slider ul li').length;
+                var slideWidth = $('#slider ul li').width();
+                var slideHeight = $('#slider ul li').height();
+                var sliderUlWidth = slideCount * slideWidth;
+
+                $('#slider').css({ width: slideWidth, height: slideHeight });
+                $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                function moveLeft() {
+                    $('#slider ul').animate({
+                        left: + slideWidth
+                    }, 200, function () {
+                        $('#slider ul li:last-child').prependTo('#slider ul');
+                        $('#slider ul').css('left', '');
+                    });
+                }
+                function moveRight() {
+                    $('#slider ul').animate({
+                        left: - slideWidth
+                    }, 200, function () {
+                        $('#slider ul li:first-child').appendTo('#slider ul');
+                        $('#slider ul').css('left', '');
+                    });
+                }
+                $(window).on('resize', function() {
+                    var slideCount = $('#slider ul li').length;
+                    var slideWidth = $('#slider ul li').width();
+                    var slideHeight = $('#slider ul li').height();
+                    var sliderUlWidth = slideCount * slideWidth;
+
+                    $('#slider').css({ width: slideWidth, height: slideHeight });
+                    $('#slider ul').css({ width: sliderUlWidth, marginLeft:  - slideWidth});
+				});
+                $('a.control_prev').click(function () {
+                    moveLeft();
+                });
+                $('a.control_next').click(function () {
+                    moveRight();
+                });
+            });
+
+		</script>
 	</div>
+
 	<div class="container home-page">
 		<!--@{if url !== '/'}-->
 		<!--<div class="hidden-xs m">-->

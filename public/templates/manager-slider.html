@@ -1,0 +1,264 @@
+<div class="filter">
+	<div class="container">
+		<nav class="buttons">
+			<a href="javascript:void(0)" class="exec" data-exec="slides_menu"><i class="fa fa-navicon"></i><span>@(Options)</span></a>
+		</nav>
+		<div class="caption"><span class="fa fa-book mr5"></span> @(slides)</div>
+	</div>
+</div>
+
+<div class="container">
+
+	<div data-jc="grid" data-jc-path="slides.grid" data-pagination-path="slides.filter.page" data-jc-id="slides.grid" data-max="auto" data-page="@(Page: #)"
+		 data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
+		<script type="text/html">
+			<tr>
+				<!--"{{!picture ? '' : }}"-->
+				<td>
+					{{ if !picture }} <img src="/img/empty.png"> {{fi}}
+					{{ if picture }} <img src="/images/small/{{picture}}.jpg"> {{fi}}
+				</td>
+				<td>{{ title.en }}</td>
+				<td>{{ title.ru }}</td>
+				<td>{{ title.hy }}</td>
+				<td style="width:80px" class="ui-right">
+					<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+					<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+				</td>
+			</tr>
+		</script>
+	</div>
+
+	<div class="row hidden" data-jc="visible" data-jc-path="pages.tab" data-if="value === 'widgets'">
+		<div class="col-md-12">
+			<div data-jc="grid" data-jc-path="widgets.grid" data-jc-id="widgets.grid" data-max="1000" data-page="@(Page: #)" data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
+				<script type="text/html">
+					<tr>
+						<td class="{{ if istemplate}}gray{{ else }}b{{ fi }}"><span class="fa fa-{{ if icon }}{{ icon }}{{ else if istemplate }}code{{ else }}plug{{ fi }} w18 mr5"></span> {{ name }}</td>
+						<td class="col-xs-3 silver fs11 hidden-xs">{{ category }}</td>
+						<td class="silver fs11 hidden-xs" style="width:160px">ID: {{ id }}</td>
+						<td style="width:80px" class="ui-right">
+							<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+							<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+						</td>
+					</tr>
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-jc="form" data-title="@(Slider form)" data-jc-path="common.form" data-if="value === 'slides'" data-width="1300px" data-jc-id="slides.form" class="hidden">
+	<div class="padding npb">
+		<div class="row">
+			<div class="col-md-6">
+				<div data-jc="textbox" data-jc-path="slides.form.title.en" data-required="true" class="m" data-maxlength="50">@(title EN)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.title.ru" data-required="true" class="m" data-maxlength="50">@(title RU)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.title.hy" data-required="true" class="m" data-maxlength="50">@(title HY)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.header.en" data-required="true" class="m" data-maxlength="50">@(header EN)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.header.ru" data-required="true" class="m" data-maxlength="50">@(header RU)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.header.hy" data-required="true" class="m" data-maxlength="50">@(header HY)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.description.en" data-required="true" class="m" data-maxlength="50">@(description EN)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.description.ru" data-required="true" class="m" data-maxlength="50">@(description RU)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.description.hy" data-required="true" class="m" data-maxlength="50">@(description HY)</div>
+				<div data-jc="textbox" data-jc-path="slides.form.link" data-required="true" class="m" data-maxlength="50">@(link)</div>
+				<div data-jc="fileupload" data-jc-path="slides.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
+			</div>
+
+		</div>
+	</div>
+	<hr data-binder="slides.form.template" data-binder-visible="n => n ? false : true" class="nmb" />
+	<div data-binder="slides.form.template" data-binder-visible="n => n ? true : false">
+		<hr style="margin-bottom:8px" />
+		<div class="cmseditor-help">
+			<nav><i class="fa fa-desktop"></i><a href="javascript:products_device(1)">@(Large)</a><a href="javascript:products_device(2)">@(Medium)</a><a href="javascript:products_device(3)">@(Tablet)</a><a href="javascript:products_device(4)">@(Mobile)</a></nav>
+			<div><b>@(Editor formatting:)</b> @(bold) (&#8984+B), @(italic) (&#8984+I), @(underline) (&#8984+U), @(link) (&#8984+L). <a href="javascript:void(0)" data-exec="products_sourcecode" class="exec black"><span class="fa fa-code w18"></span>@(Show source-code)</a></div>
+		</div>
+		<div class="pages-editor" data-jc="editor" data-jc-path="slides.form.body" data-jc-import="/templates/component-editor.html" data-jc-id="slides.editor"></div>
+	</div>
+	<div data-jc="visible" data-jc-path="slides.form.id" data-if="value && value.length">
+		<div class="padding npb">
+			<div class="row">
+				<div class="col-lg-2 col-md-3 m">
+					<div class="keyvalue">
+						<div class="key">@(# Id)</div>
+						<div class="value" data-binder="slides.form.id" data-binder-html="n => n"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="nmt" />
+	</div>
+	<div data-jc="error" data-jc-path="slides.response"></div>
+	<div class="ui-form-buttons">
+		<div data-jc="validation" data-jc-path="slides.form">
+			<button name="submit">@(SUBMIT)</button>
+		</div>
+		<button name="cancel">@(Cancel)</button>
+	</div>
+</div>
+
+
+<script>
+
+    var slides = {};
+
+    slides.filter = {};
+    slides.filter.page = 1;
+
+    slides.grid = {};
+    slides.form = {};
+    slides.response = null;
+
+    ON('#slides.grid', function(component) {
+
+        // Max items per page
+        slides.filter.max = component.max;
+        slides_refresh_codelists();
+        slides_refresh(true);
+
+        component.click = function(index, row, button) {
+            var loading = FIND('loading');
+            switch ($(button).attr('name')) {
+                case 'edit':
+                    slides_edit(row.id, index);
+                    break;
+                case 'remove':
+                    FIND('confirm').confirm('@(Do you want to remove) <b>{0}</b>?'.format(row.name), ['@(OK)', '@(Cancel)'], function(index) {
+                        if (index)
+                            return;
+                        loading.show();
+                        AJAX('DELETE {0}/api/slides/'.format(managerurl), { id: row.id }, function() {
+                            loading.hide(500);
+                            slides_refresh();
+                        });
+                    });
+                    break;
+            }
+        };
+
+        WATCH('slides.form.template', function(path, value, type) {
+            FIND('#slides.editor').setTemplate(value);
+            type === 2 && SET('slides.form.body', '');
+        });
+    });
+
+    // Watch for changes in product filter
+    WATCH('slides.filter.*', function(path, value) {
+        !NOTMODIFIED('slides.filter', slides.filter) && slides_refresh(path !== 'slides.filter.page');
+    });
+
+    ON('#slides.form', function(component) {
+        component.submit = function(hide) {
+            var loading = FIND('loading');
+            var editor = FIND('#slides.editor');
+            loading.show();
+
+
+            slides.form.body = editor.getContent();
+            slides.form.pictures2 = editor.getPictures();
+
+            AJAX('POST {0}/api/slides/'.format(managerurl), slides.form, function(response) {
+                loading.hide(500);
+                SET('slides.response', response);
+                if (response instanceof Array)
+                    return;
+                hide();
+                if (slides.form.$index === undefined)
+                    setTimeout(slides_refresh_codelists, 2000);
+                slides_refresh();
+                success();
+            });
+        };
+    });
+
+    function slides_edit(id, index) {
+        var loading = FIND('loading');
+        loading.show();
+        AJAX('GET /api/slides/{0}/'.format(id), function(response) {
+            loading.hide(500);
+
+            if (response instanceof Array) {
+                FIND('message').warning(response[0].error);
+                return;
+            }
+
+            SETTER('#slides.editor', 'setTemplate', response.template);
+            SET('slides.form', $.extend({ $index: index }, response), true);
+            SET('slides.response', null);
+            SET('common.form', 'slides');
+
+            AJAX('GET {0}/api/slides/{1}/stats/'.format(managerurl, response.id), 'slides.form.stats');
+
+            // /templates/component-editor.html:
+            cmseditor_widgets(false);
+        });
+    }
+
+    function slides_new() {
+        SET('slides.form', { availability: '@(In stock)' }, true);
+        SET('slides.response', null);
+        SET('common.form', 'slides');
+
+        // /templates/component-editor.html:
+        cmseditor_widgets(false);
+    }
+
+
+    // Method refreshes slides
+    function slides_refresh_codelists() {
+        AJAX('GET {0}/api/slides/codelists/'.format(managerurl), function(response) {
+            response.slides.sort(FN('(a, b) => a.name.localeCompare(b.name)'));
+            Object.keys(response).forEach(function(key) {
+                SET('slides.' + key, response[key]);
+            });
+        });
+    }
+
+    // Method refreshes grid
+    function slides_refresh(reset) {
+        if (reset) slides.filter.page = 1;
+        AJAX('GET {0}/api/slides/'.format(managerurl), slides.filter, 'slides.grid');
+    }
+
+    function slides_reload() {
+        var hash = location.hash;
+        hash && hash.length > 1 && setTimeout(function() {
+            slides_edit(hash.substring(1));
+        }, 500);
+    }
+
+    function slides_sourcecode() {
+        SETTER('#slides.editor', 'showSourceCode');
+    }
+
+    function slides_device(type) {
+        var e = FIND('editor');
+        SETTER('loading', 'show')('loading', 'hide', 1000);
+        switch (type) {
+            case 1:
+                e.device('lg');
+                return;
+            case 2:
+                e.device('md');
+                return;
+            case 3:
+                e.device('sm');
+                return;
+            case 4:
+                e.device('xs');
+                return;
+        }
+    }
+
+    function slides_menu(el) {
+        var items = [];
+
+        items.push({ name: '@(Add slide)', value: 'slides_new', icon: 'fa-plus-circle' });
+
+        FIND('contextmenu').show('right', el, items, function(value) {
+            EXEC(value);
+        }, -15, 10);
+    }
+
+</script>
