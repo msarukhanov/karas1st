@@ -143,8 +143,6 @@ function refresh() {
 
     NOSQL('slides').find().prepare(prepare_slide).callback(function(){
 
-    	console.log(db_slides);
-
         F.global.slides = db_slides;
 
     });

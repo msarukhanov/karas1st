@@ -53,138 +53,28 @@
 
 <div class="menu">
     <div class="main-menu">
+        @{foreach m in global.categories}
+
+        <!--TODO sort for empty categories  AND db_categories to categories -->
+        <!---->
+        <!--@{sitemap_url('products_@{!controller.getLang()}')}-->
         <div class="singleMenu">
             <div class="singleMenuImg">
-                <a> <img src="/img/menu/BBQ.png"></a>
+                <a href="/@{!controller.getLang()}/shop/@{m.linker}/">
+                    <img src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}">
+                </a>
             </div>
             <div class="singleMenuFooter">
                 <p>
-                    <span class="menu-text">BBQ</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
+                    <span class="menu-text">@{m.full_name[controller.getLang()]}</span>
+                    <a href="/@{!controller.getLang()}/shop/@{m.linker}/" class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
                 </p>
             </div>
         </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Drinks.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Drinks</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Complex Lunch.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Complex Lunch</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Pizza.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Pizza</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Khatchapuri.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Кhachapuri</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Salads.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Salads</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Soups.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Soups</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Hot Dishes.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Hot Dishes</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Appetizer.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Appetizer</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Fast Food.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Fast Food</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Kids Food.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Kids Food</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
-        <div class="singleMenu">
-            <div class="singleMenuImg">
-                <a> <img src="/img/menu/Corporate Offers.png"></a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">Corporate Offers</span>
-                    <a class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
-            </div>
-        </div>
+
+
+
+        @{end}
     </div>
 </div>
 

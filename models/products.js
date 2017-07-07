@@ -576,6 +576,15 @@ function refresh() {
                     categories[k].pic = tmp.picture && tmp.picture.split(",") ? tmp.picture.split(",")[0] : '';
                 }
             });
+            _.each(db_full_cat, function(i, k) {
+                db_full_cat[k].full_name = {
+                    en: i.name_en,
+                    ru: i.name_ru,
+                    hy: i.name_hy
+                };
+                db_full_cat[k].pic = i.picture && i.picture.split(",") ? i.picture.split(",")[0] : '';
+            });
+            db_full_cat = _.values(db_full_cat);
 
             F.global.categories = categories;
 

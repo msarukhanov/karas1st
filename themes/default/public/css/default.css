@@ -407,11 +407,21 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	padding: calc(100vw / 1920 * 20);
 }
 
+.singleMenuImg a {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 250);
+	overflow: hidden;
+	max-width: calc(100vw / 1920 * 390);
+	max-height: calc(100vw / 1920 * 250);
+	display: block;
+}
+
 .menu .main-menu .singleMenu .singleMenuImg img {
-	position: absolute;
+	position: relative;
 	width: calc(100vw / 1920 * 390);
 	cursor: pointer;
-	height: calc(100vw / 1920 * 250);
+	height: calc(100vw / 1920 * 280);
+	top: calc(100vw / 1920 * -14.66666666);
 }
 
 .menu .main-menu .singleMenu .singleMenuImg {
@@ -421,6 +431,9 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .menu .main-menu .singleMenu .singleMenuFooter .arrow {
 	float: right;
+}
+.singleMenuFooter a {
+	text-transform: capitalize !important;
 }
 
 .menu .main-menu .singleMenu .singleMenuFooter .arrow img {

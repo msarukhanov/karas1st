@@ -174,7 +174,7 @@ function refresh() {
         if (db_full_cat[cat.name.en])
             db_full_cat[cat.name.en].count++;
         else
-            db_full_cat[cat.name.en] = { count: 1, linker: cat.linker, path: cat.linker, name_en : cat.name.en, name_hy : cat.name.hy, name_ru : cat.name.ru };
+            db_full_cat[cat.name.en] = { count: 1, linker: cat.linker, path: cat.linker, name_en : cat.name.en, name_hy : cat.name.hy, name_ru : cat.name.ru, picture:cat.picture };
     };
 
     NOSQL('products').find().prepare(prepare).callback(function() {
@@ -261,7 +261,19 @@ function refresh() {
                 }
             });
 
+            _.each(db_full_cat, function(i, k) {
+                db_full_cat[k].full_name = {
+                    en: i.name_en,
+                    ru: i.name_ru,
+                    hy: i.name_hy
+                };
+                db_full_cat[k].pic = i.picture && i.picture.split(",") ? i.picture.split(",")[0] : '';
+            });
+            db_full_cat = _.values(db_full_cat);
+
             F.global.categories = categories;
+
+            console.log(db_full_cat);
 
             F.global.db_categories = db_full_cat;
 
