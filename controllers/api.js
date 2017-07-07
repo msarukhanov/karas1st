@@ -23,6 +23,14 @@ exports.install = function() {
     F.route('/api/slides/',             json_slider_query, ['*Slider']);
     F.route('/api/slides/{id}/',        json_slider_read, ['*Slider']);
 
+	// Restaurants
+	F.route('/api/restaurants/',             json_restaurants_query, ['*Restaurant']);
+	F.route('/api/restaurants/{id}/',        json_restaurants_read, ['*Restaurant']);
+
+	// offers
+	F.route('/api/offers/',             json_offers_query, ['*Offer']);
+	F.route('/api/offers/{id}/',        json_offers_read, ['*Offer']);
+	
 	// PRODUCTS
 	F.route('/api/products/',             json_products_query, ['*Product']);
 	F.route('/api/products/{id}/',        json_products_read, ['*Product']);
@@ -134,6 +142,50 @@ function json_slider_read(id) {
     var options = {};
     options.id = id;
     self.$get(options, self.callback());
+}
+
+function json_restaurants_query() {
+	var self = this;
+
+	// Renders related products
+	if (self.query.html) {
+		// Disables layout
+		self.layout('');
+		self.$query(self.query, self.callback('~eshop/partial-slider'));
+		return;
+	}
+
+	self.$query(self.query, self.callback());
+}
+
+// Reads a specific category
+function json_restaurants_read(id) {
+	var self = this;
+	var options = {};
+	options.id = id;
+	self.$get(options, self.callback());
+}
+
+function json_offers_query() {
+	var self = this;
+
+	// Renders related products
+	if (self.query.html) {
+		// Disables layout
+		self.layout('');
+		self.$query(self.query, self.callback('~eshop/partial-slider'));
+		return;
+	}
+
+	self.$query(self.query, self.callback());
+}
+
+// Reads a specific category
+function json_offers_read(id) {
+	var self = this;
+	var options = {};
+	options.id = id;
+	self.$get(options, self.callback());
 }
 
 // ==========================================================================

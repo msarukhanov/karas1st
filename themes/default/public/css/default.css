@@ -379,6 +379,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .menu .main-menu {
 	margin: 0 calc(100vw / 1920 * 315);
 	padding: calc(100vw / 1920 * 60) 0;
+	width: calc(100vw / 1920 * 1260);
 }
 
 .menu .main-menu .singleMenu {

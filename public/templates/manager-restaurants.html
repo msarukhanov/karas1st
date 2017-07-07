@@ -1,0 +1,264 @@
+<div class="filter">
+	<div class="container">
+		<nav class="buttons">
+			<a href="javascript:void(0)" class="exec" data-exec="restaurants_menu"><i class="fa fa-navicon"></i><span>@(Options)</span></a>
+		</nav>
+		<div class="caption"><span class="fa fa-book mr5"></span> @(restaurants)</div>
+	</div>
+</div>
+
+<div class="container">
+
+	<div data-jc="grid" data-jc-path="restaurants.grid" data-pagination-path="restaurants.filter.page" data-jc-id="restaurants.grid" data-max="auto" data-page="@(Page: #)"
+		 data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
+		<script type="text/html">
+			<tr>
+				<!--"{{!picture ? '' : }}"-->
+				<td>
+					{{ if !picture }} <img width="100%" height="auto" src="/img/empty.png"> {{fi}}
+					{{ if picture }} <img width="100%" height="auto" src="/images/small/{{picture}}.jpg"> {{fi}}
+				</td>
+				<td>{{ title.en }}</td>
+				<td>{{ title.ru }}</td>
+				<td>{{ title.hy }}</td>
+				<td style="width:80px" class="ui-right">
+					<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+					<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+				</td>
+			</tr>
+		</script>
+	</div>
+
+	<div class="row hidden" data-jc="visible" data-jc-path="pages.tab" data-if="value === 'widgets'">
+		<div class="col-md-12">
+			<div data-jc="grid" data-jc-path="widgets.grid" data-jc-id="widgets.grid" data-max="1000" data-page="@(Page: #)" data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
+				<script type="text/html">
+					<tr>
+						<td class="{{ if istemplate}}gray{{ else }}b{{ fi }}"><span class="fa fa-{{ if icon }}{{ icon }}{{ else if istemplate }}code{{ else }}plug{{ fi }} w18 mr5"></span> {{ name }}</td>
+						<td class="col-xs-3 silver fs11 hidden-xs">{{ category }}</td>
+						<td class="silver fs11 hidden-xs" style="width:160px">ID: {{ id }}</td>
+						<td style="width:80px" class="ui-right">
+							<button name="edit" title="@(Edit)"><span class="fa fa-pencil"></span></button>
+							<button name="remove" title="@(Remove)"><span class="fa fa-times"></span></button>
+						</td>
+					</tr>
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-jc="form" data-title="@(Restaurant form)" data-jc-path="common.form" data-if="value === 'restaurants'" data-width="1300px" data-jc-id="restaurants.form" class="hidden">
+	<div class="padding npb">
+		<div class="row">
+			<div class="col-md-6">
+				<div data-jc="textbox" data-jc-path="restaurants.form.title.en" data-required="true" class="m" data-maxlength="50">@(title EN)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.title.ru" data-required="true" class="m" data-maxlength="50">@(title RU)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.title.hy" data-required="true" class="m" data-maxlength="50">@(title HY)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.address.en" data-required="true" class="m" data-maxlength="50">@(address EN)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.address.ru" data-required="true" class="m" data-maxlength="50">@(address RU)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.address.hy" data-required="true" class="m" data-maxlength="50">@(address HY)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.description.en" data-required="false" class="m" data-maxlength="50">@(description EN)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.description.ru" data-required="false" class="m" data-maxlength="50">@(description RU)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.description.hy" data-required="false" class="m" data-maxlength="50">@(description HY)</div>
+				<div data-jc="textbox" data-jc-path="restaurants.form.googlemaps" data-required="false" class="m" data-maxlength="50">@(google maps)</div>
+				<div data-jc="fileupload" data-jc-path="restaurants.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
+			</div>
+
+		</div>
+	</div>
+	<hr data-binder="restaurants.form.template" data-binder-visible="n => n ? false : true" class="nmb" />
+	<div data-binder="restaurants.form.template" data-binder-visible="n => n ? true : false">
+		<hr style="margin-bottom:8px" />
+		<div class="cmseditor-help">
+			<nav><i class="fa fa-desktop"></i><a href="javascript:products_device(1)">@(Large)</a><a href="javascript:products_device(2)">@(Medium)</a><a href="javascript:products_device(3)">@(Tablet)</a><a href="javascript:products_device(4)">@(Mobile)</a></nav>
+			<div><b>@(Editor formatting:)</b> @(bold) (&#8984+B), @(italic) (&#8984+I), @(underline) (&#8984+U), @(link) (&#8984+L). <a href="javascript:void(0)" data-exec="products_sourcecode" class="exec black"><span class="fa fa-code w18"></span>@(Show source-code)</a></div>
+		</div>
+		<div class="pages-editor" data-jc="editor" data-jc-path="restaurants.form.body" data-jc-import="/templates/component-editor.html" data-jc-id="restaurants.editor"></div>
+	</div>
+	<div data-jc="visible" data-jc-path="restaurants.form.id" data-if="value && value.length">
+		<div class="padding npb">
+			<div class="row">
+				<div class="col-lg-2 col-md-3 m">
+					<div class="keyvalue">
+						<div class="key">@(# Id)</div>
+						<div class="value" data-binder="restaurants.form.id" data-binder-html="n => n"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="nmt" />
+	</div>
+	<div data-jc="error" data-jc-path="restaurants.response"></div>
+	<div class="ui-form-buttons">
+		<div data-jc="validation" data-jc-path="restaurants.form">
+			<button name="submit">@(SUBMIT)</button>
+		</div>
+		<button name="cancel">@(Cancel)</button>
+	</div>
+</div>
+
+
+<script>
+
+    var restaurants = {};
+
+    restaurants.filter = {};
+    restaurants.filter.page = 1;
+
+    restaurants.grid = {};
+    restaurants.form = {};
+    restaurants.response = null;
+
+    ON('#restaurants.grid', function(component) {
+
+        // Max items per page
+        restaurants.filter.max = component.max;
+        restaurants_refresh_codelists();
+        restaurants_refresh(true);
+
+        component.click = function(index, row, button) {
+            var loading = FIND('loading');
+            switch ($(button).attr('name')) {
+                case 'edit':
+                    restaurants_edit(row.id, index);
+                    break;
+                case 'remove':
+                    FIND('confirm').confirm('@(Do you want to remove) <b>{0}</b>?'.format(row.name), ['@(OK)', '@(Cancel)'], function(index) {
+                        if (index)
+                            return;
+                        loading.show();
+                        AJAX('DELETE {0}/api/restaurants/'.format(managerurl), { id: row.id }, function() {
+                            loading.hide(500);
+                            restaurants_refresh();
+                        });
+                    });
+                    break;
+            }
+        };
+
+        WATCH('restaurants.form.template', function(path, value, type) {
+            FIND('#restaurants.editor').setTemplate(value);
+            type === 2 && SET('restaurants.form.body', '');
+        });
+    });
+
+    // Watch for changes in product filter
+    WATCH('restaurants.filter.*', function(path, value) {
+        !NOTMODIFIED('restaurants.filter', restaurants.filter) && restaurants_refresh(path !== 'restaurants.filter.page');
+    });
+
+    ON('#restaurants.form', function(component) {
+        component.submit = function(hide) {
+            var loading = FIND('loading');
+            var editor = FIND('#restaurants.editor');
+            loading.show();
+
+
+            restaurants.form.body = editor.getContent();
+            restaurants.form.pictures2 = editor.getPictures();
+
+            AJAX('POST {0}/api/restaurants/'.format(managerurl), restaurants.form, function(response) {
+                loading.hide(500);
+                SET('restaurants.response', response);
+                if (response instanceof Array)
+                    return;
+                hide();
+                if (restaurants.form.$index === undefined)
+                    setTimeout(restaurants_refresh_codelists, 2000);
+                restaurants_refresh();
+                success();
+            });
+        };
+    });
+
+    function restaurants_edit(id, index) {
+        var loading = FIND('loading');
+        loading.show();
+        AJAX('GET /api/restaurants/{0}/'.format(id), function(response) {
+            loading.hide(500);
+
+            if (response instanceof Array) {
+                FIND('message').warning(response[0].error);
+                return;
+            }
+
+            SETTER('#restaurants.editor', 'setTemplate', response.template);
+            SET('restaurants.form', $.extend({ $index: index }, response), true);
+            SET('restaurants.response', null);
+            SET('common.form', 'restaurants');
+
+            AJAX('GET {0}/api/restaurants/{1}/stats/'.format(managerurl, response.id), 'restaurants.form.stats');
+
+            // /templates/component-editor.html:
+            cmseditor_widgets(false);
+        });
+    }
+
+    function restaurants_new() {
+        SET('restaurants.form', { availability: '@(In stock)' }, true);
+        SET('restaurants.response', null);
+        SET('common.form', 'restaurants');
+
+        // /templates/component-editor.html:
+        cmseditor_widgets(false);
+    }
+
+
+    // Method refreshes restaurants
+    function restaurants_refresh_codelists() {
+        AJAX('GET {0}/api/restaurants/codelists/'.format(managerurl), function(response) {
+            response.restaurants.sort(FN('(a, b) => a.name.localeCompare(b.name)'));
+            Object.keys(response).forEach(function(key) {
+                SET('restaurants.' + key, response[key]);
+            });
+        });
+    }
+
+    // Method refreshes grid
+    function restaurants_refresh(reset) {
+        if (reset) restaurants.filter.page = 1;
+        AJAX('GET {0}/api/restaurants/'.format(managerurl), restaurants.filter, 'restaurants.grid');
+    }
+
+    function restaurants_reload() {
+        var hash = location.hash;
+        hash && hash.length > 1 && setTimeout(function() {
+            restaurants_edit(hash.substring(1));
+        }, 500);
+    }
+
+    function restaurants_sourcecode() {
+        SETTER('#restaurants.editor', 'showSourceCode');
+    }
+
+    function restaurants_device(type) {
+        var e = FIND('editor');
+        SETTER('loading', 'show')('loading', 'hide', 1000);
+        switch (type) {
+            case 1:
+                e.device('lg');
+                return;
+            case 2:
+                e.device('md');
+                return;
+            case 3:
+                e.device('sm');
+                return;
+            case 4:
+                e.device('xs');
+                return;
+        }
+    }
+
+    function restaurants_menu(el) {
+        var items = [];
+
+        items.push({ name: '@(Add restaurant)', value: 'restaurants_new', icon: 'fa-plus-circle' });
+
+        FIND('contextmenu').show('right', el, items, function(value) {
+            EXEC(value);
+        }, -15, 10);
+    }
+
+</script>

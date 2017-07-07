@@ -16,8 +16,8 @@
 			<tr>
 				<!--"{{!picture ? '' : }}"-->
 				<td>
-					{{ if !picture }} <img src="/img/empty.png"> {{fi}}
-					{{ if picture&&pic }} <img src="/images/small/{{pic}}.jpg"> {{fi}}
+					{{ if !picture }} <img width="100%" height="auto" src="/img/empty.png"> {{fi}}
+					{{ if picture&&pic }} <img width="100%" height="auto" src="/images/small/{{pic}}.jpg"> {{fi}}
 				</td>
 				<td>{{ if istop }}<b class="badge badge-red mr5">@(TOP)</b>{{ fi }}{{ if isnew }}<b class="badge badge-blue mr5">@(NEWS)</b>{{ fi }}{{ name.en }}</td>
 				<td>{{ name.ru }}</td>
