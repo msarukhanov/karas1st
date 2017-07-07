@@ -14,8 +14,6 @@ form { padding: 0; margin: 0; }
 .content { background-color: white; border-radius: 4px; }
 .jcomponent > span:first-child { display: none; }
 
-.header-container { background: #de1a22; padding: 15px 20px 10px; position: relative; }
-.header-container hr { border-color: #D0D0D0; }
 .header-padding { margin-top: 20px; }
 .header-links-container { position: relative; }
 .header-links { position: absolute; right: 0; top: 0; font-size: 11px; }
@@ -30,9 +28,6 @@ form { padding: 0; margin: 0; }
 .header-top .header-links {
 	line-height: 40px;
 }
-.header-container a {  color: #fff;  text-decoration: none; font-size: calc(100vw / 70);  padding: 0 10px 0 0;  text-transform: capitalize;  margin-left: 0; }
-
-
 .search { border: 2px solid #E0E0E0; background-color: white; padding: 8px 5px; border-radius: 4px; }
 .search input { border: 0; padding: 0; background-color: white; border: 0; outline: 0; width: 100%; font-size: 16px; }
 .search-icon { float: left; text-align: center; width: 30px; font-size: 16px; }
@@ -697,6 +692,108 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .footer-container .footerInner .socials-and-text .footer-texts div:last-child {
 	padding: 0 calc(100vw / 1920 * 20) 0 calc(100vw / 1920 * 12);
 	border-right: 1px solid #c4c4c4;
+}
+
+.header-container {
+	background: #de1a22;
+	position: relative;
+	height: calc(100vw / 1920 * 70);
+}
+
+.header-container .head-cont {
+	height: calc(100vw / 1920 * 70);
+	margin: 0 calc(100vw / 1920 * 30);
+	width: 100%;
+}
+
+.header-container .logo-phone {
+	height: calc(100vw / 1920 * 70);
+	position: relative;
+	width: 50%;
+}
+
+.header-container .logo-phone img {
+	height: calc(100vw / 1920 * 50);
+	width: calc(100vw / 1920 * 50);
+}
+
+.header-container .logo-phone a {
+	height: calc(100vw / 1920 * 50);
+	width: calc(100vw / 1920 * 50);
+	position: absolute;
+	cursor: pointer;
+	top: calc(100vw / 1920 * 10);
+}
+
+.header-container .logo-phone span {
+	color: #ffffff;
+	font-size: calc(100vw / 1920 * 50);
+	height: calc(100vw / 1920 * 50);
+	position: absolute;
+	padding-left: calc(100vw / 1920 * 75);
+	bottom: calc(100vw / 1920 * 20);
+}
+
+.header-container .header-right {
+	width: 50%;
+	height: calc(100vw / 1920 * 70);
+}
+
+.header-container .header-right .categories-button-login button {
+	border: 2px solid #ffffff;
+	background: transparent;
+	font-size: calc(100vw / 1920 * 12);
+	width: calc(100vw / 1920 * 75);
+	height: calc(100vw / 1920 * 32);
+	border-radius: calc(100vw / 1920 * 50);
+}
+
+.header-container .header-right .header-right-links {
+	height: calc(100vw / 1920 * 70);
+	right: 0;
+	position: absolute;
+	top: calc(100vw / 1920 * 20);
+}
+
+.header-container .header-right .header-right-links .shopping-cart {
+	margin-right: calc(100vw / 1920 * 5);
+}
+
+.header-container .header-right .header-right-links .shopping-cart span {
+	position: absolute;
+	font-size: calc(100vw / 1920 * 10);
+	width: calc(100vw / 1920 * 16);
+	height: calc(100vw / 1920 * 16);
+	background: #800004;
+	border-radius: calc(100vw / 1920 * 50);
+	padding-top: calc(100vw / 1920 * 3);
+	top: 0;
+}
+
+.header-container .header-right .header-right-links a span {
+	width: calc(100vw / 1920 * 16);
+	height: calc(100vw / 1920 * 16);
+}
+
+.header-container .header-right .header-right-links .login {
+	width: calc(100vw / 1920 * 106);
+}
+
+.header-container .header-right .header-right-links .login div {
+	width: calc(100vw / 1920 * 16);
+	height: calc(100vw / 1920 * 16);
+	padding-left: calc(100vw / 1920 * 15);
+}
+
+.header-container .header-right .header-right-links .categories-button-search, .categories-button-menu, .categories-button-shopping-cart {
+	padding-top: calc(100vw / 1920 * 5);
+}
+
+.header-container .header-right .header-right-links a {
+	float: left;
+	width: calc(100vw / 1920 * 76);
+	text-align: center;
+	color: #ffffff;
 }
 
 .home-page {

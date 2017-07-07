@@ -17,7 +17,7 @@
 	<!--<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>-->
 	<!--<div data-jc="message" data-button="@(Close)"></div>-->
 
-	<header class="header-top">
+	<!--<header class="header-top">
 		<div class="container">
 
 			<div class="row">
@@ -57,20 +57,19 @@
 				</div>
 			</div>
 		</div>
-	</header>
+	</header>-->
 
 	<header class="header-container">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-5 xs-center">
-					<a href="/@{!controller.getLang()}/">
-						<img src="/img/karas-@{!controller.getLang()}.png" border="0" alt="Karas" height="60" />
+		<div class="container head-cont">
+			<div class="logo-phone">
+					<a>
+						<img src="/img/header-logo.png"/>
 					</a>
+					<span>+1 747 500 00 00</span>
 				</div>
-
-				<div class="col-sm-7 header-padding">
-					<div class="header-links">
-						<a href="@{sitemap_url('restaurants_@{!controller.getLang()}')}">
+			<div class="header-right">
+					<div class="header-right-links">
+						<!--<a href="@{sitemap_url('restaurants_@{!controller.getLang()}')}">
 							@{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}
 						</a>
 						<a href="@{sitemap_url('delivery_@{!controller.getLang()}')}">
@@ -78,11 +77,22 @@
 						</a>
 						<a href="@{sitemap_url('corporate_@{!controller.getLang()}')}">
 							@{!controller.translateText({'en':'Corporate offers','ru':'Корпоративные предложения','hy':'Կորպորատիվ առաջարկներ'})}
+						</a>-->
+						<a class="categories-button-search">
+							<span class="fa fa-search"></span>
 						</a>
-						<a href="javascript:void(0)" class="categories-button">
-							<span class="fa fa-search mr5"></span>
+						<a class="categories-button-shopping-cart">
+							<span class="fa fa-shopping-cart shopping-cart"><span>5</span></span>
 						</a>
-						<div @{if url !== '/'} class="categories-hide"@{fi}>
+						<a class="login">
+							<div class="categories-button-login">
+								<button>LOGIN</button>
+							</div>
+						</a>
+						<a class="categories-button-menu">
+							<span class="fa fa-bars"></span>
+						</a>
+						<!--<div @{if url !== '/'} class="categories-hide"@{fi}>
 							<div class="categories">
 								<div class="row">
 									<form action="@{sitemap_url('products')}" method="GET">
@@ -93,13 +103,8 @@
 									</form>
 								</div>
 							</div>
-						</div>
-
+						</div>-->
 					</div>
-
-
-				</div>
-			</div>
 		</div>
 	</header>
 
