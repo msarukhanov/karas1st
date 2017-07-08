@@ -38,6 +38,14 @@ if (window.su) {
         SET('common.page', 'slider');
     });
 
+	can('restaurants') && jRouting.route(managerurl + '/restaurants/', function() {
+		SET('common.page', 'restaurants');
+	});
+
+	can('offers') && jRouting.route(managerurl + '/offers/', function() {
+		SET('common.page', 'offers');
+	});
+
 	can('orders') && jRouting.route(managerurl + '/orders/', function() {
 		SET('common.page', 'orders');
 	});

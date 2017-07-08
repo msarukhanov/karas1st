@@ -273,8 +273,6 @@ function refresh() {
 
             F.global.categories = categories;
 
-            console.log(db_full_cat);
-
             F.global.db_categories = db_full_cat;
 
             F.global.manufacturers = manufacturers;

@@ -52,6 +52,20 @@ exports.install = function() {
     F.route(url + '/api/slides/',            json_remove, ['delete', '*Slider']);
     F.route(url + '/api/slides/clear/',      json_clear,  ['*Slider']);
 
+	// RESTAURANTS
+	F.route(url + '/api/restaurants/',          json_query,  ['*Restaurant']);
+	F.route(url + '/api/restaurants/',            json_save,   ['post', '*Restaurant'], 512);
+	F.route(url + '/api/restaurants/{id}/',       json_read,   ['*Restaurant']);
+	F.route(url + '/api/restaurants/',            json_remove, ['delete', '*Restaurant']);
+	F.route(url + '/api/restaurants/clear/',      json_clear,  ['*Restaurant']);
+
+	// OFFERS
+	F.route(url + '/api/offers/',          json_query,  ['*Offer']);
+	F.route(url + '/api/offers/',            json_save,   ['post', '*Offer'], 512);
+	F.route(url + '/api/offers/{id}/',       json_read,   ['*Offer']);
+	F.route(url + '/api/offers/',            json_remove, ['delete', '*Offer']);
+	F.route(url + '/api/offers/clear/',      json_clear,  ['*Offer']);
+	
 	// PRODUCTS
 	F.route(url + '/api/products/',            json_query,  ['*Product']);
 	F.route(url + '/api/products/',            json_save,   ['post', '*Product'], 512);
