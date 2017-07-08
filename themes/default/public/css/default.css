@@ -335,16 +335,22 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .specialOffer .singleSpecialOffer a img {
 	width: calc(100vw / 1920 * 600);
 	height: calc(100vw / 1920 * 400);
+	top: calc(100vw / 1920 * -25);
+	position: relative;
 }
 
 .specialOffer .singleSpecialOffer a {
 	cursor: pointer;
+	overflow: hidden;
+	max-width: calc(100vw / 1920 * 600);
+	max-height: calc(100vw / 1920 * 420);
+	display: block;
 }
 
 .specialOffer .singleSpecialOffer a span {
 	position: absolute;
 	width: 50%;
-	bottom: calc(100vw / 1920 * 30);
+	bottom: calc(100vw / 1920 * 70);
 	left: calc(100vw / 1920 * 35);
 	font-size: calc(100vw / 1920 * 30);
 	color: #fff;
