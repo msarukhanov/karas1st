@@ -79,73 +79,67 @@
                 <a href="/@{!controller.getLang()}/shop/@{m.linker}/">
                     <img src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}">
                 </a>
-            </div>
-            <div class="singleMenuFooter">
-                <p>
-                    <span class="menu-text">@{m.full_name[controller.getLang()]}</span>
-                    <a href="/@{!controller.getLang()}/shop/@{m.linker}/" class="arrow"><img src="/img/menu/pepper-arrow.png"></a>
-                </p>
+                <span class="menu-text">@{m.full_name[controller.getLang()]}</span>
             </div>
         </div>
-
-
-
         @{end}
     </div>
 </div>
-
-<div class="restaurants">
-    @{foreach m in global.restaurants}
-    <div class="singleRestaurant">
-        <div class="singleRestaurantHeader">
-            <p><img src="/img/restaurants/location.png"></p>
-            <span>@{m.title[controller.getLang()]}</span>
+<div class="restaurants-cont">
+    <div class="restaurants">
+        @{foreach m in global.restaurants}
+        <div class="singleRestaurant">
+            <div class="singleRestaurantHeader">
+                <p><img src="/img/restaurants/location.png"></p>
+                <span>@{m.title[controller.getLang()]}</span>
+            </div>
+            <div>
+                <a>
+                    <img src="@{if !m.picture }/img/empty.png@{else}/images/small/@{m.picture}.jpg@{fi}">
+                </a>
+            </div>
         </div>
-        <div>
-            <a>
-                <img src="@{if !m.picture }/img/empty.png@{else}/images/small/@{m.picture}.jpg@{fi}">
-            </a>
-        </div>
-    </div>
-    @{end}
-    <!--<div class="singleRestaurant">-->
+        @{end}
+        <!--<div class="singleRestaurant">-->
         <!--<div class="singleRestaurantHeader">-->
-            <!--<p><img src="/img/restaurants/location.png"></p>-->
-            <!--<span>KARAS - Tumanian</span>-->
+        <!--<p><img src="/img/restaurants/location.png"></p>-->
+        <!--<span>KARAS - Tumanian</span>-->
         <!--</div>-->
         <!--<div>-->
-            <!--<a>-->
-                <!--<img src="/img/restaurants/rest1.png">-->
-            <!--</a>-->
+        <!--<a>-->
+        <!--<img src="/img/restaurants/rest1.png">-->
+        <!--</a>-->
         <!--</div>-->
-    <!--</div>-->
-    <!--<div class="singleRestaurant">-->
+        <!--</div>-->
+        <!--<div class="singleRestaurant">-->
         <!--<div class="singleRestaurantHeader">-->
-            <!--<p><img src="/img/restaurants/location.png"></p>-->
-            <!--<span>KARAS - Abovyan</span>-->
+        <!--<p><img src="/img/restaurants/location.png"></p>-->
+        <!--<span>KARAS - Abovyan</span>-->
         <!--</div>-->
         <!--<div>-->
-            <!--<a>-->
-                <!--<img src="/img/restaurants/rest2.png">-->
-            <!--</a>-->
+        <!--<a>-->
+        <!--<img src="/img/restaurants/rest2.png">-->
+        <!--</a>-->
         <!--</div>-->
-    <!--</div>-->
-    <!--<div class="singleRestaurant">-->
+        <!--</div>-->
+        <!--<div class="singleRestaurant">-->
         <!--<div class="singleRestaurantHeader">-->
-            <!--<p><img src="/img/restaurants/location.png"></p>-->
-            <!--<span>KARAS - Abovyan</span>-->
+        <!--<p><img src="/img/restaurants/location.png"></p>-->
+        <!--<span>KARAS - Abovyan</span>-->
         <!--</div>-->
         <!--<div>-->
-            <!--<a>-->
-                <!--<img src="/img/restaurants/rest3.png">-->
-            <!--</a>-->
+        <!--<a>-->
+        <!--<img src="/img/restaurants/rest3.png">-->
+        <!--</a>-->
         <!--</div>-->
-    <!--</div>-->
+        <!--</div>-->
 
-    <div class="moreRestaurants">
-        <button ng-click="showMoreRest()">More</button>
+        <div class="moreRestaurants">
+            <button ng-click="showMoreRest()">More</button>
+        </div>
     </div>
 </div>
+
 
 <div class="newsBlock">
     <div class="mainNewsBlock">

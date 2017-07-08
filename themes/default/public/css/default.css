@@ -384,30 +384,17 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .menu .main-menu .singleMenu {
 	width: calc(100vw / 1920 * 420);
-	height: calc(100vw / 1920 * 340);
+	height: calc(100vw / 1920 * 280);
 	float: left;
 	position: relative;
 	padding: calc(100vw / 1920 * 15);
-}
-
-.menu .main-menu .singleMenu .singleMenuFooter {
-	width: calc(100vw / 1920 * 390);
-	height: calc(100vw / 1920 * 60);
-	position: absolute;
-	background: #ffffff;
-	font-size: calc(100vw / 1920 * 18);
-	font-weight: 700;
-	color: #141414;
-}
-
-.menu .main-menu .singleMenu .singleMenuFooter p {
-	padding: calc(100vw / 1920 * 20);
 }
 
 .singleMenuImg a {
 	width: calc(100vw / 1920 * 390);
 	height: calc(100vw / 1920 * 250);
 	overflow: hidden;
+	border-radius: calc(100vw / 1920 * 10);
 	max-width: calc(100vw / 1920 * 390);
 	max-height: calc(100vw / 1920 * 250);
 	display: block;
@@ -426,17 +413,16 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	height: calc(100vw / 1920 * 250);
 }
 
-.menu .main-menu .singleMenu .singleMenuFooter .arrow {
-	float: right;
-}
-.singleMenuFooter a {
-	text-transform: capitalize !important;
+.menu .main-menu .singleMenu .singleMenuImg span {
+	position: absolute;
+	bottom: calc(100vw / 1920 * 35);
+	color: #ffffff;
+	left: calc(100vw / 1920 * 40);
+	font-size: calc(100vw / 1920 * 20);
 }
 
-.menu .main-menu .singleMenu .singleMenuFooter .arrow img {
-	width: calc(100vw / 1920 * 36);
-	height: calc(100vw / 1920 * 12);
-	cursor: pointer;
+.restaurants-cont {
+	background: url(/img/restaurants-bg.png);
 }
 
 .restaurants {
@@ -587,13 +573,18 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .footer-container {
 	padding: 0;
-	height: calc(100vw / 1920 * 80);
+	height: calc(100vw / 1920 * 490);
     background-color: #dedede;
+}
+
+.footer-container .bottom-footer {
+	background: url("/img/footer-bg.png");
 }
 
 .footer-container .footerInner {
 	width: calc(100vw / 1920 * 1260);
 	margin: 0 calc(100vw / 1920 * 315);
+	height: calc(100vw / 1920 * 80);
 }
 
 .footer-container .footerInner .footer-image-copyright {
@@ -697,7 +688,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 }
 
 .header-container {
-	background: #de1a22;
+	background: url("/img/header.png");
 	position: relative;
 	height: calc(100vw / 1920 * 70);
 }
