@@ -62,7 +62,7 @@
 <header class="header-container">
     <div class="container head-cont">
         <div class="logo-phone">
-            <a>
+            <a href="/@{!controller.getLang()}/">
                 <img src="/img/header-logo.png"/>
             </a>
             <span>@{!controller.translateText({'en':'+1 747 500 00 00','ru':'+1 747 500 00 00','hy':'+1 747 500 00 00'})}</span>
@@ -88,7 +88,7 @@
                               data-currency="@{config.custom.currency_entity}"></span>
                     </span>
                 </a>
-                <a class="login" href="@{sitemap_url('corporate_@{!controller.getLang()}')}">
+                <a class="login" href="/@{!controller.getLang()}/account/">
                     <div class="categories-button-login">
                         <button>LOGIN</button>
                     </div>
@@ -96,8 +96,7 @@
                 <a class="categories-button-menu">
                     <span class="fa fa-bars"></span>
                 </a>
-                <div @{if url !==
-                '/'} class="categories-hide"@{fi}>
+                <div @{if url !=='/'} class="categories-hide"@{fi}>
                 <div class="categories">
                     <div class="row">
                         <form action="@{sitemap_url('products')}" method="GET">

@@ -38,6 +38,7 @@ exports.install = function() {
     F.use('language', '*', ['web']);
 
     F.route('/', redirect_homepage, ['#language']);
+    F.route('', redirect_homepage, ['#language']);
     F.route('/en/', view_homepage, ['#language']);
     F.route('/ru/', view_homepage, ['#language']);
     F.route('/hy/', view_homepage, ['#language']);
@@ -63,7 +64,8 @@ exports.install = function() {
 
 function redirect_homepage() {
     var self = this;
-    self.page('/', 'index', {}, false, true);
+    self.redirect('/en/');
+    //self.page('/', 'index', {}, false, true);
 }
 
 // Homepage
