@@ -81,10 +81,11 @@
                 <a href="javascript:void(0)" class="categories-button-search categories-button">
                     <span class="fa fa-search"></span>
                 </a>
-                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/checkout/" >
+                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/checkout/">
                     <span class="fa fa-shopping-cart shopping-cart">
                         <!--<span>5</span>-->
-                        <span class="xs-center" data-jc="checkout" data-currency="@{config.custom.currency_entity}"></span>
+                        <span class="xs-center" data-jc="checkout"
+                              data-currency="@{config.custom.currency_entity}"></span>
                     </span>
                 </a>
                 <a class="login" href="@{sitemap_url('corporate_@{!controller.getLang()}')}">
@@ -95,18 +96,31 @@
                 <a class="categories-button-menu">
                     <span class="fa fa-bars"></span>
                 </a>
-                <div @{if url !== '/'} class="categories-hide"@{fi}>
-                    <div class="categories">
-                        <div class="row">
-                            <form action="@{sitemap_url('products')}" method="GET">
-                                <div class="search">
-                                    <div class="search-icon"><span class="fa fa-search"></span></div>
-                                    <div class="search-input"><input type="text" name="search" placeholder="@(Search items ...)" autofocus="autofocus" value="@{query.q}" /></div>
-                                </div>
-                            </form>
-                        </div>
+                <div @{if url !==
+                '/'} class="categories-hide"@{fi}>
+                <div class="categories">
+                    <div class="row">
+                        <form action="@{sitemap_url('products')}" method="GET">
+                            <div class="search">
+                                <div class="search-icon"><span class="fa fa-search"></span></div>
+                                <div class="search-input"><input type="text" name="search"
+                                                                 placeholder="@(Search items ...)" autofocus="autofocus"
+                                                                 value="@{query.q}"/></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="right-menu">
+        <div class="right-menu-cont">
+            <div class="right-menu-head">
+
+            </div>
+            <div class="right-menu-body">
+
             </div>
         </div>
     </div>
@@ -216,6 +230,111 @@
 
 </div>
 <footer class="footer-container">
+    <div class="cont-links hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-1">
+                    <div id="foot-head2" class="headline">
+                        <a class="footerhead" href="/content/us/en-us/about-us.html" data-at="Footer:About Us " data-track="footerLinks">About Us</a>
+                    </div>
+
+                    <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                        <li class="active"><a href="/content/us/en-us/about-us/our-history.html"
+                                              data-at="Footer:Our History" data-track="footerLinks">Our History</a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/leadership-team.html"
+                                              data-at="Footer:Leadership Team   " data-track="footerLinks">Leadership
+                            Team </a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/values-in-action.html"
+                                              data-at="Footer:Values In Action " data-track="footerLinks">Values In
+                            Action </a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/investor-relations.html"
+                                              data-at="Footer:Investor Relations" data-track="footerLinks">Investor
+                            Relations</a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/news-and-notifications.html"
+                                              data-at="Footer:News &amp; Notifications   " data-track="footerLinks">News
+                            &amp; Notifications </a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/franchise-information.html"
+                                              data-at="Footer:Franchise Info" data-track="footerLinks">Franchise
+                            Info</a></li>
+                        <li class="active"><a href="/content/us/en-us/about-us/recalls.html" data-at="Footer:Recalls"
+                                              data-track="footerLinks">Recalls</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 ">
+                    <div id="foot-head2" class="headline"><a class="footerhead" href="/content/us/en-us/careers.html"
+                                                             data-at="Footer:Careers "
+                                                             data-track="footerLinks">Careers </a></div>
+
+                    <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                        <li class="active"><a href="/content/us/en-us/careers/training-and-education.html"
+                                              data-at="Footer:Education Opportunities" data-track="footerLinks">Education
+                            Opportunities</a></li>
+                        <li class="active"><a href="/content/us/en-us/careers/meet-our-people.html"
+                                              data-at="Footer:Meet Our People" data-track="footerLinks">Meet Our
+                            People</a></li>
+                        <li class="active"><a href="/content/us/en-us/careers/for-our-veterans.html"
+                                              data-at="Footer:For Our Veterans " data-track="footerLinks">For Our
+                            Veterans </a></li>
+                        <li class="active"><a href="/content/us/en-us/careers/apply-now.html" data-at="Footer:Apply Now"
+                                              data-track="footerLinks">Apply Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 ">
+                    <div id="foot-head2" class="headline"><a class="footerhead" href="/content/us/en-us/services.html"
+                                                             data-at="Footer:Services " data-track="footerLinks">Services </a>
+                    </div>
+
+                    <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                        <li class="active"><a href="/content/us/en-us/services/free-wi-fi.html" data-at="Footer:Wi-Fi"
+                                              data-track="footerLinks">Wi-Fi</a></li>
+                        <li class="active"><a href="/content/us/en-us/services/arch-card.html"
+                                              data-at="Footer:Arch Card® " data-track="footerLinks">Arch Card® </a></li>
+                        <li class="active"><a href="/content/us/en-us/services/playplaces-and-parties.html"
+                                              data-at="Footer:PlayPlaces &amp; Parties" data-track="footerLinks">PlayPlaces
+                            &amp; Parties</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 ">
+                    <div id="foot-head2" class="headline"><a class="footerhead" href="/content/us/en-us/community.html"
+                                                             data-at="Footer:Community" data-track="footerLinks">Community </a>
+                    </div>
+
+                    <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                        <li class="active"><a
+                                href="/content/us/en-us/community/giving-back-with-ronald-mcdonald-house.html"
+                                data-at="Footer:RMHC®" data-track="footerLinks">RMHC®</a></li>
+                        <li class="active"><a href="/content/us/en-us/community/365black.html"
+                                              data-at="Footer:365 Black" data-track="footerLinks">365 Black</a></li>
+                        <li class="active"><a href="/content/us/en-us/community/myinspirasian.html"
+                                              data-at="Footer:McDonald's APA" data-track="footerLinks">McDonald's
+                            APA</a></li>
+                        <li class="active"><a href="/content/us/en-us/community/mcdonalds-international.html"
+                                              data-at="Footer:McDonald’s International" data-track="footerLinks">McDonald’s
+                            International</a></li>
+                        <li class="active"><a href="/content/us/en-us/community/hacer.html"
+                                              data-at="Footer:RMHC®/HACER® " data-track="footerLinks">RMHC®/HACER® </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 ">
+                    <div id="foot-head2" class="headline"><a class="footerhead" href="/content/us/en-us/contact-us.html"
+                                                             data-at="Footer:Contact Us" data-track="footerLinks">Contact
+                        Us </a></div>
+
+                    <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                        <li class="active"><a href="/content/us/en-us/contact-us/arch_card.html"
+                                              data-at="Footer:Arch Card" data-track="footerLinks">Arch Card</a></li>
+                        <li class="active"><a href="/content/us/en-us/contact-us/donations.html"
+                                              data-at="Footer:Donations" data-track="footerLinks">Donations</a></li>
+                        <li class="active"><a href="/content/us/en-us/contact-us/employment.html"
+                                              data-at="Footer:Employment" data-track="footerLinks">Employment</a></li>
+                        <li class="active"><a href="/content/us/en-us/contact-us/mobile_app.html"
+                                              data-at="Footer:Mobile App" data-track="footerLinks">Mobile App</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footerInner">
         <div class="footer-image-copyright">
             <a><img src="/img/footer-logo.png"></a>
