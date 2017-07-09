@@ -434,53 +434,50 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .restaurants {
 	display: block;
 	width: calc(100vw / 1920 * 1260);
-	height: calc(100vw / 1920 * 555);
+	height: calc(100vw / 1920 * 545);
 	margin: 0 calc(100vw / 1920 * 315);
 	padding: calc(100vw / 1920 * 60) 0;
 }
 
 .restaurants .singleRestaurant {
 	width: calc(100vw / 1920 * 420);
-	height: calc(100vw / 1920 * 340);
+	height: calc(100vw / 1920 * 330);
 	float: left;
 	padding: calc(100vw / 1920 * 15);
 	position: relative;
 }
 
-.restaurants .singleRestaurant .singleRestaurantHeader {
+.restaurants .singleRestaurant .singleRestaurantBody {
 	width: calc(100vw / 1920 * 390);
-	background: #000000;
-	height: calc(100vw / 1920 * 40);
-}
-
-.restaurants .singleRestaurant .singleRestaurantHeader p {
+	height: calc(100vw / 1920 * 300);
 	float: left;
-	height: calc(100vw / 1920 * 40);
-	width: calc(100vw / 1920 * 40);
+	position: relative;
 }
 
-.restaurants .singleRestaurant .singleRestaurantHeader p img {
-	width: calc(100vw / 1920 * 40);
-	height: calc(100vw / 1920 * 31);
-	padding-top: calc(100vw / 1920 * 5);
-	padding-left: calc(100vw / 1920 * 20);
+.restaurants .singleRestaurant .singleRestaurantBody a {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 300);
+	overflow: hidden;
+	border-radius: calc(100vw / 1920 * 10);
+	max-width: calc(100vw / 1920 * 390);
+	max-height: calc(100vw / 1920 * 300);
+	cursor: pointer;
+	display: block;
 }
 
-.restaurants .singleRestaurant .singleRestaurantHeader span {
-	line-height: calc(100vw / 1920 * 40);
-	font-size: calc(100vw / 1920 * 16);
-	color: #fff;
+.restaurants .singleRestaurant .singleRestaurantBody span {
 	position: absolute;
-	left: calc(100vw /1920 * 70);
+	left: calc(100vw / 1920 * 65);
+	top: calc(100vw / 1920 * 12);
+	color: #ffffff;
+	font-size: calc(100vw / 1920 * 16);
+	font-family: 'noto Sans', serif;
+	font-weight: bold;
 }
 
 .restaurants .singleRestaurant a img {
 	width: calc(100vw / 1920 * 390);
-	height: calc(100vw / 1920 * 270);
-}
-
-.restaurants .singleRestaurant a {
-	cursor: pointer;
+	height: calc(100vw / 1920 * 300);
 }
 
 .restaurants .moreRestaurants {
@@ -505,69 +502,75 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .newsBlock {
 	background: #f7f7f7;
 	width: 100%;
-	height: calc(100vw / 1920 * 670);
+	height: calc(100vw / 1920 * 460);
 }
 
 .newsBlock .mainNewsBlock {
-	margin: 0 calc(100vw / 1920 * 315);
-	padding: calc(100vw / 1920 * 45) 0;
+	display: block;
 	width: calc(100vw / 1920 * 1260);
+	height: calc(100vw / 1920 * 460);
+	margin: 0 calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 60) 0;
 }
 
 .newsBlock .mainNewsBlock .singleNewBlock {
-	width: calc(100vw / 1920 * 1260);
-	height: calc(100vw / 1920 * 290);
+	width: calc(100vw / 1920 * 420);
+	height: calc(100vw / 1920 * 340);
+	float: left;
+	padding: 0 calc(100vw / 1920 * 15);
 	position: relative;
-	padding: calc(100vw / 1920 * 15);
 }
 
 .newsBlock .mainNewsBlock .singleNewBlock .newsBlockImg {
-	float: left;
+	position: relative;
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 340);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock .newsBlockImg a {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 340);
+	overflow: hidden;
+	border-radius: calc(100vw / 1920 * 10);
+	max-width: calc(100vw / 1920 * 390);
+	max-height: calc(100vw / 1920 * 340);
+	cursor: pointer;
+	display: block;
 }
 
 .newsBlock .mainNewsBlock .singleNewBlock .newsBlockImg img {
 	width: calc(100vw / 1920 * 390);
-	height: calc(100vw / 1920 * 260);
+	height: calc(100vw / 1920 * 340);
 }
 
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText {
-	float: left;
-	width: calc(100vw / 1920 * 840);
-	height: calc(100vw / 1920 * 260);
-	background: #ffffff;
-	padding: calc(100vw / 1920 * 30);
-	line-height: calc(100vw / 1920 * 30);
+.newsBlock .mainNewsBlock .singleNewBlock .header {
+	position: absolute;
+	bottom: calc(100vw / 1920 * 55);
+	left: calc(100vw / 1920 * 16);
+	font-size: calc(100vw / 1920 * 16);
+	font-family: 'noto Sans', serif;
+	font-weight: bold;
+	color: #000000;
 }
 
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .header {
-	margin: 0;
-	color: #141414;
-	font-weight: 700;
-	font-size: calc(100vw / 1920 * 20);
-}
-
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .date {
+.newsBlock .mainNewsBlock .singleNewBlock .date {
+	position: absolute;
+	bottom: calc(100vw / 1920 * 28);
+	left: calc(100vw / 1920 * 16);
+	font-size: calc(100vw / 1920 * 14);
+	font-family: 'noto Sans', serif;
 	color: #b5b5b5;
-	font-size: calc(100vw / 1920 * 14);
 }
 
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .mainText {
-	color: #777777;
-	line-height: normal;
-	width: calc(100vw / 1920 * 650);
-	font-size: calc(100vw / 1920 * 14);
+.newsBlock .mainNewsBlock .singleNewBlock .detailedNews {
+	position: absolute;
+	bottom: calc(100vw / 1920 * 14);
+	right: calc(100vw / 1920 * 14);
 }
 
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .detailedNews {
-	width: calc(100vw / 1920 * 140);
-	height: calc(100vw / 1920 * 70);
-	float: left;
-	padding: calc(100vw / 1920 * 20) 0;
-}
-
-.newsBlock .mainNewsBlock .singleNewBlock .newsBlockText .detailedNews button {
-	width: calc(100vw / 1920 * 140);
-	height: calc(100vw / 1920 * 30);
+.newsBlock .mainNewsBlock .singleNewBlock button {
+	width: calc(100vw / 1920 * 110);
+	height: calc(100vw / 1920 * 26);
 	border-radius: calc(100vw / 1920 * 60);
 	color: #ffffff;
 	background: #de1a22;
@@ -758,6 +761,15 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	top: calc(100vw / 1920 * 20);
 }
 
+.header-container .header-right .header-right-links .categories-button-menu span {
+	width: calc(100vw / 1920 * 32);
+	height: calc(100vw / 1920 * 32);
+	font-size: calc(100vw / 1920 * 32);
+	position: absolute;
+	bottom: calc(100vw / 1920 * 0);
+	right: calc(100vw / 1920 * 30);
+}
+
 .header-container .header-right .header-right-links .shopping-cart {
 	margin-right: calc(100vw / 1920 * 5);
 }
@@ -789,6 +801,67 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	padding-left: calc(100vw / 1920 * 15);
 }
 
+.header-container .header-right .categories-search {
+	position: absolute;
+	right: calc(100vw / 1920 * 250);
+	bottom: calc(100vw / 1920 * 33);
+	width: calc(100vw / 1920 * 200);
+	height: calc(100vw / 1920 * 42);
+}
+
+.header-container .header-right .categories-search .categories {
+	width: calc(100vw / 1920 * 200);
+	height: calc(100vw / 1920 * 42);
+	padding: 0;
+	margin: 0;
+}
+
+.header-container .header-right .categories-search .categories .row {
+	width: calc(100vw / 1920 * 200);
+	height: calc(100vw / 1920 * 42);
+	margin: 0;
+	padding: 0;
+}
+
+.header-container .header-right .categories-search .categories .row form {
+	width: calc(100vw / 1920 * 200);
+	height: calc(100vw / 1920 * 42);
+	margin: 0;
+	padding: 0;
+}
+
+.header-container .header-right .categories-search .categories .row form .search {
+	width: calc(100vw / 1920 * 200);
+	height: calc(100vw / 1920 * 42);
+	border-radius: calc(100vw / 1920 * 4);
+	padding: calc(100vw / 1920 * 10) calc(100vw / 1920 * 5);
+	border: none;
+}
+
+.header-container .header-right .categories-search .categories .row form .search .search-icon {
+	width: calc(100vw / 1920 * 30);
+	font-size: calc(100vw / 1920 * 16);
+}
+
+.header-container .header-right .categories-search .categories .row form .search .search-input {
+	height: 100%;
+	line-height: calc(100vw / 1920 * 20);
+	margin-left: calc(100vw / 1920 * 35);
+}
+
+.header-container .header-right .categories-search .categories .row form .search .search-input input {
+	font-size: calc(100vw / 1920 * 16);
+}
+
+.header-container .header-right .categories-search .search-close {
+	float: right;
+	bottom: calc(100vw / 1920 * 14);
+	position: absolute;
+	right: calc(100vw / 1920 * 5);
+	margin-right: calc(100vw / 1920 * 5);
+	font-size: calc(100vw / 1920 * 14);
+}
+
 .header-container .header-right .header-right-links .categories-button-search, .categories-button-menu, .categories-button-shopping-cart {
 	padding-top: calc(100vw / 1920 * 5);
 }
@@ -796,8 +869,10 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .header-container .header-right .header-right-links a {
 	float: left;
 	width: calc(100vw / 1920 * 76);
+	height: calc(100vw / 1920 * 32);
 	text-align: center;
 	color: #ffffff;
+	position: relative;
 }
 
 .header-container .right-menu {

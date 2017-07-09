@@ -96,17 +96,20 @@
                 <a class="categories-button-menu">
                     <span class="fa fa-bars"></span>
                 </a>
-                <div @{if url !=='/'} class="categories-hide"@{fi}>
-                <div class="categories">
-                    <div class="row">
-                        <form action="@{sitemap_url('products')}" method="GET">
-                            <div class="search">
-                                <div class="search-icon"><span class="fa fa-search"></span></div>
-                                <div class="search-input"><input type="text" name="search"
-                                                                 placeholder="@(Search items ...)" autofocus="autofocus"
-                                                                 value="@{query.q}"/></div>
-                            </div>
-                        </form>
+                <div @{if url !=='/'} class="categories-hide categories-search" @{fi}>
+                    <div class="categories">
+                        <div class="row">
+                            <form action="@{sitemap_url('products')}" method="GET">
+                                <div class="search">
+                                    <div class="search-icon"><span class="fa fa-search"></span></div>
+                                    <div class="search-input"><input type="text" name="search"
+                                                                     placeholder="@(Search items ...)"
+                                                                     autofocus="autofocus"
+                                                                     value="@{query.q}"/></div>
+                                    <div class="fa fa-close search-close"></div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

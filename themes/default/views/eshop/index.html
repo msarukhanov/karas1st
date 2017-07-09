@@ -66,7 +66,6 @@
         <button ng-click="showMore()">More</button>
     </div>
 </div>
-
 <div class="menu">
     <div class="main-menu">
         @{foreach m in global.categories}
@@ -89,11 +88,8 @@
     <div class="restaurants">
         @{foreach m in global.restaurants}
         <div class="singleRestaurant">
-            <div class="singleRestaurantHeader">
-                <p><img src="/img/restaurants/location.png"></p>
+            <div class="singleRestaurantBody">
                 <span>@{m.title[controller.getLang()]}</span>
-            </div>
-            <div>
                 <a>
                     <img src="@{if !m.picture }/img/empty.png@{else}/images/small/@{m.picture}.jpg@{fi}">
                 </a>
@@ -135,27 +131,17 @@
         <!--</div>-->
 
         <div class="moreRestaurants">
-            <button ng-click="showMoreRest()">More</button>
+            <button ng-click="showMoreRest()">SEE ALL</button>
         </div>
     </div>
 </div>
-
-
 <div class="newsBlock">
     <div class="mainNewsBlock">
         <div class="singleNewBlock">
             <div class="newsBlockImg">
                 <a><img src="/img/news/news1.png"></a>
-            </div>
-            <div class="newsBlockText">
                 <p class="header">KARAS: New branch in Avan community</p>
                 <p class="date">15 June 2017</p>
-                <p class="mainText">
-                    The branch located at Khudyakov 175/1 is an open-air café. All the specifics of Karas are preserved
-                    here.
-                    The presented product consists of about 300 product units.
-                    The main menu of the menu is the Armenian traditional cuisine.
-                </p>
                 <div class="detailedNews">
                     <button ng-click="readMore()">Read more</button>
                 </div>
@@ -164,13 +150,18 @@
         <div class="singleNewBlock">
             <div class="newsBlockImg">
                 <a><img src="/img/news/news2.png"></a>
-            </div>
-            <div class="newsBlockText">
                 <p class="header">Gifts for March 8</p>
                 <p class="date">07 March 2017</p>
-                <p class="mainText">
-                    ONLY on March 8, we ship one bottle of Karas royal champagne with all the shipping orders over 10,000 drams.
-                </p>
+                <div class="detailedNews">
+                    <button ng-click="readMore()">Read more</button>
+                </div>
+            </div>
+        </div>
+        <div class="singleNewBlock">
+            <div class="newsBlockImg">
+                <a><img src="/img/news/news1.png"></a>
+                <p class="header">KARAS: New branch in Avan community</p>
+                <p class="date">15 June 2017</p>
                 <div class="detailedNews">
                     <button ng-click="readMore()">Read more</button>
                 </div>
