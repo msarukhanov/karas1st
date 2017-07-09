@@ -761,7 +761,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	top: calc(100vw / 1920 * 20);
 }
 
-.header-container .header-right .header-right-links .categories-button-menu span {
+.header-container .header-right .header-right-links .right-menu-button span {
 	width: calc(100vw / 1920 * 32);
 	height: calc(100vw / 1920 * 32);
 	font-size: calc(100vw / 1920 * 32);
@@ -862,7 +862,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	font-size: calc(100vw / 1920 * 14);
 }
 
-.header-container .header-right .header-right-links .categories-button-search, .categories-button-menu, .categories-button-shopping-cart {
+.header-container .header-right .header-right-links .categories-button-search, .right-menu-button, .categories-button-shopping-cart {
 	padding-top: calc(100vw / 1920 * 5);
 }
 
