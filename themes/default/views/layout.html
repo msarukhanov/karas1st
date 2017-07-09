@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=10"/>
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta id="myViewport" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <meta name="robots" content="all,follow"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext"/>
@@ -12,223 +12,122 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     @{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
 </head>
-<body data-jc="exec">
+<body data-jc="exec" class="body-cl">
 
-<!--<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>-->
-<!--<div data-jc="message" data-button="@(Close)"></div>-->
-
-<!--<header class="header-top">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-sm-5 xs-center">
-                <nav class="breadcrumb hidden-xs">
-                    <div class="breadcrumb-social hidden-xs">
-                        <a href="https://www.facebook.com/totaljs.web.framework"><span class="fa fa-facebook-square"></span></a>
-                        <a href="https://twitter.com/totalframework"><span class="fa fa-twitter-square"></span></a>
-                        <a href="https://plus.google.com/u/0/+partialjs/posts"><span class="fa fa-google-plus-square"></span></a>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-sm-7 xs-center">
-                <div class="header-links-container">
-                    <div class="header-links">
-                        <div class="form-language">
-
-                            @{if user}
-                            <a href="/@{!controller.getLang()}/account/" class="b">@{user.name}</a>
-                            <a href="/@{!controller.getLang()}/checkout/" class="">
-                                <span class="fa fa-shopping-cart"></span>
-                                <span class="xs-center" data-jc="checkout" data-currency="@{config.custom.currency_entity}"></span>
-                                @(Your shopping cart)
-                            </a>
-                            <a href="/@{!controller.getLang()}/account/logoff/" class="red"  style="margin-right: 75px">@(Sign out)</a>
-                            @{else}
-                            <a href="/@{!controller.getLang()}/account/" class="b" style="margin-right: 75px">
-                                @{!controller.translateText({'en':'Login','ru':'Вход','hy':'Մուտք'})}
-                            </a>
-                            @{fi}
-                            <a href="@{!controller.langChangeLink('hy')}" class="curL@{!controller.getLang()=='hy'}">Հայ </a>
-                            <a href="@{!controller.langChangeLink('ru')}" class="curL@{!controller.getLang()=='ru'}">Рус </a>
-                            <a href="@{!controller.langChangeLink('en')}" class="curL@{!controller.getLang()=='en'}">Eng</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="right-menu">
+    <div class="right-menu-header">
+        <ul class="lang-list">
+            <li class="lang-item">
+                a href="@{!controller.langChangeLink('hy')}" class="curL@{!controller.getLang()=='hy'}">Հայ </a>
+            </li>
+            <li class="lang-item">
+                <a href="@{!controller.langChangeLink('ru')}" class="curL@{!controller.getLang()=='ru'}">Рус </a>
+            </li>
+            <li class="lang-item">
+                <a href="@{!controller.langChangeLink('en')}" class="curL@{!controller.getLang()=='en'}">Eng</a>
+            </li>
+        </ul>
     </div>
-</header>-->
+    <div class="right-menu-body">
+        <!--<a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/restaurants/">@{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}</a>-->
+    </div>
+    <div class="right-menu-footer">
+        <a href="https://www.facebook.com/totaljs.web.framework"><span class="fa fa-facebook-square"></span></a>
+        <a href="https://twitter.com/totalframework"><span class="fa fa-twitter-square"></span></a>
+        <a href="https://plus.google.com/u/0/+partialjs/posts"><span class="fa fa-google-plus-square"></span></a>
+    </div>
+</div>
 
-<header class="header-container">
-    <div class="container head-cont">
-        <div class="logo-phone">
-            <a href="/@{!controller.getLang()}/">
-                <img src="/img/header-logo.png"/>
-            </a>
-            <span>@{!controller.translateText({'en':'+1 747 500 00 00','ru':'+1 747 500 00 00','hy':'+1 747 500 00 00'})}</span>
-        </div>
-        <div class="header-right">
-            <div class="header-right-links">
-                <!--<a href="@{sitemap_url('restaurants_@{!controller.getLang()}')}">
-                    @{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}
+<div class="container-main home-page">
+    <header class="header-container">
+        <div class="container head-cont">
+            <div class="logo-phone">
+                <a href="/@{!controller.getLang()}/">
+                    <img src="/img/header-logo.png"/>
                 </a>
-                <a href="@{sitemap_url('delivery_@{!controller.getLang()}')}">
-                    @{!controller.translateText({'en':'Delivery','ru':'Доставка','hy':'Առաքում'})}
-                </a>
-                <a>
-                    @{!controller.translateText({'en':'Corporate offers','ru':'Корпоративные предложения','hy':'Կորպորատիվ առաջարկներ'})}
-                </a>-->
-                <a href="javascript:void(0)" class="categories-button-search categories-button">
-                    <span class="fa fa-search"></span>
-                </a>
-                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/checkout/">
+                <span>@{!controller.translateText({'en':'+1 747 500 00 00','ru':'+1 747 500 00 00','hy':'+1 747 500 00 00'})}</span>
+            </div>
+            <div class="header-right">
+                <div class="header-right-links">
+                    <!--<a href="@{sitemap_url('restaurants_@{!controller.getLang()}')}">
+                        @{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}
+                    </a>
+                    <a href="@{sitemap_url('delivery_@{!controller.getLang()}')}">
+                        @{!controller.translateText({'en':'Delivery','ru':'Доставка','hy':'Առաքում'})}
+                    </a>
+                    <a>
+                        @{!controller.translateText({'en':'Corporate offers','ru':'Корпоративные предложения','hy':'Կորպորատիվ առաջարկներ'})}
+                    </a>-->
+                    <a href="javascript:void(0)" class="categories-button-search categories-button">
+                        <span class="fa fa-search"></span>
+                    </a>
+                    <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/checkout/">
                     <span class="fa fa-shopping-cart shopping-cart">
                         <!--<span>5</span>-->
                         <span class="xs-center" data-jc="checkout"
                               data-currency="@{config.custom.currency_entity}"></span>
                     </span>
-                </a>
-                <a class="login" href="/@{!controller.getLang()}/account/">
-                    <div class="categories-button-login">
-                        <button>LOGIN</button>
-                    </div>
-                </a>
-                <a class="categories-button-menu">
-                    <span class="fa fa-bars"></span>
-                </a>
-                <div @{if url !=='/'} class="categories-hide categories-search" @{fi}>
-                    <div class="categories">
-                        <div class="row">
-                            <form action="@{sitemap_url('products')}" method="GET">
-                                <div class="search">
-                                    <div class="search-icon"><span class="fa fa-search"></span></div>
-                                    <div class="search-input"><input type="text" name="search"
-                                                                     placeholder="@(Search items ...)"
-                                                                     autofocus="autofocus"
-                                                                     value="@{query.q}"/></div>
-                                    <div class="fa fa-close search-close"></div>
-                                </div>
-                            </form>
+                    </a>
+                    <a class="login" href="/@{!controller.getLang()}/account/">
+                        <div class="categories-button-login">
+                            <button>LOGIN</button>
+                        </div>
+                    </a>
+                    <a class="right-menu-button">
+                        <span class="fa fa-bars"></span>
+                        <span class="fa fa-times"></span>
+                    </a>
+                    <div @{if url !=='/'} class="categories-hide categories-search" @{fi}>
+                        <div class="categories">
+                            <div class="row">
+                                <form action="@{sitemap_url('products')}" method="GET">
+                                    <div class="search">
+                                        <div class="search-icon"><span class="fa fa-search"></span></div>
+                                        <div class="search-input"><input type="text" name="search"
+                                                                         placeholder="@(Search items ...)"
+                                                                         autofocus="autofocus"
+                                                                         value="@{query.q}"/></div>
+                                        <div class="fa fa-close search-close"></div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--   <div class="right-menu">
-           <div class="right-menu-cont">
-               <div class="right-menu-head">
-
-               </div>
-               <div class="right-menu-body">
-
-               </div>
-           </div>
-       </div>-->
-</header>
-
-
-<div id="slider">
-    <a href="#" class="control_next"></a>
-    <a href="#" class="control_prev"></a>
-    <ul>
-        @{foreach slide in global.slides}
-        <li>
-            <div class="slider-item">
-                <span class="slider-header">@{slide.title[controller.getLang()]}</span>
-                <span class="slider-title">@{slide.header[controller.getLang()]}</span>
-                <span class="slider-text">@{slide.description[controller.getLang()]}</span>
+    </header>
+    <div id="slider">
+        <a href="#" class="control_next"></a>
+        <a href="#" class="control_prev"></a>
+        <ul>
+            @{foreach slide in global.slides}
+            <li>
+                <div class="slider-item">
+                    <span class="slider-header">@{slide.title[controller.getLang()]}</span>
+                    <span class="slider-title">@{slide.header[controller.getLang()]}</span>
+                    <span class="slider-text">@{slide.description[controller.getLang()]}</span>
                 <span class="slider-btn">
 						<div class="moreSpecialOffer">
 							<a href="//@{slide.link}">@{!controller.translateText({'en':'order','ru':'заказать','hy':'պատվիրել'})}</a>
 						</div>
 					</span>
-            </div>
-            <div class="slider-shadow"></div>
-            <img src="/img/slide1.png">
-        </li>
-        @{end}
-    </ul>
-    <script>
-        $(document).ready(function ($) {
-            setInterval(function () {
-                moveRight();
-            }, 5000);
-            var slideCount = $('#slider ul li').length;
-            var slideWidth = $('#slider ul li').width();
-            var slideHeight = $('#slider ul li').height();
-            var sliderUlWidth = slideCount * slideWidth;
+                </div>
+                <div class="slider-shadow"></div>
+                <img src="/img/slide1.png">
+            </li>
+            @{end}
+        </ul>
+        <script>
+            $(document).ready(function ($) {
 
-            $('#slider').css({width: slideWidth, height: slideHeight});
-            $('#slider ul').css({width: sliderUlWidth, marginLeft: -slideWidth});
-            $('#slider ul li:last-child').prependTo('#slider ul');
-            function moveLeft() {
-                $('#slider ul').animate({
-                    left: +slideWidth
-                }, 200, function () {
-                    $('#slider ul li:last-child').prependTo('#slider ul');
-                    $('#slider ul').css('left', '');
-                });
-            }
-
-            function moveRight() {
-                $('#slider ul').animate({
-                    left: -slideWidth
-                }, 200, function () {
-                    $('#slider ul li:first-child').appendTo('#slider ul');
-                    $('#slider ul').css('left', '');
-                });
-            }
-
-            $(window).on('resize', function () {
-                var slideCount = $('#slider ul li').length;
-                var slideWidth = $('#slider ul li').width();
-                var slideHeight = $('#slider ul li').height();
-                var sliderUlWidth = slideCount * slideWidth;
-
-                $('#slider').css({width: slideWidth, height: slideHeight});
-                $('#slider ul').css({width: sliderUlWidth, marginLeft: -slideWidth});
             });
-            $('a.control_prev').click(function () {
-                moveLeft();
-            });
-            $('a.control_next').click(function () {
-                moveRight();
-            });
-        });
 
-    </script>
-</div>
-
-<div class="container home-page">
-    <!--@{if url !== '/'}-->
-    <!--<div class="hidden-xs m">-->
-    <!--<a href="javascript:void(0)" class="categories-button"><span class="fa fa-folder mr5"></span>@(Show categories)</a>-->
-    <!--</div>-->
-    <!--@{fi}-->
-    <!--<div@{if url !== '/'} class="categories-hide"@{fi}>-->
-    <!--<div class="categories">-->
-    <!--<div class="row">-->
-    <!--@{foreach m in global.categories}-->
-    <!--@{if m.count > 0 && !m.level}-->
-    <!--<div class="col-sm-4"><a href="@{sitemap_url('products')}@{m.linker}/">@{m.name}</a></div>-->
-    <!--@{fi}-->
-    <!--@{end}-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<nav class="recommendation">-->
-    <!--<a href="@{sitemap_url('new')}" class="blue"><i class="fa fa-caret-right"></i>@(New items in the store)</a>-->
-    <!--<a href="@{sitemap_url('top')}"><i class="fa fa-caret-right"></i>@(Top items)</a>-->
-    <!--<a href="@{sitemap_url('popular')}"><i class="fa fa-caret-right"></i>@(Popular items)<b>NEW</b></a>-->
-    <!--</nav>-->
-    <!--</div>-->
-
-    <div class="content">
-
-        @{body}
-
+        </script>
     </div>
-
+    <div class="content">
+        @{body}
+    </div>
 </div>
 <footer class="footer-container">
     <div class="cont-links hidden-xs">
@@ -373,3 +272,69 @@
 
 </body>
 </html>
+
+
+<!--<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>-->
+<!--<div data-jc="message" data-button="@(Close)"></div>-->
+
+<!--<header class="header-top">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-5 xs-center">
+                <nav class="breadcrumb hidden-xs">
+                    <div class="breadcrumb-social hidden-xs">
+
+                    </div>
+                </nav>
+            </div>
+            <div class="col-sm-7 xs-center">
+                <div class="header-links-container">
+                    <div class="header-links">
+                        <div class="form-language">
+
+                            @{if user}
+                            <a href="/@{!controller.getLang()}/account/" class="b">@{user.name}</a>
+                            <a href="/@{!controller.getLang()}/checkout/" class="">
+                                <span class="fa fa-shopping-cart"></span>
+                                <span class="xs-center" data-jc="checkout" data-currency="@{config.custom.currency_entity}"></span>
+                                @(Your shopping cart)
+                            </a>
+                            <a href="/@{!controller.getLang()}/account/logoff/" class="red"  style="margin-right: 75px">@(Sign out)</a>
+                            @{else}
+                            <a href="/@{!controller.getLang()}/account/" class="b" style="margin-right: 75px">
+                                @{!controller.translateText({'en':'Login','ru':'Вход','hy':'Մուտք'})}
+                            </a>
+                            @{fi}
+                            <a href="@{!controller.langChangeLink('hy')}" class="curL@{!controller.getLang()=='hy'}">Հայ </a>
+                            <a href="@{!controller.langChangeLink('ru')}" class="curL@{!controller.getLang()=='ru'}">Рус </a>
+                            <a href="@{!controller.langChangeLink('en')}" class="curL@{!controller.getLang()=='en'}">Eng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>-->
+
+<!--@{if url !== '/'}-->
+<!--<div class="hidden-xs m">-->
+<!--<a href="javascript:void(0)" class="categories-button"><span class="fa fa-folder mr5"></span>@(Show categories)</a>-->
+<!--</div>-->
+<!--@{fi}-->
+<!--<div@{if url !== '/'} class="categories-hide"@{fi}>-->
+<!--<div class="categories">-->
+<!--<div class="row">-->
+<!--@{foreach m in global.categories}-->
+<!--@{if m.count > 0 && !m.level}-->
+<!--<div class="col-sm-4"><a href="@{sitemap_url('products')}@{m.linker}/">@{m.name}</a></div>-->
+<!--@{fi}-->
+<!--@{end}-->
+<!--</div>-->
+<!--</div>-->
+<!--<nav class="recommendation">-->
+<!--<a href="@{sitemap_url('new')}" class="blue"><i class="fa fa-caret-right"></i>@(New items in the store)</a>-->
+<!--<a href="@{sitemap_url('top')}"><i class="fa fa-caret-right"></i>@(Top items)</a>-->
+<!--<a href="@{sitemap_url('popular')}"><i class="fa fa-caret-right"></i>@(Popular items)<b>NEW</b></a>-->
+<!--</nav>-->
+<!--</div>-->
