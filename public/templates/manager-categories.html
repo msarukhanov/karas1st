@@ -55,16 +55,12 @@
 			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="categories.form.name.en" data-required="true" class="m" data-maxlength="50">@(Name EN)</div>
 				<div data-jc="textbox" data-jc-path="categories.form.name.ru" data-required="true" class="m" data-maxlength="50">@(Name RU)</div>
+			</div>
+			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="categories.form.name.hy" data-required="true" class="m" data-maxlength="50">@(Name HY)</div>
 				<div data-jc="fileupload" data-jc-path="categories.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
-				<div class="relative mr15">
-					<div data-jc="checkbox" data-jc-path="categories.form.istop" class="red">@(Mark as <b>TOP product</b>)</div>
-				</div>
-				<div class="relative">
-					<div data-jc="checkbox" data-jc-path="categories.form.isnew" class="blue">@(News in store)</div>
-				</div>
+				<div data-jc="textbox" data-jc-path="categories.form.priority" data-required="true"  data-align="center" data-jc-type="number" data-maxlength="3" data-increment="true" data-icon="fa-sort-amount-desc">@(Priority)</div>
 			</div>
-
 		</div>
 	</div>
 	<hr data-binder="categories.form.template" data-binder-visible="n => n ? false : true" class="nmb" />

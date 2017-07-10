@@ -11,6 +11,7 @@ NEWSCHEMA('Category').make(function(schema) {
 	schema.define('istop', Boolean);
 	schema.define('isnew', Boolean);
     schema.define('level', 'String(50)');
+    schema.define('priority', Number, true);
     schema.define('linker', 'String(50)');
     schema.define('picture', 'String(256)');
 
@@ -52,7 +53,7 @@ NEWSCHEMA('Category').make(function(schema) {
 
 		filter.sort('id', true);
 
-		filter.fields('id', 'name', 'reference', 'isnew', 'istop', 'picture');
+		filter.fields('id', 'name', 'reference', 'isnew', 'istop', 'picture', 'priority');
 
 		filter.skip(skip);
 		filter.take(take);
