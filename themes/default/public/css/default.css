@@ -1150,7 +1150,6 @@ a.control_next {
 
 .right-menu .right-menu-body li {
 	height: calc(100vw / 1920 * 56);
-	padding: calc(100vw / 1920 * 18) calc(100vw / 1920 * 20);
 	width: 100%;
 	display: inline-block;
 	text-align: left;
@@ -1162,10 +1161,13 @@ a.control_next {
 }
 
 .right-menu .right-menu-body li a {
-	padding: 0;
 	color: #cccccc;
-	height: calc(100vw / 1920 * 20);
+	height: calc(100vw / 1920 * 56);
 	text-decoration: none;
+	width: 100%;
+	display: block;
+	padding: calc(100vw / 1920 * 18) calc(100vw / 1920 * 20);
+	line-height: calc(100vw / 1920 * 20);
 }
 
 .right-menu .right-menu-footer {

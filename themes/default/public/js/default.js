@@ -75,6 +75,7 @@ $(document).ready(function() {
 		var price = parseFloat(el.attr('data-price'));
 		var id = el.attr('data-id');
 		var checkout = FIND('checkout');
+		console.log(checkout);
 		checkout.append(id, price, 1);
 		var target = $('.detail-checkout');
 		target.find('.data-checkout-count').html(checkout.exists(id).count + 'x');
@@ -269,7 +270,7 @@ COMPONENT('checkout', function() {
 			count += cart[i].count;
 		}
 
-		self.html(currency.format(sum.format(2)));
+		self.html(count);
 	};
 });
 

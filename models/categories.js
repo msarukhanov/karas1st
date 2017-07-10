@@ -161,14 +161,6 @@ function refresh() {
             db_categories[doc.category].count++;
         else
             db_categories[doc.category] = { count: 1, linker: doc.linker_category, path: doc.linker_category.split('/'), names: doc.category.split('/').trim() };
-
-        if (!doc.manufacturer)
-            return;
-
-        if (db_manufacturers[doc.manufacturer])
-            db_manufacturers[doc.manufacturer].count++;
-        else
-            db_manufacturers[doc.manufacturer] = { count: 1, linker: doc.linker_manufacturer };
     };
 
     var prepare_cat = function(cat) {
@@ -237,19 +229,6 @@ function refresh() {
                 }
             }
 
-            // Prepares manufacturers
-            keys = Object.keys(db_manufacturers);
-            var manufacturers = new Array(keys.length);
-            for (var i = 0, length = keys.length; i < length; i++) {
-                var name = keys[i];
-                var item = db_manufacturers[name];
-                manufacturers[i] = { name: name, linker: item.linker, count: item.count };
-            }
-
-            manufacturers.quicksort('name');
-
-            var temp_cats = [];
-
             _.each(categories, function(item,k) {
                 var tmp = _.find(db_full_cat, function(fitem){return fitem.name_en == item.name});
                 if(tmp) {
@@ -272,11 +251,12 @@ function refresh() {
             });
             db_full_cat = _.values(db_full_cat);
 
+            categories =  _.sortBy(categories, function(num){ return num.priority; });
+            db_full_cat = _.sortBy(db_full_cat, function(num){ return num.priority; });
+
             F.global.categories = categories;
 
             F.global.db_categories = db_full_cat;
-
-            F.global.manufacturers = manufacturers;
 
         });
     });

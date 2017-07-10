@@ -375,6 +375,37 @@ function refresh() {
 		Object.keys(navigation).forEach((name) => navigation[name].orderBy('priority', false));
 		partial.orderBy('priority', false);
 
+		console.log(navigation);
+
+		var searchbar = navigation.searchbar;
+		_.each(searchbar, function(i, k){
+			var spl = i.url.split("/");
+			if(spl[1] && spl[2]) {
+				searchbar[k].link = spl[2] + "/";
+				searchbar[k].lang = spl[1];
+			}
+			else {
+				searchbar[k] = {};
+			}
+		});
+		searchbar = _.values(_.groupBy(searchbar, 'link'));
+		searchbar = _.filter(searchbar, function (item) {return item[0] && item[0].title;});
+		_.each(searchbar, function(i,k) {
+			var tmp = i, title = {};
+			_.each(tmp, function (item,key) {
+				title[item.lang] = item.title;
+			});
+			searchbar[k] = {
+				icon : tmp[0].icon,
+				priority : tmp[0].priority,
+				tags : tmp[0].tags,
+				external : tmp[0].external,
+				link : tmp[0].link,
+				title : title
+			}
+		});
+		console.log(searchbar);
+		F.global.navilinks = searchbar;
 		F.global.navigations = navigation;
 		F.global.sitemap = sitemap;
 		F.global.partial = partial;
