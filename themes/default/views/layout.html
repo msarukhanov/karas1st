@@ -7,7 +7,7 @@
     <meta id="myViewport" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <meta name="robots" content="all,follow"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansarmenian.css"/>
     <link rel="stylesheet" href="@{global.css}"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     @{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
@@ -18,10 +18,10 @@
     <div class="right-menu-header">
         <ul class="lang-list">
             <li class="lang-item">
-                <a href="@{!controller.langChangeLink('hy')}" class="curL@{!controller.getLang()=='hy'}">Հայ </a>
+                <a href="@{!controller.langChangeLink('hy')}" class="curL@{!controller.getLang()=='hy'}">Հայ</a>
             </li>
             <li class="lang-item">
-                <a href="@{!controller.langChangeLink('ru')}" class="curL@{!controller.getLang()=='ru'}">Рус </a>
+                <a href="@{!controller.langChangeLink('ru')}" class="curL@{!controller.getLang()=='ru'}">Ру</a>
             </li>
             <li class="lang-item">
                 <a href="@{!controller.langChangeLink('en')}" class="curL@{!controller.getLang()=='en'}">Eng</a>
@@ -29,12 +29,31 @@
         </ul>
     </div>
     <div class="right-menu-body">
+        <ul class="right-menu-list">
+            <li>
+                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/">@{!controller.translateText({'en':'Home','ru':'Главная Страница','hy':'Գլխավոր էջ'})}</a>
+            </li>
+            <li>
+                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/restaurants/">@{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}</a>
+            </li>
+        </ul>
         <!--<a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/restaurants/">@{!controller.translateText({'en':'Restaurants','ru':'Рестораны','hy':'Ռեստորաններ'})}</a>-->
     </div>
     <div class="right-menu-footer">
-        <a href="https://www.facebook.com/totaljs.web.framework"><span class="fa fa-facebook-square"></span></a>
-        <a href="https://twitter.com/totalframework"><span class="fa fa-twitter-square"></span></a>
-        <a href="https://plus.google.com/u/0/+partialjs/posts"><span class="fa fa-google-plus-square"></span></a>
+        <div class="socials">
+            <div class="youtube">
+
+            </div>
+            <div class="fb">
+
+            </div>
+            <div class="insta">
+
+            </div>
+            <div class="trip">
+
+            </div>
+        </div>
     </div>
 </div>
 
