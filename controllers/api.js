@@ -102,7 +102,6 @@ function json_products_categories() {
 // Reads categories
 function json_categories_query() {
     var self = this;
-
     // Renders related products
     if (self.query.html) {
         // Disables layout

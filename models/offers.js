@@ -22,6 +22,7 @@ NEWSCHEMA('Offer').make(function(schema) {
 	schema.define('istop', Boolean);
 	schema.define('isnew', Boolean);
     schema.define('picture', 'String(256)');
+    schema.define('priority', Number, true);
 
 	// Gets listing
 	schema.setQuery(function(error, options, callback) {
@@ -41,7 +42,7 @@ NEWSCHEMA('Offer').make(function(schema) {
 
 		filter.sort('id', true);
 
-		filter.fields('id', 'title', 'short', 'description', 'isnew', 'istop', 'picture');
+		filter.fields('id', 'title', 'short', 'description', 'isnew', 'istop', 'picture', 'priority');
 
 		filter.skip(skip);
 		filter.take(take);
@@ -58,6 +59,8 @@ NEWSCHEMA('Offer').make(function(schema) {
 			data.limit = options.max;
 			data.pages = Math.ceil(data.count / options.max) || 1;
 			data.page = options.page + 1;
+
+            data.items =  _.sortBy(data.items, function(num){ return num.priority; });
 
 			callback(data);
 		});
@@ -144,6 +147,9 @@ function refresh() {
 
     NOSQL('offers').find().prepare(prepare_offer).callback(function(){
 
+        db_offers =  _.sortBy(db_offers, function(num){ return num.priority; });
+
+        F.global.index_offers = db_offers.slice(0, 4);
         F.global.offers = db_offers;
 
     });

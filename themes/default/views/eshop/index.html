@@ -4,7 +4,7 @@
 
 <div class="specialOffer">
 
-    @{foreach m in global.offers}
+    @{foreach m in global.index_offers}
     <div class="singleSpecialOffer">
         <div class="specialOfferHeader">
             <p>
@@ -19,60 +19,13 @@
     </div>
     @{end}
 
-    <!--<div class="singleSpecialOffer">-->
-        <!--<div class="specialOfferHeader">-->
-            <!--<p><img src="/img/specialOffer/special-offer-flag.png"></p>-->
-            <!--<span>Special Offer</span>-->
-        <!--</div>-->
-        <!--<div>-->
-            <!--<a>-->
-                <!--<img src="/img/specialOffer/special-offer-1.png">-->
-                <!--<span>Raging pizza by an Italian chef</span>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="singleSpecialOffer">-->
-        <!--<div class="specialOfferHeader">-->
-            <!--<p><img src="/img/specialOffer/new-special-offer-flag.png"></p>-->
-            <!--<span>New in Karas</span>-->
-        <!--</div>-->
-        <!--<a>-->
-            <!--<img src="/img/specialOffer/special-offer-2.png">-->
-            <!--<span>Nuremberg sausage with spicy pepper</span>-->
-        <!--</a>-->
-    <!--</div>-->
-    <!--<div class="singleSpecialOffer">-->
-        <!--<div class="specialOfferHeader">-->
-            <!--<p><img src="/img/specialOffer/special-offer-flag.png"></p>-->
-            <!--<span>Special Offer</span>-->
-        <!--</div>-->
-        <!--<a>-->
-            <!--<img src="/img/specialOffer/special-offer-3.png">-->
-            <!--<span>3 cheeseburger for the price of two</span>-->
-        <!--</a>-->
-    <!--</div>-->
-    <!--<div class="singleSpecialOffer">-->
-        <!--<div class="specialOfferHeader">-->
-            <!--<p><img src="/img/specialOffer/special-offer-flag.png"></p>-->
-            <!--<span>Special Offer</span>-->
-        <!--</div>-->
-        <!--<a>-->
-            <!--<img src="/img/specialOffer/special-offer-4.png">-->
-            <!--<span>Fresh cocktails from Vacho grandpa fruit garden</span>-->
-        <!--</a>-->
-    <!--</div>-->
-
     <div class="moreSpecialOffer">
         <button ng-click="showMore()">More</button>
     </div>
 </div>
 <div class="menu">
     <div class="main-menu">
-        @{foreach m in global.categories}
-
-        <!--TODO sort for empty categories  AND db_categories to categories -->
-        <!---->
-        <!--@{sitemap_url('products_@{!controller.getLang()}')}-->
+        @{foreach m in global.db_categories}
         <div class="singleMenu">
             <div class="singleMenuImg">
                 <a href="/@{!controller.getLang()}/shop/@{m.linker}/">
@@ -96,39 +49,6 @@
             </div>
         </div>
         @{end}
-        <!--<div class="singleRestaurant">-->
-        <!--<div class="singleRestaurantHeader">-->
-        <!--<p><img src="/img/restaurants/location.png"></p>-->
-        <!--<span>KARAS - Tumanian</span>-->
-        <!--</div>-->
-        <!--<div>-->
-        <!--<a>-->
-        <!--<img src="/img/restaurants/rest1.png">-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="singleRestaurant">-->
-        <!--<div class="singleRestaurantHeader">-->
-        <!--<p><img src="/img/restaurants/location.png"></p>-->
-        <!--<span>KARAS - Abovyan</span>-->
-        <!--</div>-->
-        <!--<div>-->
-        <!--<a>-->
-        <!--<img src="/img/restaurants/rest2.png">-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="singleRestaurant">-->
-        <!--<div class="singleRestaurantHeader">-->
-        <!--<p><img src="/img/restaurants/location.png"></p>-->
-        <!--<span>KARAS - Abovyan</span>-->
-        <!--</div>-->
-        <!--<div>-->
-        <!--<a>-->
-        <!--<img src="/img/restaurants/rest3.png">-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--</div>-->
 
         <div class="moreRestaurants">
             <button ng-click="showMoreRest()">SEE ALL</button>
@@ -169,31 +89,3 @@
         </div>
     </div>
 </div>
-
-<!--
-<div class="padding npt">
-    <nav class="manufacturers">
-        <div class="categories">
-            <div class="row">
-                @{foreach m in global.categories}
-                @{if m.count > 0 && !m.level}
-                @{sitemap_url('products_@{!controller.getLang()}')}
-
-                <div class="col-sm-3">
-                    <a href="/@{!controller.getLang()}/shop/@{m.linker}/" style="width: 100%;text-align: center">
-                        <img style="width: 100%;"
-                             src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}"
-                             class="img-responsive" alt="@{m.picture}" border="0"/>
-                        <span style="display: inline-block; font-size: 16px">@{m.full_name[controller.getLang()]}</span>
-                    </a>
-                </div>
-
-                @{fi}
-                @{end}
-            </div>
-        </div>
-    </nav>
-
-    &lt;!&ndash;@{view('eshop/partial-products', model)}&ndash;&gt;
-
-</div>-->

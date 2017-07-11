@@ -582,7 +582,7 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .footer-container {
 	padding: 0;
-	height: calc(100vw / 1920 * 490);
+	/*height: calc(100vw / 1920 * 490);*/
     background-color: #dedede;
 }
 

@@ -375,8 +375,6 @@ function refresh() {
 		Object.keys(navigation).forEach((name) => navigation[name].orderBy('priority', false));
 		partial.orderBy('priority', false);
 
-		console.log(navigation);
-
 		var searchbar = navigation.searchbar;
 		_.each(searchbar, function(i, k){
 			var spl = i.url.split("/");
@@ -404,7 +402,7 @@ function refresh() {
 				title : title
 			}
 		});
-		console.log(searchbar);
+
 		F.global.navilinks = searchbar;
 		F.global.navigations = navigation;
 		F.global.sitemap = sitemap;

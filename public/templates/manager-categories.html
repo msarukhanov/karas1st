@@ -14,6 +14,7 @@
 		 data-empty="@(Database does not contain any data.)">
 		<script type="text/html">
 			<tr>
+				<td>{{ priority }}</td>
 				<!--"{{!picture ? '' : }}"-->
 				<td>
 					{{ if !picture }} <img width="100%" height="auto" src="/img/empty.png"> {{fi}}
@@ -109,6 +110,7 @@
 	ON('#categories.grid', function(component) {
 
 		// Max items per page
+
 		categories.filter.max = component.max;
 		categories_refresh_codelists();
 		categories_refresh(true);

@@ -55,21 +55,24 @@
 				<div data-jc="textbox" data-jc-path="offers.form.title.en" data-required="true" class="m" data-maxlength="50">@(title EN)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.title.ru" data-required="true" class="m" data-maxlength="50">@(title RU)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.title.hy" data-required="true" class="m" data-maxlength="50">@(title HY)</div>
+			</div>
+			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="offers.form.short.en" data-required="false" class="m" data-maxlength="50">@(short EN)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.short.ru" data-required="false" class="m" data-maxlength="50">@(short RU)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.short.hy" data-required="false" class="m" data-maxlength="50">@(short HY)</div>
+
+			</div>
+			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="offers.form.description.en" data-required="false" class="m" data-maxlength="50">@(description EN)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.description.ru" data-required="false" class="m" data-maxlength="50">@(description RU)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.description.hy" data-required="false" class="m" data-maxlength="50">@(description HY)</div>
+			</div>
+			<div class="col-md-6">
+				<div data-jc="textbox" data-jc-path="offers.form.priority" data-required="true"  data-align="center" data-jc-type="number" data-maxlength="3" data-increment="true" data-icon="fa-sort-amount-desc">@(Priority)</div>
 				<div data-jc="textbox" data-jc-path="offers.form.link" data-required="false" class="m" data-maxlength="50">@(link)</div>
-                <div class="relative mr15">
-                    <div data-jc="checkbox" data-jc-path="offers.form.istop" class="red">@(Mark as <b>TOP product</b>)</div>
-                </div>
-                <div class="relative">
-                    <div data-jc="checkbox" data-jc-path="offers.form.isnew" class="blue">@(News in store)</div>
-                </div>
-                <div data-jc="fileupload" data-jc-path="offers.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
-            </div>
+				<div data-jc="fileupload" data-jc-path="offers.form.picture" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)"
+					 data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
+			</div>
 		</div>
 	</div>
 	<hr data-binder="offers.form.template" data-binder-visible="n => n ? false : true" class="nmb" />

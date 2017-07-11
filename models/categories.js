@@ -72,7 +72,7 @@ NEWSCHEMA('Category').make(function(schema) {
 			data.limit = options.max;
 			data.pages = Math.ceil(data.count / options.max) || 1;
 			data.page = options.page + 1;
-
+            data.items = _.sortBy(data.items, function(num){ return num.priority; });
 			callback(data);
 		});
 	});
@@ -167,7 +167,7 @@ function refresh() {
         if (db_full_cat[cat.name.en])
             db_full_cat[cat.name.en].count++;
         else
-            db_full_cat[cat.name.en] = { count: 1, linker: cat.linker, path: cat.linker, name_en : cat.name.en, name_hy : cat.name.hy, name_ru : cat.name.ru, picture:cat.picture };
+            db_full_cat[cat.name.en] = { count: 1, linker: cat.linker, path: cat.linker, name_en : cat.name.en, name_hy : cat.name.hy, name_ru : cat.name.ru, picture:cat.picture, priority: cat.priority };
     };
 
     NOSQL('products').find().prepare(prepare).callback(function() {
@@ -238,6 +238,7 @@ function refresh() {
                         hy: tmp.name_hy
                     };
                     categories[k].pic = tmp.picture && tmp.picture.split(",") ? tmp.picture.split(",")[0] : '';
+                    categories[k].priority = tmp.priority;
                 }
             });
 
@@ -248,14 +249,17 @@ function refresh() {
                     hy: i.name_hy
                 };
                 db_full_cat[k].pic = i.picture && i.picture.split(",") ? i.picture.split(",")[0] : '';
+                db_full_cat[k].linker = db_full_cat[k].full_name.en.toSlug();
             });
             db_full_cat = _.values(db_full_cat);
 
             categories =  _.sortBy(categories, function(num){ return num.priority; });
             db_full_cat = _.sortBy(db_full_cat, function(num){ return num.priority; });
 
-            F.global.categories = categories;
+            // console.log(categories);
+            // console.log(db_full_cat);
 
+            F.global.categories = categories;
             F.global.db_categories = db_full_cat;
 
         });
