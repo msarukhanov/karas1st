@@ -149,10 +149,19 @@
     </div>
     <footer class="footer-container">
         <div class="cont-links hidden-xs">
-            <div class="container">
-                <div class="row">
+            <div class="footer-cont">
+                <div class="footer-links">
+                    <div class="home-page-link">
+                        <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
+                            <li class="active">
+                                <a class="categories-button-shopping-cart" href="/@{!controller.getLang()}/">
+                                    @{!controller.translateText({'en':'Home','ru':'Главная','hy':'Գլխավոր էջ'})}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     @{foreach item in global.navilinks}
-                    <div class="col-xs-2">
+                    <div class="other-links">
                         <ul aria-labelledby="foot-head2" role="list" class="list-unstyled">
                             <li class="active">
                                 <a href="/@{!controller.getLang()}/@{item.link}"
@@ -163,6 +172,12 @@
                         </ul>
                     </div>
                     @{end}
+                </div>
+                <div class="subscribe">
+                    <div class="newsletter" data-jc="newsletter" data-success="@(Thanks, you have been added.)">
+                        <div class="newsletter-button"><button><span class="fa fa-envelope"></span>@(SUBMIT)</button></div>
+                        <div class="newsletter-input"><input type="text" placeholder="@(Join to our mailing list)" /></div>
+                    </div>
                 </div>
             </div>
         </div>

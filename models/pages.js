@@ -336,6 +336,7 @@ function refresh() {
 	var helper = {};
 	var navigation = {};
 	var partial = [];
+	var db_nav = [];
 
 	var prepare = function(doc) {
 
@@ -352,7 +353,7 @@ function refresh() {
 
 		if (!doc.navigations)
 			return;
-
+        db_nav.push(doc);
 		// Loads navigation by menu id
 		for (var i = 0, length = doc.navigations.length; i < length; i++) {
 			var name = doc.navigations[i];
@@ -375,7 +376,8 @@ function refresh() {
 		Object.keys(navigation).forEach((name) => navigation[name].orderBy('priority', false));
 		partial.orderBy('priority', false);
 
-		var searchbar = navigation.searchbar;
+		var searchbar = db_nav;
+
 		_.each(searchbar, function(i, k){
 			var spl = i.url.split("/");
 			if(spl[1] && spl[2]) {
