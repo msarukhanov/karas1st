@@ -13,6 +13,7 @@ NEWSCHEMA('Product').make(function(schema) {
 
     schema.define('id', 'String(20)');
     schema.define('pictures', '[String]');
+    schema.define('relations', '[String]');
     schema.define('reference', 'String(20)');
     schema.define('category', 'String(300)', true);
     schema.define('manufacturer', 'String(50)');
@@ -81,7 +82,8 @@ NEWSCHEMA('Product').make(function(schema) {
                 break;
         }
 
-        filter.fields('id', 'linker', 'linker_category', 'linker_manufacturer', 'category', 'manufacturer', 'name', 'price', 'priceold', 'isnew', 'istop', 'pictures', 'availability', 'datecreated');
+        filter.fields('id', 'linker', 'linker_category', 'linker_manufacturer', 'category', 'manufacturer', 'name', 'price', 'priceold',
+            'isnew', 'istop', 'pictures', 'relations', 'availability', 'datecreated');
 
         filter.skip(skip);
         filter.take(take);

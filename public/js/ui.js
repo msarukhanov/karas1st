@@ -1166,6 +1166,75 @@ COMPONENT('pictures', function() {
     };
 });
 
+COMPONENT('relations', function() {
+
+    var self = this;
+
+    self.skip = false;
+    self.readonly();
+
+    self.make = function() {
+        self.classes('ui-pictures');
+    };
+
+    self.setter = function(value) {
+
+        if (typeof(value) === 'string')
+            value = value.split(',');
+
+        if (self.skip) {
+            self.skip = false;
+            return;
+        }
+
+        self.find('.fa,img').unbind('click');
+
+        if (!(value instanceof Array) || !value.length) {
+            self.empty();
+            return;
+        }
+
+        var count = 0;
+        var builder = [];
+
+        for (var i = 0, length = value.length; i < length; i++) {
+            var id = value[i];
+            id && builder.push('<div data-id="'+value[i].id+'" class="col-xs-3 col-lg-2 m"><span class="fa fa-times"></span><img src="/images/small/' + value[i].pictures[0] + '.jpg" class="img-responsive" alt="" /></div>'.format(id));
+        }
+
+        self.html(builder);
+        console.log(self);
+
+
+        this.element.find('.fa').bind('click', function() {
+
+
+            var data_id =  $(this).parent().attr('data-id');
+            console.log("value", value, data_id);
+            value = value.filter(function( obj ) {
+                console.log(obj, obj.id, data_id);
+                return obj.id !== data_id;
+            });
+
+            console.log("value", value, data_id);
+
+            $(this).parent().remove();
+
+            var id = [];
+
+
+
+            // self.find('div').each(function() {
+            //     id.push($(this).attr('data-id'))
+            // });
+            //
+            self.skip = true;
+            self.set(value);
+        });
+
+    };
+});
+
 COMPONENT('fileupload', function() {
 
     var self = this;
