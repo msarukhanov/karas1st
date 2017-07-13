@@ -12,9 +12,9 @@
 			<div class="col-md-3 col-sm-6 m">
 				<div data-jc="dropdown" data-jc-path="products.filter.category" data-source="products.categories" data-empty="@(All categories)" data-source-value="linker"></div>
 			</div>
-			<div class="col-md-3 col-sm-6 m">
-				<div data-jc="dropdown" data-jc-path="products.filter.manufacturer" data-source="products.manufacturers" data-empty="@(All manufacturers)" data-source-value="linker"></div>
-			</div>
+			<!--<div class="col-md-3 col-sm-6 m">-->
+				<!--<div data-jc="dropdown" data-jc-path="products.filter.manufacturer" data-source="products.manufacturers" data-empty="@(All manufacturers)" data-source-value="linker"></div>-->
+			<!--</div>-->
 			<div class="col-md-3 col-sm-6 m">
 				<div data-jc="dropdowncheckbox" data-jc-path="products.filter.type" data-placeholder="@(All products)" data-options="@(News)|1;@(Top)|2"></div>
 			</div>
@@ -27,7 +27,7 @@
 		<script type="text/html">
 		<tr>
 			<td>{{ if pictures && pictures.length }}<span class="fa fa-photo mr5"></span>{{ fi }}{{ if istop }}<b class="badge badge-red mr5">@(TOP)</b>{{ fi }}{{ if isnew }}<b class="badge badge-blue mr5">@(NEWS)</b>{{ fi }}{{ name.en }}</td>
-			<td style="width:200px" class="silver hidden-xs">{{ if manufacturer }}<span class="fa fa-building"></span> {{ manufacturer }}{{ fi }}</td>
+			<!--<td style="width:200px" class="silver hidden-xs">{{ if manufacturer }}<span class="fa fa-building"></span> {{ manufacturer }}{{ fi }}</td>-->
 			<td style="width:250px" class="silver hidden-xs"><span class="fa fa-folder"></span> {{ category }}</td>
 			<td style="width:100px" class="ui-right active">{{ price | price(2) }}</td>
 			<td style="width:80px" class="ui-right">
@@ -45,6 +45,8 @@
 			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="products.form.name.en" data-required="true" class="m" data-maxlength="50">@(Name EN)</div>
 				<div data-jc="textbox" data-jc-path="products.form.name.ru" data-required="true" class="m" data-maxlength="50">@(Name RU)</div>
+			</div>
+			<div class="col-md-6">
 				<div data-jc="textbox" data-jc-path="products.form.name.hy" data-required="true" class="m" data-maxlength="50">@(Name HY)</div>
 				<div class="relative mr15">
 					<div data-jc="checkbox" data-jc-path="products.form.istop" class="red">@(Mark as <b>TOP product</b>)</div>
@@ -53,20 +55,20 @@
 					<div data-jc="checkbox" data-jc-path="products.form.isnew" class="blue">@(News in store)</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-6 m">
-						<div data-jc="dropdown" data-jc-path="products.form.template" data-source="products.templates" data-empty="" data-icon="fa-paint-brush">@(Template)</div>
-					</div>
-					<div class="col-md-6">
+			<!--<div class="col-md-6">-->
+				<!--<div class="row">-->
+					<!--<div class="col-md-6 m">-->
+						<!--<div data-jc="dropdown" data-jc-path="products.form.template" data-source="products.templates" data-empty="" data-icon="fa-paint-brush">@(Template)</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-6">-->
 
-					</div>
-				</div>
-			</div>
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
 		</div>
 	</div>
-	<hr data-binder="products.form.template" data-binder-visible="n => n ? false : true" class="nmb" />
-	<div data-binder="products.form.template" data-binder-visible="n => n ? true : false">
+	<hr data-binder="products.form.template" data-binder-visible="n => n ? false : true" class="nmb" style="display: none" />
+	<div data-binder="products.form.template" data-binder-visible="n => n ? true : false" style="display: none">
 		<hr style="margin-bottom:8px" />
 		<div class="cmseditor-help">
 			<nav><i class="fa fa-desktop"></i><a href="javascript:products_device(1)">@(Large)</a><a href="javascript:products_device(2)">@(Medium)</a><a href="javascript:products_device(3)">@(Tablet)</a><a href="javascript:products_device(4)">@(Mobile)</a></nav>
@@ -123,7 +125,11 @@
 		<div class="row">
 			<div class="col-md-4 m">
 				<div data-jc="textarea" data-jc-path="products.form.description.en" data-required="true" data-height="94px">@(Description EN)</div>
+			</div>
+			<div class="col-md-4 m">
 				<div data-jc="textarea" data-jc-path="products.form.description.ru" data-required="true" data-height="94px">@(Description RU)</div>
+			</div>
+			<div class="col-md-4 m">
 				<div data-jc="textarea" data-jc-path="products.form.description.hy" data-required="true" data-height="94px">@(Description HY)</div>
 			</div>
 			<div class="col-md-8 m">
@@ -141,26 +147,39 @@
 						<div data-jc="textbox" data-jc-path="products.form.availability" data-align="center" data-icon="fa-truck" data-maxlength="40" data-placeholder="@(In stock)">@(Availability)</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6 m">
-						<div data-jc="dropdown" data-jc-path="products.form.manufacturer" data-source="products.manufacturers" data-empty="" data-source-value="name">@(Existing manufacturer)</div>
-					</div>
-					<div class="col-md-6">
-						<div data-jc="textbox" data-jc-path="products.form.manufacturer" data-maxlength="50" data-placeholder="@(Type a manufacturer)">@(Manufacturer)</div>
-					</div>
-				</div>
+				<!--<div class="row">-->
+					<!--<div class="col-md-6 m">-->
+						<!--<div data-jc="dropdown" data-jc-path="products.form.manufacturer"
+						data-source="products.manufacturers" data-empty="" data-source-value="name">@(Existing manufacturer)</div>-->
+					<!--</div>-->
+					<!--<div class="col-md-6">-->
+						<!--<div data-jc="textbox" data-jc-path="products.form.manufacturer" data-maxlength="50" data-placeholder="@(Type a manufacturer)">@(Manufacturer)</div>-->
+					<!--</div>-->
+				<!--</div>-->
 			</div>
 		</div>
 	</div>
 	<div class="padding">
 		<div class="row mt10">
 			<div class="col-md-6 m">
-				<div data-jc="fileupload" data-jc-path="products.form.pictures" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)" data-accept="image/jpeg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Pictures)</div>
+				<div data-jc="fileupload" data-jc-path="products.form.pictures" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)"
+					 data-accept="image/jpeg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Pictures)</div>
 			</div>
 		</div>
 		<br />
 		<div class="row">
 			<div data-jc="pictures" data-jc-path="products.form.pictures"></div>
+		</div>
+	</div>
+	<div class="padding  bg-smoke">
+		<div class="row mt10">
+			<div class="col-md-6 m">
+				<div data-jc="dropdown" data-jc-path="products.form.relation" data-source="products.byCategory" data-empty="" data-source-value="name">@(Related Products)</div>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div data-jc="relations" data-jc-path="products.form.relations"></div>
 		</div>
 	</div>
 	<div data-jc="error" data-jc-path="products.response"></div>
@@ -219,14 +238,20 @@
 
 	products.grid = {};
 	products.form = {};
+    products.form.relation = {};
+    products.form.relations = [];
+    products.form.relations_arr = [];
 	products.categories = [];
 	products.manufacturers = [];
 	products.response = null;
 	products.category = {};
 	products.subcategory = {};
 	products.subcategory.visible = false;
+    products.byCategory = [];
 
 	ON('#products.grid', function(component) {
+
+	    console.log("prods", products.form);
 
 		// Max items per page
 		products.filter.max = component.max;
@@ -282,6 +307,19 @@
 	WATCH('products.filter.*', function(path, value) {
 		!NOTMODIFIED('products.filter', products.filter) && products_refresh(path !== 'products.filter.page');
 	});
+
+    WATCH('products.form.relation', function(path, value) {
+		var tmp = _.find(products.byCategory, function(i,k) {return i.name == value;});
+		if(!products.form.relations) products.form.relations = [];
+		if(tmp) products.form.relations.push(tmp); //repeater-group
+        SET('products.form.relations', products.form.relations);
+        products.form.relations_arr = _.pluck(products.form.relations, 'id');
+        SET('products.form.relations_arr', products.form.relations_arr);
+    });
+
+    WATCH('products.form.relations', function(path, value) {
+        console.log(path, value);
+    });
 
 	ON('#products.form', function(component) {
 		component.submit = function(hide) {
@@ -349,7 +387,7 @@
 		loading.show();
 		AJAX('GET /api/products/{0}/'.format(id), function(response) {
 			loading.hide(500);
-
+			console.log(response);
 			if (response instanceof Array) {
 				FIND('message').warning(response[0].error);
 				return;
@@ -384,6 +422,7 @@
 	// Method refreshes categories
 	function products_refresh_codelists() {
 		AJAX('GET {0}/api/products/codelists/'.format(managerurl), function(response) {
+		    console.log(response);
 			response.categories.sort(FN('(a, b) => a.name.localeCompare(b.name)'));
 			Object.keys(response).forEach(function(key) {
 				SET('products.' + key, response[key]);
@@ -396,6 +435,11 @@
 		if (reset)
 			products.filter.page = 1;
 		AJAX('GET {0}/api/products/'.format(managerurl), products.filter, 'products.grid');
+        AJAX('GET {0}/api/products/'.format(managerurl), function(response) {
+            response.items.forEach(function(item, key) {var tmp = item.name;item.name = tmp.en;item.tname = tmp;});
+            products.byCategory = response.items.sort(function(a,b) {return (a.category > b.category) ? 1 : ((b.last_nom > a.last_nom) ? -1 : 0);} );
+            SET('products.byCategory', products.byCategory);
+        });
 	}
 
 	function products_subcategory() {

@@ -27,7 +27,11 @@
 	<div data-jc="grid" data-jc-path="posts.grid" data-pagination-path="posts.filter.page" data-jc-id="posts.grid" data-max="auto" data-page="@(Page: #)" data-pages="@(# pages,# page,# pages,# pages)" data-items="@(# items,# item,# items,# items)" data-empty="@(Database does not contain any data.)">
 		<script type="text/html">
 		<tr>
-			<td>{{ if pictures && pictures.length }}<span class="fa fa-photo mr5"></span>{{ fi }}{{ if language }}<span class="fs11 silver mr5">{{ language }}</span>{{ fi }}{{ name }}</td>
+			<td style="width:150px">
+				{{ if !pic }} <img width="100%" height="auto" src="/img/empty.png"> {{fi}}
+				{{ if pic }} <img width="100%" height="auto" src="/images/small/{{pic}}.jpg"> {{fi}}
+			</td>
+			<td>{{ if language }}<span class="fs11 silver mr5">{{ language }}</span>{{ fi }}{{ name }}</td>
 			<td style="width:150px" class="silver fs11 hidden-xs"><span class="fa fa-folder"></span> {{ category }}</td>
 			<td style="width:100px" class="silver ui-center hidden-xs">{{ datecreated | format('@(yyyy-MM-dd)') }}</td>
 			<td style="width:80px" class="ui-right">
@@ -53,6 +57,12 @@
 			</div>
 			<div class="col-md-3 m">
 				<div data-jc="textbox" data-jc-path="posts.form.author" data-maxlength="30" data-icon="fa-user" data-required="true">@(Author)</div>
+			</div>
+			<div class="col-sm-6 m">
+				<div class="col-sm-6">
+					<div data-jc="fileupload" data-jc-path="posts.form.pic" data-placeholder="@(Browse device)" data-error-large="@(The uploaded file is too large.)"
+						 data-accept="image/png,image/jpeg,image/jpg" data-multiple="true" data-icon="fa-camera" data-extension="false">@(Picture)</div>
+				</div>
 			</div>
 		</div>
 	</div>

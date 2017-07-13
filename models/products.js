@@ -13,6 +13,8 @@ NEWSCHEMA('Product').make(function(schema) {
 
     schema.define('id', 'String(20)');
     schema.define('pictures', '[String]');
+    schema.define('relations', '[String]');
+    schema.define('relations_arr', '[String]');
     schema.define('reference', 'String(20)');
     schema.define('category', 'String(300)', true);
     schema.define('manufacturer', 'String(50)');
@@ -81,7 +83,8 @@ NEWSCHEMA('Product').make(function(schema) {
                 break;
         }
 
-        filter.fields('id', 'linker', 'linker_category', 'linker_manufacturer', 'category', 'manufacturer', 'name', 'price', 'priceold', 'isnew', 'istop', 'pictures', 'availability', 'datecreated');
+        filter.fields('id', 'linker', 'linker_category', 'linker_manufacturer', 'category', 'manufacturer', 'name', 'price', 'priceold',
+            'isnew', 'istop', 'pictures', 'relations', 'relations_arr', 'availability', 'datecreated');
 
         filter.skip(skip);
         filter.take(take);
@@ -103,7 +106,18 @@ NEWSCHEMA('Product').make(function(schema) {
             data.pages = Math.ceil(data.count / options.max) || 1;
             data.page = options.page + 1;
 
-            callback(data);
+            NOSQL('products').find().fields('id','linker','name','price','pictures').callback(function(err1, docs1, count1) {
+                _.each(data.items, function(i,k) {
+                    if(!i.linker) data.items[k].linker = (i.name.en || i.name).slug();
+                    _.each(i.relations_arr, function(j,l) {
+                        data.items[k].relations[l] = _.find(docs1, function(item) {return item.id == j;});
+                        if(!data.items[k].relations[l].linker) data.items[k].relations[l].linker =
+                            (data.items[k].relations[l].name.en || data.items[k].relations[l].name).slug();
+                    });
+                });
+                callback(data);
+            });
+
         });
     });
 
@@ -131,6 +145,8 @@ NEWSCHEMA('Product').make(function(schema) {
         model.category = category.name;
         model.search = ((model.name.en || model.name) + ' ' + (model.manufacturer || '') + ' ' + (model.reference || '')).keywords(true, true).join(' ').max(500);
         model.body = model.template ? U.minifyHTML(model.body) : '';
+        console.log(model);
+        model.relations = model.relations_arr;
 
         (newbie ? nosql.insert(model) : nosql.modify(model).where('id', model.id)).callback(function() {
 
@@ -157,7 +173,16 @@ NEWSCHEMA('Product').make(function(schema) {
 
         filter.callback(function(err, doc) {
             !doc && error.push('error-404-product');
-            callback(doc);
+            NOSQL('products').find().fields('id','linker','name','price','pictures').callback(function(err1, docs1, count1) {
+                if(!doc.linker) doc.linker = (doc.name.en || doc.name).slug();
+                _.each(doc.relations_arr, function(j,l) {
+                    doc.relations[l] = _.find(docs1, function(item) {return item.id == j;});
+                    if(!doc.relations[l].linker) doc.relations[l].linker =
+                        (doc.relations[l].name.en || doc.relations[l].name).slug();
+                });
+                callback(doc);
+            });
+
         });
     });
 

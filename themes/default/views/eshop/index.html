@@ -81,35 +81,17 @@
 </div>
 <div class="newsBlock">
     <div class="mainNewsBlock">
+        @{foreach m in global.posts[controller.getLang()]}
         <div class="singleNewBlock">
             <div class="newsBlockImg">
-                <a><img src="/img/news/news1.png"></a>
-                <p class="header">KARAS: New branch in Avan community</p>
-                <p class="date">15 June 2017</p>
-                <div class="detailedNews">
+                <a href="/@{!controller.getLang()}/blogs/@{m.linker}/"><img src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}"></a>
+                <p class="header">@{m.name}</p>
+                <p class="date">@{m.datecreated.format('yyyy-MM-dd')}</p>
+                <a class="detailedNews" href="/@{!controller.getLang()}/blogs/@{m.linker}/">
                     <button ng-click="readMore()">Read more</button>
-                </div>
+                </a>
             </div>
         </div>
-        <div class="singleNewBlock">
-            <div class="newsBlockImg">
-                <a><img src="/img/news/news2.png"></a>
-                <p class="header">Gifts for March 8</p>
-                <p class="date">07 March 2017</p>
-                <div class="detailedNews">
-                    <button ng-click="readMore()">Read more</button>
-                </div>
-            </div>
-        </div>
-        <div class="singleNewBlock">
-            <div class="newsBlockImg">
-                <a><img src="/img/news/news1.png"></a>
-                <p class="header">KARAS: New branch in Avan community</p>
-                <p class="date">15 June 2017</p>
-                <div class="detailedNews">
-                    <button ng-click="readMore()">Read more</button>
-                </div>
-            </div>
-        </div>
+        @{end}
     </div>
 </div>
