@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <div class="row">
         @{foreach m in model.items}
         <div class="col-md-3 col-sm-4 product">
@@ -16,8 +16,8 @@
                 <img src="@{if !m.pictures || !m.pictures.length}/img/empty.png@{else}/images/small/@{m.pictures[0]}.jpg@{fi}"
                      class="img-responsive" alt="@{m.name}" border="0"/>
             </a>
-            <!--<a href="/@{!controller.getLang()}/shop/@{m.linker_category}/" class="product-category">@{m.category}</a>-->
-            <!--<a href="@{sitemap_url('products_@{getLang()}')}?manufacturer=@{m.linker_manufacturer}" class="product-manufacturer">@{m.manufacturer}</a>-->
+            &lt;!&ndash;<a href="/@{!controller.getLang()}/shop/@{m.linker_category}/" class="product-category">@{m.category}</a>&ndash;&gt;
+            &lt;!&ndash;<a href="@{sitemap_url('products_@{getLang()}')}?manufacturer=@{m.linker_manufacturer}" class="product-manufacturer">@{m.manufacturer}</a>&ndash;&gt;
             <a href="/@{!controller.getLang()}/product/@{!controller.toSlug(m.name.en)}" class="product-name">@{m.name[controller.getLang()]}</a>
             <div class="product-price">@{currency(m.price)}@{if m.price < m.priceold}
                 <span>@{currency(m.priceold)}</span>@{fi}
@@ -39,4 +39,86 @@
         </div>
     </div>
     @{fi}
+</div>-->
+
+<div class="categories-container">
+    <div class="categories-header">
+        <span>BBQ</span>
+    </div>
+    <div class="categories-body">
+        <div class="categories-body-inner">
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Appetizer-new.png">
+                    </a>
+                    <span class="menu-text">Pork Soft</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/BBQ-new.png">
+                    </a>
+                    <span class="menu-text">Pork Chalaxaj</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Complex-Lunch-new.png">
+                    </a>
+                    <span class="menu-text">Toq</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Corporate-Offers-new.png">
+                    </a>
+                    <span class="menu-text">Sirt</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Drinks-new.png">
+                    </a>
+                    <span class="menu-text">Beef BBQ</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Fast-Food-new.png">
+                    </a>
+                    <span class="menu-text">Beef BBQ</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Hot-Dishes-new.png">
+                    </a>
+                    <span class="menu-text">Beef BBQ</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Pizza-new.png">
+                    </a>
+                    <span class="menu-text">Beef BBQ</span>
+                </div>
+            </div>
+            <div class="categories-menu">
+                <div class="categories-menuImg">
+                    <a href="">
+                        <img src="/img/menu/Salads-new.png">
+                    </a>
+                    <span class="menu-text">Beef BBQ</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

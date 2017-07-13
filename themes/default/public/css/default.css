@@ -14,8 +14,6 @@ form { padding: 0; margin: 0; }
 .content {
 	background-color: white;
 	border-radius: 4px;
-	display: inline-block;
-	width: calc(100vw / 1920 * 2560);
 }
 .jcomponent > span:first-child { display: none; }
 
@@ -584,6 +582,9 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	cursor: pointer;
 	font-size: calc(100vw / 1920 * 12);
 	text-transform: uppercase;
+	bottom: 0;
+	position: absolute;
+	right: 0;
 }
 
 .footer-container {
@@ -1341,18 +1342,15 @@ header, footer, .content, .slider {
 
 .single-product-container {
 	background-color: #f2f2f2;
-	height: calc(100vh / 1080 * 1080);
-	width: calc(100vw / 1920 * 2560);
 	display: inline-block;
 	float: left;
 	position: relative;
 }
 
 .single-product-container .single-product-main {
-	margin: 0 calc(100vw / 1920 * 345);
 	padding: calc(100vw / 1920 * 30) 0;
 	display: inline-block;
-	top: calc(100vw / 1920 * 70);
+	margin: calc(100vw / 1920 * 70) calc(100vw / 1920 * 345) 0;
 	position: relative;
 	float: left;
 	width: calc(100vw / 1920 * 1230);
@@ -1376,6 +1374,10 @@ header, footer, .content, .slider {
 	margin-bottom: calc(100vw / 1920 * 30);
 	width: 100%;
 	display: inline-block;
+}
+
+.col-left .block-drinks {
+	margin: 0;
 }
 
 .col-left .block-cart .shopping-cart-header {
@@ -1719,4 +1721,102 @@ header, footer, .content, .slider {
 	bottom: calc(100vw / 1920 * 10);
 }
 
+.magictime {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+.boingInUp {
+	animation-name: boingInUp;
+}
+@keyframes boingInUp {
+	0% {
+		opacity: 0;
+		transform-origin: 50% 0%;
+		transform: perspective(800px) rotateX(-90deg);
+	}
 
+	50% {
+		opacity: 0.2;
+		transform-origin: 50% 0%;
+		transform: perspective(800px) rotateX(50deg);
+	}
+
+	100% {
+		opacity: 0.4;
+		transform-origin: 50% 0%;
+		transform: perspective(800px) rotateX(0deg);
+	}
+}
+
+.categories-container .categories-header {
+	background-image: url("/img/bbq/bbq-head.png");
+	height: calc(100vw / 1920 * 300);
+	background-size: cover;
+	margin-top: calc(100vw / 1920 * 70);
+	display: block;
+	position: relative;
+}
+
+.categories-container .categories-header span {
+	font-size: calc(100vw / 1920 * 80);
+	color: #ffffff;
+	left: calc(50% - calc(100vw / 1920 * 80));
+	position: absolute;
+	top: calc(100vw / 1920 * 90);
+}
+
+.categories-container .categories-body {
+	background: #f7f7f7;
+	width: 100%;
+	display: inline-block;
+}
+
+.categories-container .categories-body .categories-body-inner {
+	margin: 0 calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 60) 0;
+	display: inline-block;
+	width: calc(100vw / 1920 * 1260);
+}
+
+.categories-container .categories-body .categories-menu {
+	width: calc(100vw / 1920 * 420);
+	height: calc(100vw / 1920 * 280);
+	float: left;
+	position: relative;
+	padding: calc(100vw / 1920 * 15);
+}
+
+.categories-container .categories-body .categories-menu .categories-menuImg {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 250);
+}
+
+.categories-container .categories-body .categories-menu .categories-menuImg a {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 250);
+	overflow: hidden;
+	border-radius: calc(100vw / 1920 * 10);
+	max-width: calc(100vw / 1920 * 390);
+	max-height: calc(100vw / 1920 * 250);
+	display: block;
+}
+
+.categories-container .categories-body .categories-menu .categories-menuImg a img {
+	position: relative;
+	width: calc(100vw / 1920 * 390);
+	cursor: pointer;
+	height: calc(100vw / 1920 * 280);
+	top: calc(100vw / 1920 * -14.66666666);
+}
+
+.categories-container .categories-body .categories-menu .categories-menuImg span {
+	position: absolute;
+	bottom: calc(100vw / 1920 * 35);
+	color: #ffffff;
+	left: calc(100vw / 1920 * 40);
+	font-size: calc(100vw / 1920 * 20);
+}
+
+.npt {
+	padding: 0;
+}

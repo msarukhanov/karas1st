@@ -25,9 +25,7 @@
     </ul>
 
 </div>
-
 <div class="specialOffer">
-
     @{foreach m in global.index_offers}
     <div class="singleSpecialOffer">
         <div class="specialOfferHeader">
@@ -42,7 +40,6 @@
         </a>
     </div>
     @{end}
-
     <div class="moreSpecialOffer">
         <button ng-click="showMore()">More</button>
     </div>
@@ -88,10 +85,11 @@
                 <p class="header">@{m.name}</p>
                 <p class="date">@{m.datecreated.format('yyyy-MM-dd')}</p>
                 <a class="detailedNews" href="/@{!controller.getLang()}/blogs/@{m.linker}/">
-                    <button ng-click="readMore()">Read more</button>
+
                 </a>
             </div>
         </div>
         @{end}
     </div>
+
 </div>
