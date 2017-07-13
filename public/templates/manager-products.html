@@ -251,6 +251,8 @@
 
 	ON('#products.grid', function(component) {
 
+	    console.log("prods", products.form);
+
 		// Max items per page
 		products.filter.max = component.max;
 		products_refresh_codelists();
@@ -311,7 +313,8 @@
 		if(!products.form.relations) products.form.relations = [];
 		if(tmp) products.form.relations.push(tmp); //repeater-group
         SET('products.form.relations', products.form.relations);
-        products.form.relations_arr = _.pluck(products.form.relations, 'id')
+        products.form.relations_arr = _.pluck(products.form.relations, 'id');
+        SET('products.form.relations_arr', products.form.relations_arr);
     });
 
     WATCH('products.form.relations', function(path, value) {
@@ -384,7 +387,7 @@
 		loading.show();
 		AJAX('GET /api/products/{0}/'.format(id), function(response) {
 			loading.hide(500);
-
+			console.log(response);
 			if (response instanceof Array) {
 				FIND('message').warning(response[0].error);
 				return;
@@ -433,14 +436,8 @@
 			products.filter.page = 1;
 		AJAX('GET {0}/api/products/'.format(managerurl), products.filter, 'products.grid');
         AJAX('GET {0}/api/products/'.format(managerurl), function(response) {
-            console.log(response);
-            response.items.forEach(function(item, key) {
-                var tmp = item.name;
-                item.name = tmp.en;
-                item.tname = tmp;
-            });
+            response.items.forEach(function(item, key) {var tmp = item.name;item.name = tmp.en;item.tname = tmp;});
             products.byCategory = response.items.sort(function(a,b) {return (a.category > b.category) ? 1 : ((b.last_nom > a.last_nom) ? -1 : 0);} );
-			console.log(products.byCategory);
             SET('products.byCategory', products.byCategory);
         });
 	}

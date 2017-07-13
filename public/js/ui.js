@@ -1196,7 +1196,7 @@ COMPONENT('relations', function() {
 
         var count = 0;
         var builder = [];
-
+        console.log("val", value);
         for (var i = 0, length = value.length; i < length; i++) {
             var id = value[i];
             id && builder.push('<div data-id="'+value[i].id+'" class="col-xs-3 col-lg-2 m"><span class="fa fa-times"></span><img src="/images/small/' + value[i].pictures[0] + '.jpg" class="img-responsive" alt="" /></div>'.format(id));
@@ -1210,13 +1210,11 @@ COMPONENT('relations', function() {
 
 
             var data_id =  $(this).parent().attr('data-id');
-            console.log("value", value, data_id);
+
             value = value.filter(function( obj ) {
                 console.log(obj, obj.id, data_id);
                 return obj.id !== data_id;
             });
-
-            console.log("value", value, data_id);
 
             $(this).parent().remove();
 
