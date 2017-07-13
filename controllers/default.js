@@ -37,8 +37,8 @@ exports.install = function() {
 	// COMMON
     F.use('language', '*', ['web']);
 
-    F.route('/', redirect_homepage, ['#language']);
     F.route('', redirect_homepage, ['#language']);
+    F.route('/', redirect_homepage, ['#language']);
     F.route('/en/', view_homepage, ['#language']);
     F.route('/ru/', view_homepage, ['#language']);
     F.route('/hy/', view_homepage, ['#language']);

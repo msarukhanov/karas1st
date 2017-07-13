@@ -11,6 +11,7 @@ NEWSCHEMA('Post').make(function(schema) {
 	schema.define('tags', '[String]');
 	schema.define('search', 'String(1000)');
 	schema.define('pictures', '[String]');  		// URL addresses for first 5 pictures
+    schema.define('pic', 'String(256)');  		// URL addresses for first 5 pictures
 	schema.define('body', String);
 	schema.define('datecreated', Date);
 
@@ -36,7 +37,7 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		filter.take(take);
 		filter.skip(skip);
-		filter.fields('id', 'category', 'name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags');
+		filter.fields('id', 'category', 'name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'pic', 'perex', 'tags');
 		filter.sort('datecreated', true);
 
 		filter.callback(function(err, docs, count) {
@@ -129,6 +130,7 @@ NEWSCHEMA('Post').make(function(schema) {
 function refresh() {
 
 	var categories = {};
+	var posts = [];
 
 	if (F.config.custom.posts)
 		F.config.custom.posts.forEach(item => categories[item] = 0);
@@ -136,12 +138,14 @@ function refresh() {
 	var prepare = function(doc) {
 		if (categories[doc.category] !== undefined)
 			categories[doc.category] += 1;
+		posts.push(doc);
 	};
 
 	NOSQL('posts').find().prepare(prepare).callback(function() {
 		var output = [];
 		Object.keys(categories).forEach(key => output.push({ name: key, linker: key.slug(), count: categories[key] }));
-		F.global.posts = output;
+		posts = _.groupBy(posts, 'language');
+        F.global.posts = posts;
 	});
 }
 

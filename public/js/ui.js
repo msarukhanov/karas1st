@@ -1203,7 +1203,6 @@ COMPONENT('relations', function() {
         }
 
         self.html(builder);
-        console.log(self);
 
 
         this.element.find('.fa').bind('click', function() {
@@ -1220,12 +1219,6 @@ COMPONENT('relations', function() {
 
             var id = [];
 
-
-
-            // self.find('div').each(function() {
-            //     id.push($(this).attr('data-id'))
-            // });
-            //
             self.skip = true;
             self.set(value);
         });

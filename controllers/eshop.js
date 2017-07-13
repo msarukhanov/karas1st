@@ -92,6 +92,14 @@ exports.install = function() {
     F.route('#account_ru',          view_login, ['unauthorized']);
     F.route('#account_hy',          view_login, ['unauthorized']);
 
+    // POSTS
+    F.route('#blogs_en',            view_blogs, ['*Post']);
+    F.route('#blogsdetail_en',      view_blogs_detail, ['*Post']);
+    F.route('#blogs_ru',            view_blogs, ['*Post']);
+    F.route('#blogsdetail_ru',      view_blogs_detail, ['*Post']);
+    F.route('#blogs_hy',            view_blogs, ['*Post']);
+    F.route('#blogsdetail_hy',      view_blogs_detail, ['*Post']);
+
 };
 
 // ============================================
