@@ -1,21 +1,19 @@
 @{if repository.preview}
-<br/>
-<div id="CMS">
+
+<!--<div id="CMS">
     @{if repository.page && repository.page.body}
-    <!-- RENDER UPDATED CONTENT -->
+    &lt;!&ndash; RENDER UPDATED CONTENT &ndash;&gt;
     @{!repository.page.body}
     @{else}
-    <!-- DEFAULT CONTENT FOR NEW PAGES FO THIS TEMPLATE -->
+    &lt;!&ndash; DEFAULT CONTENT FOR NEW PAGES FO THIS TEMPLATE &ndash;&gt;
     <div class="CMS_widgets"></div>
     @{fi}
-</div>
-<br/>
+</div>-->
+
 @{else}
-<div class="padding">
-    <h1></h1>
+<div style="display: none" class="padding">
     <div class="row">
         <div class="col-md-10 col-md-offset-1 detail">
-
             <div class="row">
                 <div class="col-md-2 m">
 
@@ -40,7 +38,7 @@
                         <div class="col-md-12 m">
                             <div class="keyvalue">
                                 <!--<div class="key"><i class="fa fa-dropbox"></i></div>-->
-                                <div class="value">@{!model.description[controller.getLang()].replace(/\n/g, '<br/>')}</div>
+                                <div class="value">@{!model.description[controller.getLang()].replace(/\n/g,'<br/>')}</div>
                             </div>
                         </div>
                         <div class="col-md-12 m">
@@ -75,16 +73,238 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-<br/>
-<hr/>
-<br/>
 
-<!--<div class="padding">-->
+<div class="single-product-container">
+    <div class="single-product-main">
+        <div class="col-main">
+            <div class="product-view">
+                <div class="product-essential">
+                    <form>
+                        <div class="product-shop">
+                            <div class="product-header-path">
+                                    <ul>
+                                        <li class="home">
+                                            <a href="">Գլխավոր</a>
+                                            <span>/</span>
+                                        </li>
+                                        <li class="category">
+                                            <a href="">Ուտեստներ</a>
+                                            <span>/</span>
+                                        </li>
+                                        <li class="product">
+                                            <a href="">Խորոված</a>
+                                            <span>/</span>
+                                        </li>
+                                        <li class="single-product">
+                                            <a>Տավարի խորոված</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <div class="product-body">
+                                <div class="product-img">
+                                    <a class="product-image product-image-zoom" href="">
+                                        <img src="/img/burger.png">
+                                    </a>
+                                </div>
+                                <div class="product-desc">
+                                    <p class="item-title">Տավարի խորոված</p>
+                                    <p class="item-availability">
+                                        <i class="fa fa-check-circle in-stock"></i>
+                                        <i class="fa fa-times-circle out-of-stock"></i>
+                                        <span>Վաճառքում առկա է</span>
+                                        <span>Վաճառքում առկա չէ</span>
+                                    </p>
+                                    <p class="item-desc">
+                                        Տավարի միս, հոլանդական պանիր, սոխ, լոլիկ, հազար, կետչուպ, մայոնեզ:
+                                    </p>
+                                   <!-- <div class="complex-lunch">
+                                        <div class="dropdown complex-lunch-dropdowns">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown complex-lunch-dropdowns">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown complex-lunch-dropdowns">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+                                    <div class="price-add-cart">
+                                        <div class="item-price">
+                                            <span class="price">1450 դր</span>
+                                        </div>
+                                        <div class="add-to-box">
+                                            <div class="add-to-cart">
+                                                <div class="prod-qty-btn">
+                                                    <div class="quantity">
+                                                        <label>Քանակ</label>
+                                                        <input type="number" value="1">
+                                                    </div>
+                                                    <button type="button" class="button btn-cart fr">Ավելացնել</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="product-related">
+                <div class="related-title">
+                    <span>Ընտրեք նաև՝</span>
+                    <a>Ընտրել բոլորը</a>
+                </div>
+                <div class="related-body">
+                    <div class="related-items">
+                        <div class="related-item">
+                            <a href="">
+                                <img src="/img/related/1.png">
+                            </a>
+                            <span class="item-text">Սոուսների տեսականի</span>
+                            <span class="item-price">500 դր</span>
+                            <div class="hidden" style="display: none">
+                            </div>
+                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
+                        </div>
+                    </div>
+                    <div class="related-items">
+                        <div class="related-item">
+                            <a href="">
+                                <img src="/img/related/2.png">
+                            </a>
+                            <span class="item-text">Պիցցա Պեպերոնի, 30սմ</span>
+                            <span class="item-price">2400 դր</span>
+                            <div class="hidden" style="display: none">
+                            </div>
+                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
+                        </div>
+                    </div>
+                    <div class="related-items">
+                        <div class="related-item">
+                            <a href="">
+                                <img src="/img/related/3.png">
+                            </a>
+                            <span class="item-text">Խորոված բանջարեղեն</span>
+                            <span class="item-price">800 դր</span>
+                            <div class="hidden" style="display: none">
+                            </div>
+                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
+                        </div>
+                    </div>
+                    <div class="related-items">
+                        <div class="related-item">
+                            <a href="">
+                                <img src="/img/related/4.png">
+                            </a>
+                            <span class="item-text">Թան</span>
+                            <span class="item-price">300 դր</span>
+                            <div class="hidden" style="display: none">
+                            </div>
+                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-left sidebar">
+            <div class="block block-cart">
+                <div class="block-title shopping-cart-header">
+                    <span>Զամբյուղ</span>
+                </div>
+                <div class="block-content shopping-cart-body">
+                    <p class="empty">Դուք չունեք ապրանք Ձեր զամբյուղում</p>
+                </div>
+            </div>
+            <div class="block block-list block-categories block-meals">
+                <div class="food-header block-title"><span>Ուտեստներ</span></div>
+                <div class="leftnav block-content food-body">
+                    <ul id="leftnav-tree-20" class="level1">
+                        <li class="level1 active">
+                            <a href="">Խորոված</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Կոմպլեքս լանչ</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Պիցցա</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Խաչապուրի</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Աղցան</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Ապուր</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Տաք ուտեստներ</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Խավարտ</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Նախուտեստներ</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Արագ սնունդ</a>
+                        </li>
+                        <li class="level1">
+                            <a href="">Մանկական սնունդ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="block block-list block-categories block-drinks">
+                <div class="drink-header block-title"><span>Ըմպելիք</span></div>
+                <div class="block-content leftnav">
+
+                    <ul id="leftnav-tree-18" class="level1">
+                        <li class="level1">
+                            <a href="">Ոչ ալկոհոլային</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Տաք ըմպելիքներ</a>
+
+                        </li>
+                        <li class="level1">
+                            <a href="">Ալկոհոլային</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="padding">
     <!--<div class="row detail-pictures">-->
         <!--@{foreach m in model.pictures}-->
         <!--<div class="col-md-6 m"><img src="/images/large/@{m}.jpg" alt="@{model.name}" border="0"-->
@@ -101,10 +321,9 @@
 
 @{if model.body}
 @{!model.body.tidyCMS()}
-<br/>
 @{fi}
-<div class="hidden padding npb">
-    <h2 class="large">@(Related) @{model.category}</h2>
-    <div data-jc="related" data-category="@{model.linker_category}" data-id="@{model.id}"></div>
-</div>
+<!--<div class="hidden padding npb">-->
+    <!--<h2 class="large">@(Related) @{model.category}</h2>-->
+    <!--<div data-jc="related" data-category="@{model.linker_category}" data-id="@{model.id}"></div>-->
+<!--</div>-->
 @{fi}

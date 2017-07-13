@@ -2,6 +2,30 @@
 @{!repository.page.body}
 @{fi}
 
+<div id="slider">
+    <a href="#" class="control_next"></a>
+    <a href="#" class="control_prev"></a>
+    <ul>
+        @{foreach slide in global.slides}
+        <li>
+            <div class="slider-item">
+                <span class="slider-header">@{slide.title[controller.getLang()]}</span>
+                <span class="slider-title">@{slide.header[controller.getLang()]}</span>
+                <span class="slider-text">@{slide.description[controller.getLang()]}</span>
+                <span class="slider-btn">
+						<div class="moreSpecialOffer">
+							<a href="//@{slide.link}">@{!controller.translateText({'en':'order','ru':'заказать','hy':'պատվիրել'})}</a>
+						</div>
+					</span>
+            </div>
+            <div class="slider-shadow"></div>
+            <img src="/img/slide1.png">
+        </li>
+        @{end}
+    </ul>
+
+</div>
+
 <div class="specialOffer">
 
     @{foreach m in global.index_offers}
