@@ -47,78 +47,32 @@
     </div>
     <div class="categories-body">
         <div class="categories-body-inner">
+            @{if model.count}
+            @{foreach m in model.items}
             <div class="categories-menu">
                 <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Appetizer-new.png">
+                    <a href="/@{!controller.getLang()}/product/@{!controller.toSlug(m.name.en)}">
+                        <img src="@{if !m.pictures || !m.pictures.length}/img/empty.png@{else}/images/small/@{m.pictures[0]}.jpg@{fi}"
+                             class="img-responsive" alt="@{m.name}" border="0"/>
                     </a>
-                    <span class="menu-text">Pork Soft</span>
+                    <span class="menu-text">@{m.name[controller.getLang()]}</span>
                 </div>
             </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/BBQ-new.png">
-                    </a>
-                    <span class="menu-text">Pork Chalaxaj</span>
+            @{end}
+            @{fi}
+            @{if !model.count}
+            <div class="row" style="margin-top:30px;margin-bottom:100px" id="empty">
+                <div class="col-md-6 col-md-offset-3 m ui-center">
+                    <div><span class="fa fa-search fa-5x"></span></div>
+                    <br/>
+                    <br/>
+                    <div>
+                        @(Currently we don't have any items sufficient for search criteria.)<br/>
+                        <b>@(Try to visit our page later)</b>.
+                    </div>
                 </div>
             </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Complex-Lunch-new.png">
-                    </a>
-                    <span class="menu-text">Toq</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Corporate-Offers-new.png">
-                    </a>
-                    <span class="menu-text">Sirt</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Drinks-new.png">
-                    </a>
-                    <span class="menu-text">Beef BBQ</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Fast-Food-new.png">
-                    </a>
-                    <span class="menu-text">Beef BBQ</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Hot-Dishes-new.png">
-                    </a>
-                    <span class="menu-text">Beef BBQ</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Pizza-new.png">
-                    </a>
-                    <span class="menu-text">Beef BBQ</span>
-                </div>
-            </div>
-            <div class="categories-menu">
-                <div class="categories-menuImg">
-                    <a href="">
-                        <img src="/img/menu/Salads-new.png">
-                    </a>
-                    <span class="menu-text">Beef BBQ</span>
-                </div>
-            </div>
+            @{fi}
         </div>
     </div>
 </div>
