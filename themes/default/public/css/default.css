@@ -1820,3 +1820,34 @@ header, footer, .content, .slider {
 .npt {
 	padding: 0;
 }
+
+.pages-container {
+	float: left;
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-family: 'Noto Sans Armenian', sans-serif !important;
+}
+
+.pages-container .pages-header {
+	margin-top: calc(100vw / 1920 * 100);
+	color: #000000;
+	font-family: 'Noto Sans Armenian', sans-serif !important;
+}
+
+.pages-container .pages-body {
+	width: calc(100vw / 1920 * 1260);
+	margin: 0 calc(100vw / 1920 * 345);
+	padding-bottom: calc(100vw /1920 * 30);
+}
+
+.pages-container .pages-body .text {
+	font-family: 'Noto Sans Armenian', sans-serif !important;
+}
+
+.pages-container .pages-body .text h2 {
+	font-size: calc(100vw / 1920 * 24);
+	margin: calc(100vw / 1920 * 20) 0;
+	padding: 0;
+	font-family: 'Noto Sans Armenian', sans-serif !important;
+}
