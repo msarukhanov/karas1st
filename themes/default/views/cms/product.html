@@ -11,71 +11,6 @@
 </div>-->
 
 @{else}
-<div style="display: none" class="padding">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1 detail">
-            <div class="row">
-                <div class="col-md-2 m">
-
-                </div>
-                <div class="col-md-10 m">
-                    <div class="col-md-4 m">
-                        @{if model.pictures.length === 1}
-                        <div>
-                            <!--<img src="@{if !model.pictures || !model.pictures.length}/img/empty.png@{else}/images/small/@{model.pictures[0]}.jpg@{fi}" class="img-responsive" alt="@{m.name}" border="0" />-->
-                            <img src="@{if !model.pictures || !model.pictures.length}/img/empty.png @{else}/images/large/@{model.pictures[0]}.jpg@{fi}"
-                                 alt="@{model.name}" border="0" class="img-responsive img-rounded center"/>
-                        </div>
-                        <br/>
-                    </div>
-                    <div class="col-md-8 m">
-                        <div class="col-md-12 m">
-                            <div class="keyvalue">
-                                <!--<div class="key"><i class="fa fa-dropbox"></i></div>-->
-                                <div class="value">@{model.name[controller.getLang()]}</div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 m">
-                            <div class="keyvalue">
-                                <!--<div class="key"><i class="fa fa-dropbox"></i></div>-->
-                                <div class="value">@{!model.description[controller.getLang()].replace(/\n/g,'<br/>')}</div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 m">
-                            <div class="keyvalue">
-                                <!--<div class="key"><i class="fa fa-dropbox"></i>@(Availability)</div>-->
-                                <div class="value">@{model.availability}</div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 m">
-                            <div class="detail-checkout">
-                                <div>@(The product <b>@{model.name}</b> is in your shopping cart) <b class="data-checkout-count"></b>.
-                                </div>
-                                <span class="fa fa-shopping-cart mr5"></span><a href="/checkout/" class="b">@(Order it now)</a>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div>
-                                        <button class="detail-buy" data-id="@{model.id}" data-price="@{model.price}">@(Buy:) <b>@{currency(model.price)}</b>
-                                            @{if model.priceold > model.price} <span class="red">@{currency(model.priceold)}</span>@{fi}
-                                        </button>
-                                    </div>
-                                    <!--<div style="margin-top:15px">-->
-                                        <!--<span class="fa fa-envelope silver mr5"></span>-->
-                                        <!--<a href="@{sitemap_url('contact')}?productid=@{if model.reference}@{model.reference}@{else}@{model.id}@{fi}#contactform">-->
-                                            <!--@(Do you need more informations?)-->
-                                        <!--</a>-->
-                                    <!--</div>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="single-product-container">
     <div class="single-product-main">
@@ -87,7 +22,7 @@
                             <div class="product-header-path">
                                     <ul>
                                         <li class="home">
-                                            <a href="">Գլխավոր</a>
+                                            <a href="/@{!controller.getLang()}/">@{!controller.translateText({'en':'Home','ru':'Главная','hy':'Գլխավոր էջ'})}</a>
                                             <span>/</span>
                                         </li>
                                         <li class="category">
@@ -95,63 +30,40 @@
                                             <span>/</span>
                                         </li>
                                         <li class="product">
-                                            <a href="">Խորոված</a>
+                                            <a href="/@{!controller.getLang()}/shop/@{model.category.linker}/">@{model.category[controller.getLang()]}</a>
                                             <span>/</span>
                                         </li>
                                         <li class="single-product">
-                                            <a>Տավարի խորոված</a>
+                                            <a>@{model.name[controller.getLang()]}</a>
                                         </li>
                                     </ul>
                                 </div>
                             <div class="product-body">
                                 <div class="product-img">
                                     <a class="product-image product-image-zoom" href="">
-                                        <img src="/img/burger.png">
+                                        <img src="@{if !model.pictures || !model.pictures.length}/img/empty.png@{else}/images/small/@{model.pictures[0]}.jpg@{fi}">
                                     </a>
                                 </div>
                                 <div class="product-desc">
-                                    <p class="item-title">Տավարի խորոված</p>
+                                    <p class="item-title">@{model.name[controller.getLang()]}</p>
+                                    <!--<div>@(The product <b>@{model.name}</b> is in your shopping cart) <b class="data-checkout-count"></b>.-->
+                                    <!--</div>-->
+                                    <!--<span class="fa fa-shopping-cart mr5"></span><a href="/checkout/" class="b">@(Order it now)</a>-->
                                     <p class="item-availability">
+                                        @{if model.availability == "In stock"}
                                         <i class="fa fa-check-circle in-stock"></i>
+                                        <span>@{!controller.translateText({'en':'In stock','ru':'Есть в наличии','hy':'Վաճառքում առկա է'})}</span>
+                                        @{else}
                                         <i class="fa fa-times-circle out-of-stock"></i>
-                                        <span>Վաճառքում առկա է</span>
-                                        <span>Վաճառքում առկա չէ</span>
+                                        <span>@{!controller.translateText({'en':'Out of stock','ru':'Нет в наличии','hy':'Վաճառքում առկա չէ'})}</span>
+                                        @{fi}
                                     </p>
                                     <p class="item-desc">
-                                        Տավարի միս, հոլանդական պանիր, սոխ, լոլիկ, հազար, կետչուպ, մայոնեզ:
+                                        @{model.description[controller.getLang()]}
                                     </p>
-                                   <!-- <div class="complex-lunch">
-                                        <div class="dropdown complex-lunch-dropdowns">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dropdown complex-lunch-dropdowns">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dropdown complex-lunch-dropdowns">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>-->
                                     <div class="price-add-cart">
                                         <div class="item-price">
-                                            <span class="price">1450 դր</span>
+                                            <span class="price">@{currency(model.price)} @{!controller.translateText({'en':'AMD','ru':'др','hy':'դր'})}</span>
                                         </div>
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
@@ -160,7 +72,10 @@
                                                         <label>Քանակ</label>
                                                         <input type="number" value="1">
                                                     </div>
-                                                    <button type="button" class="button btn-cart fr">Ավելացնել</button>
+                                                    <button class="detail-buy button btn-cart fr" data-id="@{model.id}" data-price="@{model.price}" data-name="@{JSON.stringify(model.name)}"
+                                                            data-pic="@{if !model.pictures || !model.pictures.length}/img/empty.png@{else}/images/small/@{model.pictures[0]}.jpg@{fi}">
+                                                        @{!controller.translateText({'en':'Add','ru':'Добавить','hy':'Ավելացնել'})}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,6 +86,7 @@
                     </form>
                 </div>
             </div>
+            @{if model.relations}
             <div class="product-related">
                 <div class="related-title">
                     <span>Ընտրեք նաև՝</span>
@@ -178,118 +94,63 @@
                 </div>
                 <div class="related-body">
                     <div class="related-items">
+                        @{foreach m in model.relations}
                         <div class="related-item">
                             <a href="">
-                                <img src="/img/related/1.png">
+                                <img src="@{if !m.pictures || !m.pictures.length}/img/empty.png@{else}/images/small/@{m.pictures[0]}.jpg@{fi}">
                             </a>
-                            <span class="item-text">Սոուսների տեսականի</span>
-                            <span class="item-price">500 դր</span>
+                            <span class="item-text">@{m.name[controller.getLang()]}</span>
+                            <span class="item-price">@{m.price} @{!controller.translateText({'en':'AMD','ru':'др','hy':'դր'})}</span>
                             <div class="hidden magictime boingInUp" style="display: none">
                             </div>
-                            <button type="button" class="related-btn" style="display: none; opacity: 1 !important;">Ավելացնել</button>
-
+                            <button type="button" class="related-btn" style="display: none; opacity: 1 !important;">
+                                @{!controller.translateText({'en':'Add','ru':'Добавить','hy':'Ավելացնել'})}
+                            </button>
                         </div>
-                    </div>
-                    <div class="related-items">
-                        <div class="related-item">
-                            <a href="">
-                                <img src="/img/related/2.png">
-                            </a>
-                            <span class="item-text">Պիցցա Պեպերոնի, 30սմ</span>
-                            <span class="item-price">2400 դր</span>
-                            <div class="hidden magictime boingInUp" style="display: none">
-                            </div>
-                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
-                        </div>
-                    </div>
-                    <div class="related-items">
-                        <div class="related-item">
-                            <a href="">
-                                <img src="/img/related/3.png">
-                            </a>
-                            <span class="item-text">Խորոված բանջարեղեն</span>
-                            <span class="item-price">800 դր</span>
-                            <div class="hidden magictime boingInUp" style="display: none">
-                            </div>
-                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
-                        </div>
-                    </div>
-                    <div class="related-items">
-                        <div class="related-item">
-                            <a href="">
-                                <img src="/img/related/4.png">
-                            </a>
-                            <span class="item-text">Թան</span>
-                            <span class="item-price">300 դր</span>
-                            <div class="hidden magictime boingInUp" style="display: none">
-                            </div>
-                            <button type="button" class="related-btn" style="display: none">Ավելացնել</button>
-                        </div>
+                        @{end}
                     </div>
                 </div>
             </div>
+            @{fi}
         </div>
+
         <div class="col-left sidebar">
             <div class="block block-cart">
                 <div class="block-title shopping-cart-header">
-                    <span>Զամբյուղ</span>
+                    <span>
+                         @{!controller.translateText({'en':'Shopping Cart','ru':'Корзина','hy':'Զամբյուղ'})}
+                    </span>
                 </div>
                 <div class="block-content shopping-cart-body">
-                    <p class="empty">Դուք չունեք ապրանք Ձեր զամբյուղում</p>
+                    <div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}" class="shopping-cart-list"></div>
                 </div>
             </div>
             <div class="block block-list block-categories block-meals">
-                <div class="food-header block-title"><span>Ուտեստներ</span></div>
+                <div class="food-header block-title">
+                    <span>
+                        @{!controller.translateText({'en':'Meals','ru':'Блюда','hy':'Ուտեստներ'})}
+                    </span>
+                </div>
                 <div class="leftnav block-content food-body">
                     <ul id="leftnav-tree-20" class="level1">
+                        @{foreach m in global.db_categories}
                         <li class="level1 active">
-                            <a href="">Խորոված</a>
-
+                            <a href="/@{!controller.getLang()}/shop/@{m.linker}/">@{m.full_name[controller.getLang()]}</a>
                         </li>
-                        <li class="level1">
-                            <a href="">Կոմպլեքս լանչ</a>
-
-                        </li>
-                        <li class="level1">
-                            <a href="">Պիցցա</a>
-
-                        </li>
-                        <li class="level1">
-                            <a href="">Խաչապուրի</a>
-
-                        </li>
-                        <li class="level1">
-                            <a href="">Աղցան</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Ապուր</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Տաք ուտեստներ</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Խավարտ</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Նախուտեստներ</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Արագ սնունդ</a>
-                        </li>
-                        <li class="level1">
-                            <a href="">Մանկական սնունդ</a>
-                        </li>
+                        @{end}
                     </ul>
                 </div>
             </div>
             <div class="block block-list block-categories block-drinks">
-                <div class="drink-header block-title"><span>Ըմպելիք</span></div>
+                <div class="drink-header block-title">
+                    <span>
+                         @{!controller.translateText({'en':'Drink (*delivery prices)','ru':'Напитки (*цены доставки)','hy':'Ըմպելիք (*առաքման գներ)'})}
+                    </span>
+                </div>
                 <div class="block-content leftnav">
-
                     <ul id="leftnav-tree-18" class="level1">
                         <li class="level1">
                             <a href="">Ոչ ալկոհոլային</a>
-
                         </li>
                         <li class="level1">
                             <a href="">Տաք ըմպելիքներ</a>
@@ -305,20 +166,21 @@
     </div>
 </div>
 
-<!--<div class="padding">
-    <!--<div class="row detail-pictures">-->
-        <!--@{foreach m in model.pictures}-->
-        <!--<div class="col-md-6 m"><img src="/images/large/@{m}.jpg" alt="@{model.name}" border="0"-->
-                                     <!--class="img-responsive img-rounded center"/></div>-->
-        <!--@{if index && (index + 1) % 2 === 0}-->
-    <!--</div>-->
-    <!--<hr class="visible-lg"/>-->
-    <!--<div class="row detail-pictures">-->
-        <!--@{fi}-->
-        <!--@{end}-->
-    <!--</div>-->
-<!--</div>-->
-@{fi}
+
+<script>
+
+    var shopping_cart = [];
+
+    jC.ready(function(){
+        shopping_cart = CACHE('cart');
+        console.log(shopping_cart);
+        SET('shopping_cart', shopping_cart);
+    });
+
+//    SET('datasource', cart);
+
+</script>
+
 
 @{if model.body}
 @{!model.body.tidyCMS()}

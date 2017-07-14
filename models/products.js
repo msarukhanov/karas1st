@@ -174,13 +174,24 @@ NEWSCHEMA('Product').make(function(schema) {
         filter.callback(function(err, doc) {
             !doc && error.push('error-404-product');
             NOSQL('products').find().fields('id','linker','name','price','pictures').callback(function(err1, docs1, count1) {
-                if(!doc.linker) doc.linker = (doc.name.en || doc.name).slug();
-                _.each(doc.relations_arr, function(j,l) {
-                    doc.relations[l] = _.find(docs1, function(item) {return item.id == j;});
-                    if(!doc.relations[l].linker) doc.relations[l].linker =
-                        (doc.relations[l].name.en || doc.relations[l].name).slug();
-                });
-                callback(doc);
+                var categories = F.global.db_categories;
+                if(doc) {
+                    if(!doc.linker) doc.linker = (doc.name.en || doc.name).slug();
+                    _.each(doc.relations_arr, function(j,l) {
+                        doc.relations[l] = _.find(docs1, function(item) {return item.id == j;});
+                        if(!doc.relations[l].linker) doc.relations[l].linker =
+                            (doc.relations[l].name.en || doc.relations[l].name).slug();
+                        var myCat = _.find(categories, function(item) {return doc.category == item.name_en;}), tmp = doc.category;
+                        doc.category = {
+                            en: !myCat ? tmp : myCat.name_en,
+                            ru: !myCat ? tmp : myCat.name_ru,
+                            hy: !myCat ? tmp : myCat.name_hy,
+                            linker: !myCat ? tmp : myCat.linker
+                        };
+                    });
+                    callback(doc);
+                }
+                else callback([]);
             });
 
         });

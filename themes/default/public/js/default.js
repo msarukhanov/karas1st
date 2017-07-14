@@ -74,9 +74,11 @@ $(document).ready(function() {
 		var el = $(this);
 		var price = parseFloat(el.attr('data-price'));
 		var id = el.attr('data-id');
+        var pic = el.attr('data-pic');
+        var name = JSON.parse(el.attr('data-name'));
 		var checkout = FIND('checkout');
 		console.log(checkout);
-		checkout.append(id, price, 1);
+		checkout.append(id, price, 1, pic, name);
 		var target = $('.detail-checkout');
 		target.find('.data-checkout-count').html(checkout.exists(id).count + 'x');
 		target.slideDown(300);
@@ -164,6 +166,8 @@ COMPONENT('newsletter', function() {
 
 COMPONENT('checkout', function() {
 
+
+
 	var self = this;
 	var expiration = ((1000 * 60) * 60) * 168; // Valid for 7 days
 	var currency = self.attr('data-currency');
@@ -182,7 +186,7 @@ COMPONENT('checkout', function() {
 		}
 	};
 
-	self.append = function(id, price, count) {
+	self.append = function(id, price, count, pic, name) {
 		var cart = CACHE('cart');
 		var is = false;
 		var counter = 0;
@@ -199,7 +203,7 @@ COMPONENT('checkout', function() {
 		} else
 			cart = [];
 
-		!is && cart.push({ id: id, price: price, count: count });
+		!is && cart.push({ id: id, price: price, count: count, pic: pic, name: name });
 		CACHE('cart', cart, expiration);
 		self.refresh();
 		return count;
@@ -272,6 +276,65 @@ COMPONENT('checkout', function() {
 
 		self.html(count);
 	};
+
+});
+
+COMPONENT('shoppingcart', function() {
+
+    var self = this, lang = self.attr('data-lang');
+	
+    var emptyText = {
+        'en':'You have no items in your shopping cart.',
+        'ru':'Ваша корзина покупок пуста.',
+        'hy':'Դուք չունեք ապրանք Ձեր զամբյուղում'
+	};
+
+
+
+    self.skip = false;
+    self.readonly();
+
+    self.setter = function(value) {
+		console.log(self);
+        var builder = [];
+        console.log("val", value);
+        if(value && value.length && value.length > 0) {
+            for (var i = 0, length = value.length; i < length; i++) {
+                var id = value[i];
+                id && builder.push('' +
+                    '<div data-id="'+value[i].id+'" class="shopping-cart-item">' +
+                    '<span class="fa fa-times">'+value[i].count+'</span>' +
+                    '<img src="' + value[i].pic + '" class="img-responsive" alt="" />' +
+                    '<span class="shpoing-cart-name">'+value[i].name[lang]+'</span>' +
+                    '</div>'.format(id));
+            }
+		}
+        else {
+        	builder = ['<p class="empty">' + emptyText[lang] + '</p>'];
+		}
+
+        self.html(builder);
+
+
+        // this.element.find('.fa').bind('click', function() {
+        //
+        //
+        //     var data_id =  $(this).parent().attr('data-id');
+        //
+        //     value = value.filter(function( obj ) {
+        //         console.log(obj, obj.id, data_id);
+        //         return obj.id !== data_id;
+        //     });
+        //
+        //     $(this).parent().remove();
+        //
+        //     var id = [];
+        //
+        //     self.skip = true;
+        //     self.set(value);
+        // });
+
+    };
 });
 
 COMPONENT('isopen', function() {
