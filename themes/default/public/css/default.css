@@ -1389,12 +1389,107 @@ header, footer, .content, .slider {
 	border-bottom: calc(100vw / 1920 * 1) solid #e9e9e9;
 }
 
-.col-left .block-cart .shopping-cart-body {
-	height: calc(100vw / 1920 * 51);
-	padding: calc(100vw / 1920 * 17);
+.col-left .block-cart .shopping-cart-header a {
+	float: right;
+	color: #de1a22;
+	font-weight: 400;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-list {
+	height: calc(100vw / 1920 * 115);
+	width: 100%;
+	display: inline-block;
+	float: left;
+	overflow-y: scroll;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn {
+	height: calc(100vw / 1920 * 101);
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-totalCost {
+	height: calc(100vw / 1920 * 50);
+	padding: calc(100vw / 1920 * 15);
 	font-size: calc(100vw / 1920 * 12);
-	line-height: calc(100vw / 1920 * 15);
-	color: #808080;
+	border-top: calc(100vw / 1920 * 1) solid #e9e9e9;
+	color: #777777;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-totalCost .cost {
+	float: right;
+	color: #de1a22;
+	font-size: calc(100vw / 1920 * 18);
+	line-height: calc(100vw / 1920 * 17);
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-totalCost .total {
+	float: left;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-btn {
+	width: 100%;
+	height: calc(100vw / 1920 * 50);
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-btn button {
+	width: 100%;
+	height: 100%;
+	color: #ffffff;
+	background: #de1a22;
+	border: none;
+	cursor: pointer;
+	font-size: calc(100vw / 1920 * 12);
+	text-transform: uppercase;
+	padding: 0;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item {
+	height: calc(100vw / 1920 * 70);
+	width: 100%;
+	position: relative;
+	float: left;
+	display: inline-block;
+	border-bottom: calc(100vw / 1920 * 1) solid #e9e9e9;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item:last-child {
+	border: none;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner {
+	padding: calc(100vw / 1920 * 15) calc(100vw / 1920 * 20);
+	height: 100%;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner .shopping-cart-item-count {
+	position: absolute;
+	left: calc(100vw / 1920 * 12.5);
+	top: calc(100vw / 1920 * 7.5);
+	background-color: #de1a22;
+	border-radius: calc(100vw / 1920 * 50);
+	width: calc(100vw / 1920 * 16);
+	height: calc(100vw / 1920 * 16);
+	padding: 0 calc(100vw / 1920 * 5);
+	font-size: calc(100vw / 1920 * 12);
+	color: #ffffff;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner .shopping-cart-name span, .shopping-cart-price span {
+	padding-left: calc(100vw / 1920 * 10);
+	font-size: calc(100vw / 1920 * 12);
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner .shopping-cart-price span {
+	color: #de1a22;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item img {
+	height: calc(100vw / 1920 * 40);
+	width: calc(100vw / 1920 * 40);
+	float: left;
 }
 
 .col-left .block-meals .food-header {

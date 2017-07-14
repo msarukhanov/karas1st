@@ -120,9 +120,19 @@
                     <span>
                          @{!controller.translateText({'en':'Shopping Cart','ru':'Корзина','hy':'Զամբյուղ'})}
                     </span>
+                    <a href="">See all</a>
                 </div>
                 <div class="block-content shopping-cart-body">
                     <div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}" class="shopping-cart-list"></div>
+                    <div class="shopping-cart-total-btn">
+                        <div class="shopping-cart-totalCost">
+                            <span class="total">Total Cost</span>
+                            <span class="cost">11390 դր</span>
+                        </div>
+                        <div class="shopping-cart-btn">
+                            <button type="button">Order</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="block block-list block-categories block-meals">

@@ -303,9 +303,12 @@ COMPONENT('shoppingcart', function() {
                 var id = value[i];
                 id && builder.push('' +
                     '<div data-id="'+value[i].id+'" class="shopping-cart-item">' +
-                    '<span class="fa fa-times">'+value[i].count+'</span>' +
+					'<div class="shopping-cart-item-inner">' +
+					'<span class="shopping-cart-item-count">'+value[i].count+'</span>' +
                     '<img src="' + value[i].pic + '" class="img-responsive" alt="" />' +
-                    '<span class="shpoing-cart-name">'+value[i].name[lang]+'</span>' +
+                    '<div class="shopping-cart-name"><span>'+value[i].name[lang]+'</span></div>' +
+                    '<div class="shopping-cart-price"><span>'+value[i].price+' դր</span></div>' +
+                    '</div>'+
                     '</div>'.format(id));
             }
 		}
