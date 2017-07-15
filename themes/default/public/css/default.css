@@ -1492,6 +1492,7 @@ header, footer, .content, .slider {
 	border-bottom: calc(100vw / 1920 * 1) solid #e9e9e9;
 	padding: calc(100vw / 1920 * 13) calc(100vw / 1920 * 21);
 	line-height: calc(100vw / 1920 * 10);
+	position: relative;
 }
 
 .col-left .block-meals .food-body ul li:last-child, .block-drinks ul li:last-child {
@@ -1499,14 +1500,25 @@ header, footer, .content, .slider {
 	border: none;
 }
 
+.col-left .block-drinks ul li embed {
+	position: absolute;
+	top: calc(100vw / 1920 * 8);
+}
+
 .col-left .block-meals .food-body ul li a, .block-drinks ul li a {
 	color: #808080;
 	text-decoration: none;
+	position: absolute;
+	left: calc(100vw / 1920 * 55);
 }
 
-.col-left .block-meals .food-body ul li a:hover, .block-drinks ul li a:hover {
+.col-left .block-meals .food-body ul li:hover a, .block-drinks ul li:hover a {
 	color: #de1a22;
 	font-weight: bold;
+}
+
+.col-left .block-meals .food-body ul li:hover, .block-drinks ul li:hover {
+	cursor: pointer;
 }
 
 .col-left .block-drinks .drink-header {
@@ -1924,3 +1936,57 @@ header, footer, .content, .slider {
 	padding: 0;
 	font-family: 'Noto Sans Armenian', sans-serif !important;
 }
+
+.newsBlock-inner {
+	display: block;
+	width: calc(100vw / 1920 * 1230);
+	margin: calc(100vw / 1920 * 70) calc(100vw / 1920 * 315);
+	padding: calc(100vw / 1920 * 50) 0;
+}
+
+.newsBlock-inner .news-inner-head {
+	display: inline-block;
+	float: left;
+	padding-bottom: calc(100vw / 1920 * 30);
+}
+
+.newsBlock-inner .news-inner-head .news-header-date {
+	color: #b5b5b5;
+	font-size: calc(100vw / 1920 * 18);
+}
+
+.newsBlock-inner .news-inner-head .news-header-title {
+	color: #141414;
+	font-size: calc(100vw / 1920 * 36);
+	font-weight: bold;
+}
+
+.newsBlock-inner .news-inner-body {
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 100%;
+}
+
+.newsBlock-inner .news-inner-body .news-img {
+	width: calc(100vw / 1920 * 1230);
+	height: calc(100vw / 1920 * 440);
+	margin-bottom: calc(100vw / 1920 * 60);
+}
+
+.newsBlock-inner .news-inner-body .news-img img {
+	width: calc(100vw / 1920 * 1230);
+	height: calc(100vw / 1920 * 440);
+}
+
+.newsBlock-inner .news-inner-body .news-body-text {
+	width: 100%;
+	margin-bottom: calc(100vw / 1920 * 170);
+}
+
+.newsBlock-inner .news-inner-body .news-body-text p {
+	color: #b5b5b5;
+	line-height: calc(100vw / 1920 * 28);
+	font-size: calc(100vw / 1920 * 18);
+}
+
