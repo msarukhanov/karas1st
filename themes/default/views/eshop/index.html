@@ -26,7 +26,18 @@
 
 </div>
 <div class="specialOffer">
-    @{foreach m in global.index_offers}
+    <div class="singleSpecialOffer">
+        <a>
+            <img src="/img/specialOffer/1.png">
+        </a>
+    </div>
+    <div class="singleSpecialOffer">
+        <a>
+            <img src="/img/specialOffer/2.png">
+        </a>
+    </div>
+
+   <!-- @{foreach m in global.index_offers}
     <div class="singleSpecialOffer">
         <div class="specialOfferHeader">
             <p>
@@ -39,7 +50,7 @@
             <span>@{m.title[controller.getLang()]}</span>
         </a>
     </div>
-    @{end}
+    @{end}-->
     <div class="moreSpecialOffer">
         <button ng-click="showMore()">More</button>
     </div>
@@ -78,6 +89,18 @@
 </div>
 <div class="newsBlock">
     <div class="mainNewsBlock">
+        <div class="singleNewBlock">
+            <a href="">
+                <img src="/img/news/news1.png">
+                <p class="date">June 15, 2017</p>
+                <p class="header">Karas. New Branch in Avan community</p>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!--<div class="mainNewsBlock">
         @{foreach m in global.posts[controller.getLang()]}
         <div class="singleNewBlock">
             <div class="newsBlockImg">
@@ -90,6 +113,6 @@
             </div>
         </div>
         @{end}
-    </div>
+    </div>-->
 
 </div>

@@ -297,48 +297,23 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .specialOffer {
 	display: block;
 	width: calc(100vw / 1920 * 1260);
-	height: calc(100vw / 1920 * 1155);
+	height: calc(100vw / 1920 * 520);
 	margin: 0 calc(100vw / 1920 * 315);
+	position: relative;
 	padding-top: calc(100vw / 1920 * 60);
 }
 
 .specialOffer .singleSpecialOffer {
 	width: calc(100vw / 1920 * 630);
-	height: calc(100vw / 1920 * 470);
+	height: calc(100vw / 1920 * 480);
 	float: left;
 	padding: calc(100vw / 1920 * 15);
 	position: relative;
 }
 
-.specialOffer .singleSpecialOffer .specialOfferHeader {
-	width: calc(100vw / 1920 * 600);
-	background: #000000;
-	height: calc(100vw / 1920 * 40);
-}
-
-.specialOffer .singleSpecialOffer p {
-	float: left;
-	height: calc(100vw / 1920 * 40);
-}
-
-.specialOffer .singleSpecialOffer .specialOfferHeader img {
-	height: calc(100vw / 1920 * 30);
-	padding-left: calc(100vw / 1920 * 20);
-	position: absolute;
-}
-
-.specialOffer .singleSpecialOffer .specialOfferHeader span {
-	line-height: calc(100vw / 1920 * 40);
-	font-size: calc(100vw / 1920 * 16);
-	color: #fff;
-	position: absolute;
-	left: calc(100vw /1920 * 70);
-}
-
 .specialOffer .singleSpecialOffer a img {
 	width: calc(100vw / 1920 * 600);
 	height: calc(100vw / 1920 * 400);
-	top: calc(100vw / 1920 * -25);
 	position: relative;
 }
 
@@ -360,22 +335,25 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 }
 
  .moreSpecialOffer {
-	width: calc(100vw / 1920 * 240);
-	height: calc(100vw / 1920 * 155);
-	float: left;
-	padding: calc(100vw / 1920 * 45) calc(100vw / 1920 * 510);
+	 width: calc(100vw / 1920 * 240);
+	 height: calc(100vw / 1920 * 110);
+	 float: left;
+	 padding: calc(100vw / 1920 * 45) calc(100vw / 1920 * 510);
+	 position: relative;
 }
 
  .moreSpecialOffer button,  .moreSpecialOffer a {
-	width: calc(100vw / 1920 * 240);
-	height: calc(100vw / 1920 * 50);
-	border-radius: calc(100vw / 1920 * 60);
-	color: #ffffff;
-	background: #de1a22;
-	border: none;
-	cursor: pointer;
-	font-size: calc(100vw / 1920 * 17);
-	text-transform: uppercase;
+	 width: calc(100vw / 1920 * 240);
+	 height: calc(100vw / 1920 * 50);
+	 border-radius: calc(100vw / 1920 * 60);
+	 color: #ffffff;
+	 background: #de1a22;
+	 border: none;
+	 cursor: pointer;
+	 font-size: calc(100vw / 1920 * 17);
+	 text-transform: uppercase;
+	 top: 0;
+	 position: absolute;
 }
 
 .menu {
@@ -506,20 +484,20 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 .newsBlock {
 	background: #f7f7f7;
 	width: 100%;
-	height: calc(100vw / 1920 * 460);
+	height: calc(100vw / 1920 * 450);
 }
 
 .newsBlock .mainNewsBlock {
 	display: block;
 	width: calc(100vw / 1920 * 1260);
-	height: calc(100vw / 1920 * 460);
+	height: calc(100vw / 1920 * 450);
 	margin: 0 calc(100vw / 1920 * 315);
-	padding: calc(100vw / 1920 * 60) 0;
+	padding: calc(100vw / 1920 * 50) 0;
 }
 
 .newsBlock .mainNewsBlock .singleNewBlock {
 	width: calc(100vw / 1920 * 420);
-	height: calc(100vw / 1920 * 340);
+	height: calc(100vw / 1920 * 350);
 	float: left;
 	padding: 0 calc(100vw / 1920 * 15);
 	position: relative;
@@ -549,20 +527,20 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 
 .newsBlock .mainNewsBlock .singleNewBlock .header {
 	position: absolute;
-	bottom: calc(100vw / 1920 * 55);
+	bottom: calc(100vw / 1920 * 30);
 	left: calc(100vw / 1920 * 16);
-	font-size: calc(100vw / 1920 * 16);
-	font-family: 'noto Sans', serif;
+	font-size: calc(100vw / 1920 * 20);
+	font-family: 'Noto Sans Armenian', sans-serif !important;
 	font-weight: bold;
 	color: #000000;
 }
 
 .newsBlock .mainNewsBlock .singleNewBlock .date {
 	position: absolute;
-	bottom: calc(100vw / 1920 * 28);
-	left: calc(100vw / 1920 * 16);
+	bottom: calc(100vw / 1920 * 60);
+	left: calc(100vw / 1920 * 14);
 	font-size: calc(100vw / 1920 * 14);
-	font-family: 'noto Sans', serif;
+	font-family: 'Noto Sans Armenian', sans-serif !important;
 	color: #b5b5b5;
 }
 
