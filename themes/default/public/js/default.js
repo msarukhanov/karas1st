@@ -77,7 +77,6 @@ $(document).ready(function() {
         var pic = el.attr('data-pic');
         var name = JSON.parse(el.attr('data-name'));
 		var checkout = FIND('checkout');
-		console.log(checkout);
 		checkout.append(id, price, 1, pic, name);
 		var target = $('.detail-checkout');
 		target.find('.data-checkout-count').html(checkout.exists(id).count + 'x');
@@ -240,6 +239,9 @@ COMPONENT('checkout', function() {
 
 		CACHE('cart', cart, expiration);
 		self.refresh(removed ? 1 : 0);
+        if(FIND('shoppingcart')) {
+            FIND('shoppingcart').setter(cart);
+		}
 		return removed ? 1 : 0;
 	};
 
@@ -287,18 +289,29 @@ COMPONENT('shoppingcart', function() {
         'en':'You have no items in your shopping cart.',
         'ru':'Ваша корзина покупок пуста.',
         'hy':'Դուք չունեք ապրանք Ձեր զամբյուղում'
-	};
-
-
+	}, totalText = {
+        'en':'Total',
+        'ru':'Всего',
+        'hy':'Ընդհանուր'
+	}, curr = {
+        'en':'amd',
+        'ru':'др',
+        'hy':'դր'
+	}, orderText = {
+        'en':'Checkout',
+        'ru':'Оформить заказ',
+        'hy':'Պատվիրել'
+	}, totalAmount = 0;
 
     self.skip = false;
     self.readonly();
 
     self.setter = function(value) {
-		console.log(self);
         var builder = [];
-        console.log("val", value);
+        totalAmount = 0;
         if(value && value.length && value.length > 0) {
+            value.forEach(function(item) {totalAmount+=item.price*item.count});
+            builder.push('<div class="shopping-cart-list">');
             for (var i = 0, length = value.length; i < length; i++) {
                 var id = value[i];
                 id && builder.push('' +
@@ -306,37 +319,26 @@ COMPONENT('shoppingcart', function() {
 					'<div class="shopping-cart-item-inner">' +
 					'<span class="shopping-cart-item-count">'+value[i].count+'</span>' +
                     '<img src="' + value[i].pic + '" class="img-responsive" alt="" />' +
-                    '<div class="shopping-cart-name"><span>'+value[i].name[lang]+'</span></div>' +
+                    '<div class="shopping-cart-name"><span>'+value[i].name[lang]+'</span>' +
+                    '<span class="fa fa-times-circle hidden-xs" data-id="' + value[i].id +'"></span>' +
+					'</div>' +
                     '<div class="shopping-cart-price"><span>'+value[i].price+' դր</span></div>' +
-                    '</div>'+
+                    '</div>' +
                     '</div>'.format(id));
             }
+            builder.push('</div>');
+            builder.push('<div class="shopping-cart-total-btn"> ' +
+                '<div class="shopping-cart-totalCost">' +
+                '<span class="total">' + totalText[lang] + '</span> ' +
+                '<span class="cost">' + totalAmount + ' ' + curr[lang] + '</span> </div> ' +
+                '<div class="shopping-cart-btn"> ' +
+                '<button type="button"><a href="/'+lang+'/checkout/">' + orderText[lang] + '</a></button></div> ' +
+                '</div>');
 		}
         else {
         	builder = ['<p class="empty">' + emptyText[lang] + '</p>'];
 		}
-
         self.html(builder);
-
-
-        // this.element.find('.fa').bind('click', function() {
-        //
-        //
-        //     var data_id =  $(this).parent().attr('data-id');
-        //
-        //     value = value.filter(function( obj ) {
-        //         console.log(obj, obj.id, data_id);
-        //         return obj.id !== data_id;
-        //     });
-        //
-        //     $(this).parent().remove();
-        //
-        //     var id = [];
-        //
-        //     self.skip = true;
-        //     self.set(value);
-        // });
-
     };
 });
 

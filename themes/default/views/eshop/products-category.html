@@ -1,16 +1,93 @@
 @{sitemap('category')}
 
-<div class="padding npb">
-	<h1>
-		@{title}
-		<!--@{controller.translateCat(@{title})}-->
-	</h1>
-</div>
+<!--<div class="padding npb">-->
+	<!--<h1>-->
+		<!--@{title}-->
+		<!--&lt;!&ndash;@{controller.translateCat(@{title})}&ndash;&gt;-->
+	<!--</h1>-->
+<!--</div>-->
 <!--@{if repository.category.children.length || repository.category.level}-->
 	<!--@{view('partial-subcategories')}-->
 <!--@{fi}-->
-<div class="padding npt">
-	<!--@{view('partial-filter')}-->
-	@{view('partial-products', model)}
-	@{view('partial-pagination', model)}
+
+
+<div class="single-product-container">
+	<div class="single-product-main">
+		<div class="col-main">
+			<div class="padding npt">
+				<!--@{view('partial-filter')}-->
+				@{view('partial-products', model)}
+				@{view('partial-pagination', model)}
+			</div>
+		</div>
+
+		<div class="col-left sidebar">
+			<div class="block block-cart">
+				<div class="block-title shopping-cart-header">
+                    <span>
+                         @{!controller.translateText({'en':'Shopping Cart','ru':'Корзина','hy':'Զամբյուղ'})}
+                    </span>
+					<a href="">@{!controller.translateText({'en':'See all','ru':'Просмотр корзины','hy':'Դիտել զամբյուղը'})}</a>
+				</div>
+				<div class="block-content shopping-cart-body">
+					<div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}"></div>
+				</div>
+			</div>
+			<div class="block block-list block-categories block-meals">
+				<div class="food-header block-title">
+                    <span>
+                        @{!controller.translateText({'en':'Meals','ru':'Блюда','hy':'Ուտեստներ'})}
+                    </span>
+				</div>
+				<div class="leftnav block-content food-body">
+					<ul id="leftnav-tree-20" class="level1">
+						@{foreach m in global.db_categories}
+						<li class="level1 active">
+							<embed src="/img/icons/@{m.linker}.svg"></embed>
+							<a href="/@{!controller.getLang()}/shop/@{m.linker}/">@{m.full_name[controller.getLang()]}</a>
+						</li>
+						@{end}
+					</ul>
+				</div>
+			</div>
+			<div class="block block-list block-categories block-drinks">
+				<div class="drink-header block-title">
+                    <span>
+                         @{!controller.translateText({'en':'Drink (*delivery prices)','ru':'Напитки (*цены доставки)','hy':'Ըմպելիք (*առաքման գներ)'})}
+                    </span>
+				</div>
+				<div class="block-content leftnav">
+					<ul id="leftnav-tree-18" class="level1">
+						<li class="level1">
+							<embed src="/img/icons/non-alco.svg"></embed>
+							<a href="">Ոչ ալկոհոլային</a>
+						</li>
+						<li class="level1">
+							<embed src="/img/icons/hot-drinks.svg"></embed>
+							<a href="">Տաք ըմպելիքներ</a>
+
+						</li>
+						<li class="level1">
+							<embed src="/img/icons/Alco.svg"></embed>
+							<a href="">Ալկոհոլային</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script>
+
+    var shopping_cart = [];
+
+    jC.ready(function(){
+        shopping_cart = CACHE('cart');
+        SET('shopping_cart', shopping_cart);
+        $('.shopping-cart-body').on('click', '.fa-times-circle', function(e) {
+            FIND('checkout').update($(this).attr('data-id'), 0);
+        });
+    });
+
+</script>

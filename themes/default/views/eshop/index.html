@@ -26,31 +26,31 @@
 
 </div>
 <div class="specialOffer">
-    <div class="singleSpecialOffer">
-        <a>
-            <img src="/img/specialOffer/1.png">
-        </a>
-    </div>
-    <div class="singleSpecialOffer">
-        <a>
-            <img src="/img/specialOffer/2.png">
-        </a>
-    </div>
+    <!--<div class="singleSpecialOffer">-->
+        <!--<a>-->
+            <!--<img src="/img/specialOffer/1.png">-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="singleSpecialOffer">-->
+        <!--<a>-->
+            <!--<img src="/img/specialOffer/2.png">-->
+        <!--</a>-->
+    <!--</div>-->
 
-   <!-- @{foreach m in global.index_offers}
+   @{foreach m in global.index_offers}
     <div class="singleSpecialOffer">
-        <div class="specialOfferHeader">
-            <p>
-                <img src="@{if !m.isnew }/img/specialOffer/special-offer-flag.png@{else}/img/specialOffer/new-special-offer-flag.png@{fi}">
-            </p>
-            <span>Special Offer</span>
-        </div>
+        <!--<div class="specialOfferHeader">-->
+            <!--<p>-->
+                <!--<img src="@{if !m.isnew }/img/specialOffer/special-offer-flag.png@{else}/img/specialOffer/new-special-offer-flag.png@{fi}">-->
+            <!--</p>-->
+            <!--<span>Special Offer</span>-->
+        <!--</div>-->
         <a>
             <img src="@{if !m.picture }/img/empty.png@{else}/images/small/@{m.picture}.jpg@{fi}">
             <span>@{m.title[controller.getLang()]}</span>
         </a>
     </div>
-    @{end}-->
+    @{end}
     <div class="moreSpecialOffer">
         <button ng-click="showMore()">More</button>
     </div>
@@ -89,27 +89,15 @@
 </div>
 <div class="newsBlock">
     <div class="mainNewsBlock">
+        @{foreach m in global.posts[controller.getLang()]}
         <div class="singleNewBlock">
-            <a href="">
-                <img src="/img/news/news1.png">
-                <p class="date">June 15, 2017</p>
-                <p class="header">Karas. New Branch in Avan community</p>
+            <a href="/@{!controller.getLang()}/blogs/@{m.linker}"/>
+                <img src="@{if !m.pic }/img/empty.png@{else}/images/small/@{m.pic}.jpg@{fi}">
+                <p class="date">@{m.datecreated.format('yyyy-MM-dd')}</p>
+                <p class="header">@{m.name}</p>
             </a>
         </div>
-        <div class="singleNewBlock">
-            <a href="">
-                <img src="/img/news/news2.png">
-                <p class="date">June 15, 2017</p>
-                <p class="header">Karas. New Branch in Avan community</p>
-            </a>
-        </div>
-        <div class="singleNewBlock">
-            <a href="">
-                <img src="/img/news/news1.png">
-                <p class="date">June 15, 2017</p>
-                <p class="header">Karas. New Branch in Avan community</p>
-            </a>
-        </div>
+        @{end}
     </div>
 
 

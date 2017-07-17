@@ -120,19 +120,10 @@
                     <span>
                          @{!controller.translateText({'en':'Shopping Cart','ru':'Корзина','hy':'Զամբյուղ'})}
                     </span>
-                    <a href="">See all</a>
+                    <a href="">@{!controller.translateText({'en':'See all','ru':'Просмотр корзины','hy':'Դիտել զամբյուղը'})}</a>
                 </div>
                 <div class="block-content shopping-cart-body">
-                    <div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}" class="shopping-cart-list"></div>
-                    <div class="shopping-cart-total-btn">
-                        <div class="shopping-cart-totalCost">
-                            <span class="total">Total Cost</span>
-                            <span class="cost">11390 դր</span>
-                        </div>
-                        <div class="shopping-cart-btn">
-                            <button type="button">Order</button>
-                        </div>
-                    </div>
+                    <div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}"></div>
                 </div>
             </div>
             <div class="block block-list block-categories block-meals">
@@ -145,6 +136,7 @@
                     <ul id="leftnav-tree-20" class="level1">
                         @{foreach m in global.db_categories}
                         <li class="level1 active">
+                            <embed src="/img/icons/@{m.linker}.svg"></embed>
                             <a href="/@{!controller.getLang()}/shop/@{m.linker}/">@{m.full_name[controller.getLang()]}</a>
                         </li>
                         @{end}
@@ -186,11 +178,11 @@
 
     jC.ready(function(){
         shopping_cart = CACHE('cart');
-        console.log(shopping_cart);
         SET('shopping_cart', shopping_cart);
+        $('.shopping-cart-body').on('click', '.fa-times-circle', function(e) {
+            FIND('checkout').update($(this).attr('data-id'), 0);
+        });
     });
-
-//    SET('datasource', cart);
 
 </script>
 

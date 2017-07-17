@@ -9,10 +9,10 @@
 				<div data-jc="textbox" data-jc-path="posts.filter.search" data-placeholder="@(Search posts ...)" data-jc-type="search"></div>
 				<div class="help" data-jc="template" data-jc-path="posts.grid"><script type="text/html">{{ count | pluralize(@('# items','# item','# items','# items')) }} / {{ pages | pluralize(@('# pages','# page','# pages','# pages')) }}</script></div>
 			</div>
-			<div class="col-md-3 m">
-				<div data-jc="dropdown" data-jc-path="posts.filter.category" data-source="posts.categories" data-empty="@(All posts)" data-source-value="name"></div>
-				<div>&nbsp;</div>
-			</div>
+			<!--<div class="col-md-3 m">-->
+				<!--<div data-jc="dropdown" data-jc-path="posts.filter.category" data-source="posts.categories" data-empty="@(All posts)" data-source-value="name"></div>-->
+				<!--<div>&nbsp;</div>-->
+			<!--</div>-->
 			<div class="col-md-3 m">
 				<div data-jc="dropdown" data-jc-path="posts.filter.template" data-source="posts.templates" data-empty="@(All templates)"></div>
 			</div>
@@ -49,9 +49,9 @@
 			<div class="col-md-3 m">
 				<div data-jc="textbox" data-jc-path="posts.form.name" data-required="true" data-placeholder="@(Post name)">@(Name)</div>
 			</div>
-			<div class="col-md-3 m">
-				<div data-jc="dropdown" data-jc-path="posts.form.category" data-source="posts.categories" data-empty="" data-source-value="name" data-required="true">@(Category)</div>
-			</div>
+			<!--<div class="col-md-3 m">-->
+				<!--<div data-jc="dropdown" data-jc-path="posts.form.category" data-source="posts.categories" data-empty="" data-source-value="name" data-required="true">@(Category)</div>-->
+			<!--</div>-->
 			<div class="col-md-3 m">
 				<div data-jc="dropdown" data-jc-path="posts.form.template" data-source="posts.templates" data-empty="" data-required="true">@(Template)</div>
 			</div>

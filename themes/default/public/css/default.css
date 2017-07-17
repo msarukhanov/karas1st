@@ -1970,13 +1970,13 @@ header, footer, .content, .slider {
 
 .newsBlock-inner .news-inner-body .news-img {
 	width: calc(100vw / 1920 * 1230);
-	height: calc(100vw / 1920 * 440);
+	/*height: calc(100vw / 1920 * 440);*/
 	margin-bottom: calc(100vw / 1920 * 60);
 }
 
 .newsBlock-inner .news-inner-body .news-img img {
 	width: calc(100vw / 1920 * 1230);
-	height: calc(100vw / 1920 * 440);
+	/*height: calc(100vw / 1920 * 440);*/
 }
 
 .newsBlock-inner .news-inner-body .news-body-text {
@@ -1984,9 +1984,18 @@ header, footer, .content, .slider {
 	margin-bottom: calc(100vw / 1920 * 170);
 }
 
-.newsBlock-inner .news-inner-body .news-body-text p {
+.newsBlock-inner .news-inner-body .news-body-text  {
 	color: #b5b5b5;
 	line-height: calc(100vw / 1920 * 28);
 	font-size: calc(100vw / 1920 * 18);
 }
 
+.newsBlock .mainNewsBlock .singleNewBlock a {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 260);
+}
+
+.newsBlock .mainNewsBlock .singleNewBlock a img {
+	width: calc(100vw / 1920 * 390);
+	height: calc(100vw / 1920 * 260);
+}

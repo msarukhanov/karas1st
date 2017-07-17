@@ -210,12 +210,12 @@ function file_image(req, res) {
 				// Image processing
 				res.image(filename, function(image) {
 					image.output('jpg');
-					image.quality(90);
+					image.quality(100);
 
-					if (req.split[1] === 'large')
-						image.miniature(500, 300);
-					else
-						image.miniature(200, 150);
+					// if (req.split[1] === 'large')
+					// 	image.miniature(500, 300);
+					// else
+					// 	image.miniature(200, 150);
 
 					image.minify();
 				});

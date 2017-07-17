@@ -95,9 +95,9 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		model.linker = model.datecreated.format('yyyyMMdd') + '-' + model.name.slug();
 
-		var category = F.global.posts.find('name', model.category);
-		if (category)
-			model.category_linker = category.linker;
+		// var category = F.global.posts.find('name', model.category);
+		// if (category)
+		// 	model.category_linker = category.linker;
 
 		model.search = ((model.name || '') + ' ' + (model.keywords || '') + ' ' + (model.search || '')).keywords(true, true).join(' ').max(1000);
 		model.body = U.minifyHTML(model.body);
