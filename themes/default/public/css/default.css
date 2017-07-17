@@ -873,6 +873,27 @@ footer { text-align: center; font-size: 12px; padding: 20px 0; color: gray; }
 	height: calc(100vw / 1920 * 32);
 }
 
+.header-container .header-right .header-right-links .USA, .header-container .header-right .header-right-links .Armenia {
+	font-size: calc(100vw /1920 * 12);
+	width: calc(100vw / 1920 * 60);
+	padding-top: calc(100vw / 1920 * 5);
+	color: #800004;
+	font-weight: bold;
+}
+
+.header-container .header-right .header-right-links .Armenia {
+	margin-right: calc(100vw / 1920 * 10);
+}
+
+.header-container .header-right .header-right-links .USA:hover, .header-container .header-right .header-right-links .Armenia:hover,
+.header-container .header-right .header-right-links .USA:active, .header-container .header-right .header-right-links .Armenia:active {
+	color: #ffffff;
+	text-decoration: underline;
+	cursor: pointer;
+	font-weight: normal;
+}
+
+
 .header-container .header-right .header-right-links .login div {
 	width: calc(100vw / 1920 * 16);
 	height: calc(100vw / 1920 * 32);
@@ -1844,13 +1865,13 @@ header, footer, .content, .slider {
 
 	50% {
 		opacity: 0.2;
-		transform-origin: 50% 0%;
+		transform-origin: 50% 0;
 		transform: perspective(800px) rotateX(50deg);
 	}
 
 	100% {
 		opacity: 0.4;
-		transform-origin: 50% 0%;
+		transform-origin: 50% 0;
 		transform: perspective(800px) rotateX(0deg);
 	}
 }
