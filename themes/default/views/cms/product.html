@@ -20,24 +20,28 @@
                     <form>
                         <div class="product-shop">
                             <div class="product-header-path">
-                                    <ul>
-                                        <li class="home">
-                                            <a href="/@{!controller.getLang()}/">@{!controller.translateText({'en':'Home','ru':'Главная','hy':'Գլխավոր էջ'})}</a>
-                                            <span>/</span>
-                                        </li>
-                                        <li class="category">
-                                            <a href="">Ուտեստներ</a>
-                                            <span>/</span>
-                                        </li>
-                                        <li class="product">
-                                            <a href="/@{!controller.getLang()}/shop/@{model.category.linker}/">@{model.category[controller.getLang()]}</a>
-                                            <span>/</span>
-                                        </li>
-                                        <li class="single-product">
-                                            <a>@{model.name[controller.getLang()]}</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li class="home">
+                                        <a href="/@{!controller.getLang()}/">
+                                            @{!controller.translateText({'en':'Home','ru':'Главная','hy':'Գլխավորէջ'})}
+                                        </a>
+                                        <span>/</span>
+                                    </li>
+                                    <li class="category">
+                                        <a href="">Ուտեստներ</a>
+                                        <span>/</span>
+                                    </li>
+                                    <li class="product">
+                                        <a href="/@{!controller.getLang()}/shop/@{model.category.linker}/">
+                                            @{model.category[controller.getLang()]}
+                                        </a>
+                                        <span>/</span>
+                                    </li>
+                                    <li class="single-product">
+                                        <a>@{model.name[controller.getLang()]}</a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="product-body">
                                 <div class="product-img">
                                     <a class="product-image product-image-zoom" href="">
@@ -72,7 +76,9 @@
                                                         <label>Քանակ</label>
                                                         <input type="number" value="1">
                                                     </div>
-                                                    <button class="detail-buy button btn-cart fr" data-id="@{model.id}" data-price="@{model.price}" data-name="@{JSON.stringify(model.name)}"
+                                                    <button class="detail-buy button btn-cart fr" data-id="@{model.id}"
+                                                            data-price="@{model.price}"
+                                                            data-name="@{JSON.stringify(model.name)}"
                                                             data-pic="@{if !model.pictures || !model.pictures.length}/img/empty.png@{else}/images/small/@{model.pictures[0]}.jpg@{fi}">
                                                         @{!controller.translateText({'en':'Add','ru':'Добавить','hy':'Ավելացնել'})}
                                                     </button>
@@ -103,7 +109,11 @@
                             <span class="item-price">@{m.price} @{!controller.translateText({'en':'AMD','ru':'др','hy':'դր'})}</span>
                             <div class="hidden magictime boingInUp" style="display: none">
                             </div>
-                            <button type="button" class="related-btn" style="display: none; opacity: 1 !important;">
+                            <button type="button" class="related-btn detail-buy" data-id="@{m.id}"
+                                    data-price="@{m.price}"
+                                    data-name="@{JSON.stringify(m.name)}"
+                                    data-pic="@{if !m.pictures || !m.pictures.length}/img/empty.png@{else}/images/small/@{m.pictures[0]}.jpg@{fi}"
+                                    style="display: none; opacity: 1 !important;">
                                 @{!controller.translateText({'en':'Add','ru':'Добавить','hy':'Ավելացնել'})}
                             </button>
                         </div>
@@ -148,23 +158,26 @@
             <div class="block block-list block-categories block-drinks">
                 <div class="drink-header block-title">
                     <span>
-                         @{!controller.translateText({'en':'Drink,'ru':'Напитки,'hy':'Ըմպելիք'})}
+                         @{!controller.translateText({'en':'Drinks','ru':'Напитки','hy':'Ըմպելիք'})}
                     </span>
                 </div>
                 <div class="block-content leftnav">
                     <ul id="leftnav-tree-18" class="level1">
                         <li class="level1">
                             <embed src="/img/icons/non-alco.svg"></embed>
-                            <a href="/@{!controller.getLang()}/shop/drinks/non-alcoholic"> @{!controller.translateText({'en':'Non alcoholic','ru':'Безалкогольные напитки','hy':'Ոչ ալկոհոլային'})}</a>
-
+                            <a href="/@{!controller.getLang()}/shop/drinks/non-alcoholic">
+                                @{!controller.translateText({'en':'Non alcoholic','ru':'Безалкогольные напитки','hy':'Ոչալկոհոլային'})}
+                            </a>
                         </li>
                         <li class="level1">
                             <embed src="/img/icons/hot-drinks.svg"></embed>
-                            <a href="/@{!controller.getLang()}/shop/drinks/hotdrinks"> @{!controller.translateText({'en':'Hot drinks','ru':'Горячие напитки','hy':'Տաք ըմպելիքներ'})}</a>
+                            <a href="/@{!controller.getLang()}/shop/drinks/hotdrinks">
+                                @{!controller.translateText({'en':'Hot drinks','ru':'Горячие напитки','hy':'Տաք ըմպելիքներ'})}</a>
                         </li>
                         <li class="level1">
                             <embed src="/img/icons/Alco.svg"></embed>
-                            <a href="/@{!controller.getLang()}/shop/drinks/alcoholic"> @{!controller.translateText({'en':'Alcoholic','ru':'Алкоголь','hy':'Ալկոհոլային'})}</a>
+                            <a href="/@{!controller.getLang()}/shop/drinks/alcoholic">
+                                @{!controller.translateText({'en':'Alcoholic','ru':'Алкоголь','hy':'Ալկոհոլային'})}</a>
                         </li>
                     </ul>
                 </div>
@@ -178,10 +191,10 @@
 
     var shopping_cart = [];
 
-    jC.ready(function(){
+    jC.ready(function () {
         shopping_cart = CACHE('cart');
         SET('shopping_cart', shopping_cart);
-        $('.shopping-cart-body').on('click', '.fa-times-circle', function(e) {
+        $('.shopping-cart-body').on('click', '.fa-times-circle', function (e) {
             FIND('checkout').update($(this).attr('data-id'), 0);
         });
     });
@@ -193,7 +206,7 @@
 @{!model.body.tidyCMS()}
 @{fi}
 <!--<div class="hidden padding npb">-->
-    <!--<h2 class="large">@(Related) @{model.category}</h2>-->
-    <!--<div data-jc="related" data-category="@{model.linker_category}" data-id="@{model.id}"></div>-->
+<!--<h2 class="large">@(Related) @{model.category}</h2>-->
+<!--<div data-jc="related" data-category="@{model.linker_category}" data-id="@{model.id}"></div>-->
 <!--</div>-->
 @{fi}
