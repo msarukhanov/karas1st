@@ -275,7 +275,9 @@ COMPONENT('checkout', function() {
 			sum += cart[i].price * cart[i].count;
 			count += cart[i].count;
 		}
-
+        if(FIND('shoppingcart')) {
+            FIND('shoppingcart').setter(cart);
+        }
 		self.html(count);
 	};
 
