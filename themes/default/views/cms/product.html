@@ -135,7 +135,7 @@
                 <div class="leftnav block-content food-body">
                     <ul id="leftnav-tree-20" class="level1">
                         @{foreach m in global.db_categories}
-                        @{if m.full_name.en != 'Drinks'}
+                        @{if m.linker != 'drinks'}
                         <li class="level1 active">
                             <embed src="/img/icons/@{m.linker}.svg"></embed>
                             <a href="/@{!controller.getLang()}/shop/@{m.linker}/">@{m.full_name[controller.getLang()]}</a>
