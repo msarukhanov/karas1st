@@ -3,6 +3,9 @@ const PayPal = require('paypal-express-checkout');
 Controller.prototype.getLang = function() {
     return this.url.split("/")[1];
 };
+Controller.prototype.isUSA = function() {
+    return this.url.toLowerCase().indexOf('usa') > -1;
+};
 Controller.prototype.translateCat = function(cat, lang) {
 	console.log(cat, lang, F.global.categories);
     return this.url.split("/")[1];

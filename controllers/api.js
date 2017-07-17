@@ -1,6 +1,8 @@
 // API for e.g. Mobile application
 // This API uses the website
-
+Controller.prototype.isUSA = function() {
+    return this.url.toLowerCase().indexOf('usa') > -1;
+};
 exports.install = function() {
 	// COMMON
 	F.route('/api/ping/',                 json_ping);

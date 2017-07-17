@@ -2,7 +2,9 @@ exports.install = function() {
 	F.route('/oauth2/{type}/', oauth2_login);
 	F.route('/oauth2/{type}/callback/', oauth2_login_callback);
 };
-
+Controller.prototype.isUSA = function() {
+    return this.url.toLowerCase().indexOf('usa') > -1;
+};
 function oauth2_login(type) {
 	var is = false;
 	var self = this;

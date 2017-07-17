@@ -1,6 +1,9 @@
 Controller.prototype.getLang = function() {
     return this.url.split("/")[1];
 };
+Controller.prototype.isUSA = function() {
+    return this.url.toLowerCase().indexOf('usa') > -1;
+};
 Controller.prototype.translateText = function(text) {
     return text[this.url.split("/")[1]];
 };

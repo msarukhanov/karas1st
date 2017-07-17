@@ -1,6 +1,8 @@
 const SITEMAP = {}
 const Fs = require('fs');
-
+Controller.prototype.isUSA = function() {
+    return this.url.toLowerCase().indexOf('usa') > -1;
+};
 exports.install = function() {
 
 	var url = CONFIG('manager-url');
