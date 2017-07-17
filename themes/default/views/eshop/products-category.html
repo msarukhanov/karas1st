@@ -21,60 +21,7 @@
 			</div>
 		</div>
 
-		<div class="col-left sidebar">
-			<div class="block block-cart">
-				<div class="block-title shopping-cart-header">
-                    <span>
-                         @{!controller.translateText({'en':'Shopping Cart','ru':'Корзина','hy':'Զամբյուղ'})}
-                    </span>
-					<a href="">@{!controller.translateText({'en':'See all','ru':'Просмотр корзины','hy':'Դիտել զամբյուղը'})}</a>
-				</div>
-				<div class="block-content shopping-cart-body">
-					<div data-jc="shoppingcart" data-jc-path="shopping_cart" data-lang="@{!controller.getLang()}"></div>
-				</div>
-			</div>
-			<div class="block block-list block-categories block-meals">
-				<div class="food-header block-title">
-                    <span>
-                        @{!controller.translateText({'en':'Meals','ru':'Блюда','hy':'Ուտեստներ'})}
-                    </span>
-				</div>
-				<div class="leftnav block-content food-body">
-					<ul id="leftnav-tree-20" class="level1">
-						@{foreach m in global.db_categories}
-						<li class="level1 active">
-							<embed src="/img/icons/@{m.linker}.svg"></embed>
-							<a href="/@{!controller.getLang()}/shop/@{m.linker}/">@{m.full_name[controller.getLang()]}</a>
-						</li>
-						@{end}
-					</ul>
-				</div>
-			</div>
-			<div class="block block-list block-categories block-drinks">
-				<div class="drink-header block-title">
-                    <span>
-                         @{!controller.translateText({'en':'Drink (*delivery prices)','ru':'Напитки (*цены доставки)','hy':'Ըմպելիք (*առաքման գներ)'})}
-                    </span>
-				</div>
-				<div class="block-content leftnav">
-					<ul id="leftnav-tree-18" class="level1">
-						<li class="level1">
-							<embed src="/img/icons/non-alco.svg"></embed>
-							<a href="">Ոչ ալկոհոլային</a>
-						</li>
-						<li class="level1">
-							<embed src="/img/icons/hot-drinks.svg"></embed>
-							<a href="">Տաք ըմպելիքներ</a>
-
-						</li>
-						<li class="level1">
-							<embed src="/img/icons/Alco.svg"></embed>
-							<a href="">Ալկոհոլային</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		@{view('left-sidebar', model)}
 	</div>
 </div>
 
