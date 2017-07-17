@@ -1396,6 +1396,14 @@ header, footer, .content, .slider {
 	color: #777777;
 }
 
+.col-left .block-cart .shopping-cart-body .empty {
+	height: calc(100vw / 1920 * 50);
+	width: 100%;
+	color: #777777;
+	font-size: calc(100vw / 1920 * 12);
+	padding: calc(100vw / 1920 * 15);
+}
+
 .col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-totalCost .cost {
 	float: right;
 	color: #de1a22;
@@ -1424,6 +1432,12 @@ header, footer, .content, .slider {
 	padding: 0;
 }
 
+.col-left .block-cart .shopping-cart-body .shopping-cart-total-btn .shopping-cart-btn button a {
+	color: #ffffff;
+	font-size: calc(100vw / 1920 * 12);
+	text-decoration: none;
+}
+
 .col-left .block-cart .shopping-cart-body .shopping-cart-item {
 	height: calc(100vw / 1920 * 70);
 	width: 100%;
@@ -1440,6 +1454,12 @@ header, footer, .content, .slider {
 .col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner {
 	padding: calc(100vw / 1920 * 15) calc(100vw / 1920 * 20);
 	height: 100%;
+}
+
+.col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner .shop-cart-delete {
+	float: right;
+	padding-top: calc(100vw / 1920 * 13);
+	color: #de1a22;
 }
 
 .col-left .block-cart .shopping-cart-body .shopping-cart-item .shopping-cart-item-inner .shopping-cart-item-count {
@@ -1500,9 +1520,11 @@ header, footer, .content, .slider {
 	border: none;
 }
 
-.col-left .block-drinks ul li embed {
+.col-left .block-drinks ul li embed, .col-left .block-meals ul li embed {
 	position: absolute;
-	top: calc(100vw / 1920 * 8);
+	top: calc(100vw / 1920 * 7);
+	width: calc(100vw / 1920 * 24);
+	height: calc(100vw / 1920 * 24);
 }
 
 .col-left .block-meals .food-body ul li a, .block-drinks ul li a {
