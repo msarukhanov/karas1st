@@ -1859,7 +1859,6 @@ header, footer, .content, .slider {
 	background-image: url("/img/bbq/bbq-head.png");
 	height: calc(100vw / 1920 * 300);
 	background-size: cover;
-	margin-top: calc(100vw / 1920 * 70);
 	display: block;
 	position: relative;
 }
@@ -1879,8 +1878,7 @@ header, footer, .content, .slider {
 }
 
 .categories-container .categories-body .categories-body-inner {
-	margin: 0 calc(100vw / 1920 * 315);
-	padding: calc(100vw / 1920 * 60) 0;
+	padding: calc(100vw / 1920 * 30) 0;
 	display: inline-block;
 	width: calc(100vw / 1920 * 1260);
 }

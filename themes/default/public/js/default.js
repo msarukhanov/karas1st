@@ -320,7 +320,7 @@ COMPONENT('shoppingcart', function() {
 					'<span class="shopping-cart-item-count">'+value[i].count+'</span>' +
                     '<img src="' + value[i].pic + '" class="img-responsive" alt="" />' +
                     '<div class="shopping-cart-name"><span>'+value[i].name[lang]+'</span>' +
-                    '<span class="fa fa-times-circle hidden-xs" data-id="' + value[i].id +'"></span>' +
+                    '<span class="fa fa-times-circle shop-cart-delete hidden-xs" data-id="' + value[i].id +'"></span>' +
 					'</div>' +
                     '<div class="shopping-cart-price"><span>'+value[i].price+' դր</span></div>' +
                     '</div>' +
